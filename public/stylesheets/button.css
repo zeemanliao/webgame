@@ -1,0 +1,26 @@
+.cs_btn_city {
+    font-size:12pt;
+    text-align:center;
+    border-radius:5px;
+    text-shadow: 1px 1px 1px #BEE;
+    color:#446666;
+    border-width : 3px;
+    border-color : #446666;
+    border-style : double;
+    background-color : #EFF;
+    cursor: pointer;
+    padding:2px
+}
+.cs_btn_build {
+    font-size:12pt;
+    text-align:center;
+    border-radius:5px;
+    text-shadow: 1px 1px 1px #EEB;
+    color:#446666;
+    border-width : 3px;
+    border-color : #446666;
+    border-style : double;
+    background-color : #FFE;
+    cursor: pointer;
+    padding:2px
+}

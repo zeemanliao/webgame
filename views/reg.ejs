@@ -1,0 +1,19 @@
+<% include layouts/header %>
+<img src="<%=photo%>"><br/>
+<%=name%>
+<form action="/reg" method="post">
+<h3>
+Enter Name:<input type="text" name="nam" value="">
+<h3>
+<h3>
+Enter Account:<input type="text" name="acc" value="">
+<h3>
+Enter Passwrod:<input type="password" name="pwd1" id="pwd1" value="">
+</h3>
+<h3>
+Check Passwrod:<input type="password" name="pwd2" id="pwd2" value="">
+</h3>
+<input type="submit" value="Regist">
+</form>
+<%=msg%>
+<% include layouts/footer %>
