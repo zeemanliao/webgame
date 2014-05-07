@@ -1,0 +1,47 @@
+$b_chara_width:300px
+$m_chara_width:200px
+$s_chara_width:90%
+.chara_frame
+	@extend %all_frame
+	+border-radius(5px)
+	+opacity(0.9)  
+	overflow : hidden
+	+box-shadow(3px 3px 5px #000)
+	width: 30%
+	+dv(b)
+		width: #{$b_chara_width}
+	+dv(m)
+		width: #{$m_chara_width}
+	+dv(s)
+		width: #{$s_chara_width}
+		position: fixed
+		top: 5
+.chara_frame  .info div
+	+border-radius(3px)
+	margin: 2px
+	border: solid
+	border-width: 1px
+	padding: 2px
+
+.chara_frame	.label
+	background-color: #afa
+	+dv(b)
+		width: $b_chara_width*0.3
+		clear: both
+	+dv(m)
+		width: $m_chara_width*0.3
+		clear: both
+	+dv(s)
+		width: $s_chara_width*0.1
+		float: left
+	
+.chara_frame	.text
+	background-color: #aaf
+	float: left
+	+dv(b)
+		width: $b_chara_width*0.6
+	+dv(m)
+		width: $m_chara_width*0.6
+	+dv(s)
+		width: $s_chara_width*0.1
+	

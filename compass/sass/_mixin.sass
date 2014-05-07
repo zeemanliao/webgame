@@ -1,0 +1,20 @@
+@mixin bg($name,$bg)   
+  background: url("../images/#{$name}.#{$bg}")  
+  width: image-width("../images/#{$name}.#{$bg}")  
+  height: image-height("../images/#{$name}.#{$bg}")  
+
+@mixin text-hide  
+  white-space: nowrap  
+  text-indent: 100%  
+  overflow: hidden  
+
+@mixin dv($point)  
+  @if $point == b
+    @media only screen and(max-width: 1200px)
+      @content
+  @else if $point == m
+    @media only screen and(max-width: 800px)
+      @content
+  @else if $point == s
+    @media only screen and(max-width: 450px)
+      @content
