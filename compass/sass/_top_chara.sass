@@ -7,6 +7,7 @@ $s_chara_height:70px
 
 #chara_frame
   @extend %all_frame
+  +box-shadow(2px 2px 3px #333)
   +background-image(linear-gradient(0,#bee,#cff))
   +xy($body_margin,$body_margin)
   z-index: $zindex
@@ -18,6 +19,7 @@ $s_chara_height:70px
     +wh($s_chara_width,$s_chara_height)
 #chara_state
   @extend %all_frame
+  +box-shadow(2px 2px 3px #333)
   +background-image(linear-gradient(0,#beb,#cfc))
   +wh(150px,160px)
   +xy($body_margin + 7,190px)

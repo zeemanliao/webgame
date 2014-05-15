@@ -11,9 +11,10 @@
   text-indent: 100%  
   overflow: hidden  
 
-@mixin gid($gid,$x,$y)
+@mixin gid($gid,$x: -999,$y: -999)
   [gid=#{$gid}]
-    +xy($x,$y)
+    @if $x > -999
+      +xy($x,$y)
     @content
 
 @mixin xy($left,$top)

@@ -350,9 +350,6 @@ ol, ul {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 2px 2px 3px #333333;
-  -moz-box-shadow: 2px 2px 3px #333333;
-  box-shadow: 2px 2px 3px #333333;
 }
 @media only screen and (max-width: 1200px) {
   #chara_frame, #chara_state, #city_frame {
@@ -389,6 +386,9 @@ html {
 }
 
 #chara_frame {
+  -webkit-box-shadow: 2px 2px 3px #333333;
+  -moz-box-shadow: 2px 2px 3px #333333;
+  box-shadow: 2px 2px 3px #333333;
   background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeeee), color-stop(100%, #ccffff));
   background-image: -webkit-linear-gradient(0, #bbeeee, #ccffff);
   background-image: -moz-linear-gradient(0, #bbeeee, #ccffff);
@@ -418,6 +418,9 @@ html {
 }
 
 #chara_state {
+  -webkit-box-shadow: 2px 2px 3px #333333;
+  -moz-box-shadow: 2px 2px 3px #333333;
+  box-shadow: 2px 2px 3px #333333;
   background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
   background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
   background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
@@ -554,8 +557,39 @@ html {
   z-index: 40;
 }
 
-[gid=l_city] {
+[gid=city_name] {
   top: 0px;
   left: 5px;
   font-size: 200%;
+}
+
+[gid=city_desc] {
+  top: 50px;
+  left: 30px;
+}
+
+[gid=home] {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  background: #ffffee;
+  width: 40px;
+  height: 40px;
+  top: 80px;
+  left: 30px;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
+  position: absolute;
+  cursor: pointer;
+}
+
+[gid=l_home] {
+  font-size: 70%;
+  bottom: 1px;
 }
