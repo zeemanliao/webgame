@@ -1,47 +1,58 @@
-$b_chara_width:300px
+$b_chara_width:200px
 $m_chara_width:200px
 $s_chara_width:90%
-.chara_frame
-	@extend %all_frame
-	+border-radius(5px)
-	+opacity(0.9)  
-	overflow : hidden
-	+box-shadow(3px 3px 5px #000)
-	width: 30%
-	+dv(b)
-		width: #{$b_chara_width}
-	+dv(m)
-		width: #{$m_chara_width}
-	+dv(s)
-		width: #{$s_chara_width}
-		position: fixed
-		top: 5
-.chara_frame  .info div
-	+border-radius(3px)
-	margin: 2px
-	border: solid
-	border-width: 1px
-	padding: 2px
+$b_chara_height:170px
+$m_chara_height:170px
+$s_chara_height:70px
 
-.chara_frame	.label
-	background-color: #afa
-	+dv(b)
-		width: $b_chara_width*0.3
-		clear: both
-	+dv(m)
-		width: $m_chara_width*0.3
-		clear: both
-	+dv(s)
-		width: $s_chara_width*0.1
-		float: left
-	
-.chara_frame	.text
-	background-color: #aaf
-	float: left
-	+dv(b)
-		width: $b_chara_width*0.6
-	+dv(m)
-		width: $m_chara_width*0.6
-	+dv(s)
-		width: $s_chara_width*0.1
-	
+#chara_frame
+  @extend %all_frame
+  +background-image(linear-gradient(0,#bee,#cff))
+  +xy($body_margin,$body_margin)
+  z-index: $zindex
+  +dv(b)
+    +wh($b_chara_width,$b_chara_height)
+  +dv(m)
+    +wh($m_chara_width,$m_chara_height)
+  +dv(s)
+    +wh($s_chara_width,$s_chara_height)
+#chara_state
+  @extend %all_frame
+  +background-image(linear-gradient(0,#beb,#cfc))
+  +wh(150px,160px)
+  +xy($body_margin + 7,190px)
+  z-index: $zindex - 10
+
+[gid=photo]
+  +border-radius(2px)
+  +box-shadow(1px 1px 2px #333)
+  +bgc(#ccc)
+  +wh(100px,100px)
+  +xy(5px,5px)
+  border: solid
+  border-color: white
+  border-width: 4px
+  position: absolute
+  
++gid(l_hp,5px,20px)
++gid(l_ex,5px,20px+25px)
++gid(l_cex,5px,20px+25px*2)
++gid(l_dmg,5px,20px+25px*3)
++gid(l_mag,5px,20px+25px*4)
++gid(l_def,5px,20px+25px*5)
+
++gid(name,5px,120px)
++gid(l_gold,5px,145px)
++gid(l_level,120px,10px)
++gid(l_vip,120px,35px)
+
++gid(hp,55px,20px)
++gid(ex,55px,20px+25px)
++gid(cex,55px,20px+25px*2)
++gid(dmg,55px,20px+25px*3)
++gid(mag,55px,20px+25px*4)
++gid(def,55px,20px+25px*5)
+
++gid(gold,55px,145px)
++gid(level,170px,10px)
++gid(vip,170px,35px)

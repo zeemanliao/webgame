@@ -1,8 +1,21 @@
+
 %all_frame
   padding: $padding
+  overflow : hidden
+  position: absolute
+  +border-radius(3px)
+  +box-shadow(2px 2px 3px #333)
   +dv(b)
-    font-size: 120%
+    font-size: 100%
   +dv(m)
     font-size: 100%
   +dv(s)
     font-size: 80%
+.label
+  position: absolute
+  color: #228
+.number
+  position: absolute
+  color: #262
+html
+  +background-image(linear-gradient(0,#eee,#fff))

@@ -3,11 +3,27 @@
   width: image-width("../images/#{$name}.#{$bg}")  
   height: image-height("../images/#{$name}.#{$bg}")  
 
+@mixin bgc($color)
+  background: $color
+
 @mixin text-hide  
   white-space: nowrap  
   text-indent: 100%  
   overflow: hidden  
 
+@mixin gid($gid,$x,$y)
+  [gid=#{$gid}]
+    +xy($x,$y)
+    @content
+
+@mixin xy($left,$top)
+  top: $top
+  left: $left
+
+@mixin wh($width,$height)
+  width: $width
+  height: $height
+  
 @mixin dv($point)  
   @if $point == b
     @media only screen and(max-width: 1200px)

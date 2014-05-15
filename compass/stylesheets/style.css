@@ -3,6 +3,7 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom. */
 html {
+  text-shadow: 0px 1px 3px rgba(128, 128, 128, 0.6);
   font-family: sans-serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
@@ -340,107 +341,221 @@ ol, ul {
   float: left;
 }
 
-.chara_frame {
+#chara_frame, #chara_state, #city_frame {
   padding: 10px;
-}
-@media only screen and (max-width: 1200px) {
-  .chara_frame {
-    font-size: 120%;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .chara_frame {
-    font-size: 100%;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .chara_frame {
-    font-size: 80%;
-  }
-}
-
-.chara_frame {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
   overflow: hidden;
-  -webkit-box-shadow: 3px 3px 5px black;
-  -moz-box-shadow: 3px 3px 5px black;
-  box-shadow: 3px 3px 5px black;
-  width: 30%;
-}
-@media only screen and (max-width: 1200px) {
-  .chara_frame {
-    width: 300px;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .chara_frame {
-    width: 200px;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .chara_frame {
-    width: 90%;
-    position: fixed;
-    top: 5;
-  }
-}
-
-.chara_frame .info div {
+  position: absolute;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  margin: 2px;
+  -webkit-box-shadow: 2px 2px 3px #333333;
+  -moz-box-shadow: 2px 2px 3px #333333;
+  box-shadow: 2px 2px 3px #333333;
+}
+@media only screen and (max-width: 1200px) {
+  #chara_frame, #chara_state, #city_frame {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #chara_frame, #chara_state, #city_frame {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #chara_frame, #chara_state, #city_frame {
+    font-size: 80%;
+  }
+}
+
+.label {
+  position: absolute;
+  color: #222288;
+}
+
+.number {
+  position: absolute;
+  color: #226622;
+}
+
+html {
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #eeeeee), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: -moz-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: -o-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: linear-gradient(0, #eeeeee, #ffffff);
+}
+
+#chara_frame {
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeeee), color-stop(100%, #ccffff));
+  background-image: -webkit-linear-gradient(0, #bbeeee, #ccffff);
+  background-image: -moz-linear-gradient(0, #bbeeee, #ccffff);
+  background-image: -o-linear-gradient(0, #bbeeee, #ccffff);
+  background-image: linear-gradient(0, #bbeeee, #ccffff);
+  top: 10px;
+  left: 10px;
+  z-index: 50;
+}
+@media only screen and (max-width: 1200px) {
+  #chara_frame {
+    width: 200px;
+    height: 170px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #chara_frame {
+    width: 200px;
+    height: 170px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #chara_frame {
+    width: 90%;
+    height: 70px;
+  }
+}
+
+#chara_state {
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
+  background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: linear-gradient(0, #bbeebb, #ccffcc);
+  width: 150px;
+  height: 160px;
+  top: 190px;
+  left: 17px;
+  z-index: 40;
+}
+
+[gid=photo] {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  background: #cccccc;
+  width: 100px;
+  height: 100px;
+  top: 5px;
+  left: 5px;
   border: solid;
-  border-width: 1px;
-  padding: 2px;
+  border-color: white;
+  border-width: 4px;
+  position: absolute;
 }
 
-.chara_frame .label {
-  background-color: #aaffaa;
-}
-@media only screen and (max-width: 1200px) {
-  .chara_frame .label {
-    width: 90px;
-    clear: both;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .chara_frame .label {
-    width: 60px;
-    clear: both;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .chara_frame .label {
-    width: 9%;
-    float: left;
-  }
+[gid=l_hp] {
+  top: 20px;
+  left: 5px;
 }
 
-.chara_frame .text {
-  background-color: #aaaaff;
-  float: left;
+[gid=l_ex] {
+  top: 45px;
+  left: 5px;
 }
-@media only screen and (max-width: 1200px) {
-  .chara_frame .text {
-    width: 180px;
-  }
+
+[gid=l_cex] {
+  top: 70px;
+  left: 5px;
 }
-@media only screen and (max-width: 800px) {
-  .chara_frame .text {
-    width: 120px;
-  }
+
+[gid=l_dmg] {
+  top: 95px;
+  left: 5px;
 }
-@media only screen and (max-width: 450px) {
-  .chara_frame .text {
-    width: 9%;
-  }
+
+[gid=l_mag] {
+  top: 120px;
+  left: 5px;
+}
+
+[gid=l_def] {
+  top: 145px;
+  left: 5px;
+}
+
+[gid=name] {
+  top: 120px;
+  left: 5px;
+}
+
+[gid=l_gold] {
+  top: 145px;
+  left: 5px;
+}
+
+[gid=l_level] {
+  top: 10px;
+  left: 120px;
+}
+
+[gid=l_vip] {
+  top: 35px;
+  left: 120px;
+}
+
+[gid=hp] {
+  top: 20px;
+  left: 55px;
+}
+
+[gid=ex] {
+  top: 45px;
+  left: 55px;
+}
+
+[gid=cex] {
+  top: 70px;
+  left: 55px;
+}
+
+[gid=dmg] {
+  top: 95px;
+  left: 55px;
+}
+
+[gid=mag] {
+  top: 120px;
+  left: 55px;
+}
+
+[gid=def] {
+  top: 145px;
+  left: 55px;
+}
+
+[gid=gold] {
+  top: 145px;
+  left: 55px;
+}
+
+[gid=level] {
+  top: 10px;
+  left: 170px;
+}
+
+[gid=vip] {
+  top: 35px;
+  left: 170px;
+}
+
+#city_frame {
+  top: 10px;
+  left: 230px;
+  width: 500px;
+  height: 400px;
+  background: white;
+  z-index: 40;
+}
+
+[gid=l_city] {
+  top: 0px;
+  left: 5px;
+  font-size: 200%;
 }
