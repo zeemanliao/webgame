@@ -6,24 +6,27 @@ $m_chara_height:170px
 $s_chara_height:70px
 
 #chara_frame
-  @extend %all_frame
-  +box-shadow(2px 2px 3px #333)
-  +background-image(linear-gradient(0,#bee,#cff))
   +xy($body_margin,$body_margin)
   z-index: $zindex
+#chara_main
+  @extend %all_frame
+  +box-shadow(1px 1px 2px #333)
+  +background-image(linear-gradient(0,#bee,#cff))
+  z-index: $zindex - 10
   +dv(b)
     +wh($b_chara_width,$b_chara_height)
   +dv(m)
     +wh($m_chara_width,$m_chara_height)
   +dv(s)
     +wh($s_chara_width,$s_chara_height)
+
 #chara_state
   @extend %all_frame
-  +box-shadow(2px 2px 3px #333)
+  +box-shadow(1px 1px 2px #333)
   +background-image(linear-gradient(0,#beb,#cfc))
   +wh(150px,160px)
   +xy($body_margin + 7,190px)
-  z-index: $zindex - 10
+  z-index: $zindex - 20
 
 [gid=photo]
   +border-radius(2px)

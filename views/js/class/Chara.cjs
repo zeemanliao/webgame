@@ -6,56 +6,23 @@
 var CharaClass = Object.Extend(BaseViewClass);
 
 CharaClass.prototype.initialize=function(){
+  this.v = {};
   this.base();
 }
 CharaClass.prototype.create=function(){
   var self = this;
-  this.frame.className = 'cs_charaframe';
+  this.frame = $('chara_frame');
   
-  var s_nam = this.createObj();
-  s_nam.innerHTML='Name:';
-  this.nam = this.createObj();
-
-  var s_level = this.createObj();
-  s_level.innerHTML=",Level:";
-  this.level = this.createObj();
-
-  var s_ex = this.createObj();
-  s_ex.innerHTML = ",Ex:";
-  this.ex = this.createObj();
-
-  var s_hp = this.createObj();
-  s_hp.innerHTML = ",Hp:";
-  this.hp = this.createObj();
-
-  var s_mag = this.createObj();
-  s_mag.innerHTML = ",Mag:";
-  this.mag = this.createObj();
-
-  var s_dmg = this.createObj();
-  s_dmg.innerHTML = ",Dmg:";
-  this.dmg = this.createObj();
-
-  var s_def = this.createObj();
-  s_def.innerHTML = ",Def:";
-  this.def = this.createObj();
-
-  this.append(s_nam);
-  this.append(this.nam);
-  this.append(s_level);
-  this.append(this.level);
-  this.append(s_ex);
-  this.append(this.ex);
-  this.append(s_hp);
-  this.append(this.hp);
-  this.append(s_mag);
-  this.append(this.mag);
-  this.append(s_dmg);
-  this.append(this.dmg);
-  this.append(s_def);
-  this.append(this.def);
-  
-  document.body.appendChild(this.frame);
+  this.v.name = this.gid('name');
+  this.v.level = this.gid('level');
+  this.v.gold = this.gid('gold');
+  this.v.vip = this.gid('vip');
+  this.v.dmg = this.gid('dmg');
+  this.v.mag = this.gid('mag');
+  this.v.def = this.gid('def');
+  this.v.hp = this.gid('hp');
+  this.v.ex = this.gid('ex');
+  this.v.cex = this.gid('cex');
 }
 
 CharaClass.prototype.update=function(data){

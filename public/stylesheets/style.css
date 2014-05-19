@@ -1,9 +1,9 @@
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /*
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom. */
 html {
+  text-shadow: 0px 1px 3px rgba(128, 128, 128, 0.6);
   font-family: sans-serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
@@ -15,7 +15,7 @@ html {
 /*
  * Remove default margin. */
 body {
-  margin: 0;
+  margin: 10px;
 }
 
 /* HTML5 display definitions
@@ -334,4 +334,400 @@ td, th {
 
 ol, ul {
   list-style: none;
+}
+
+.label {
+  clear: both;
+  float: left;
+}
+
+#chara_main, #chara_state, #city_frame, #guest_frame {
+  padding: 10px;
+  overflow: hidden;
+  position: absolute;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+@media only screen and (max-width: 1200px) {
+  #chara_main, #chara_state, #city_frame, #guest_frame {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #chara_main, #chara_state, #city_frame, #guest_frame {
+    font-size: 100%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #chara_main, #chara_state, #city_frame, #guest_frame {
+    font-size: 80%;
+  }
+}
+
+.label {
+  position: absolute;
+  color: #222288;
+}
+
+.number {
+  position: absolute;
+  color: #226622;
+}
+
+html {
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #eeeeee), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: -moz-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: -o-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: linear-gradient(0, #eeeeee, #ffffff);
+}
+
+#show_time {
+  width: 130px;
+  height: default "";
+  position: fixed;
+  text-align: right;
+  right: 10px;
+  z-index: 50;
+}
+
+#chara_frame {
+  top: 10px;
+  left: 10px;
+  z-index: 50;
+}
+
+#chara_main {
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeeee), color-stop(100%, #ccffff));
+  background-image: -webkit-linear-gradient(0, #bbeeee, #ccffff);
+  background-image: -moz-linear-gradient(0, #bbeeee, #ccffff);
+  background-image: -o-linear-gradient(0, #bbeeee, #ccffff);
+  background-image: linear-gradient(0, #bbeeee, #ccffff);
+  z-index: 40;
+}
+@media only screen and (max-width: 1200px) {
+  #chara_main {
+    width: 200px;
+    height: 170px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #chara_main {
+    width: 200px;
+    height: 170px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #chara_main {
+    width: 90%;
+    height: 70px;
+  }
+}
+
+#chara_state {
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
+  background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: linear-gradient(0, #bbeebb, #ccffcc);
+  width: 150px;
+  height: 160px;
+  top: 190px;
+  left: 17px;
+  z-index: 30;
+}
+
+[gid=photo] {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  background: #cccccc;
+  width: 100px;
+  height: 100px;
+  top: 5px;
+  left: 5px;
+  border: solid;
+  border-color: white;
+  border-width: 4px;
+  position: absolute;
+}
+
+[gid=l_hp] {
+  top: 20px;
+  left: 5px;
+}
+
+[gid=l_ex] {
+  top: 45px;
+  left: 5px;
+}
+
+[gid=l_cex] {
+  top: 70px;
+  left: 5px;
+}
+
+[gid=l_dmg] {
+  top: 95px;
+  left: 5px;
+}
+
+[gid=l_mag] {
+  top: 120px;
+  left: 5px;
+}
+
+[gid=l_def] {
+  top: 145px;
+  left: 5px;
+}
+
+[gid=name] {
+  top: 120px;
+  left: 5px;
+}
+
+[gid=l_gold] {
+  top: 145px;
+  left: 5px;
+}
+
+[gid=l_level] {
+  top: 10px;
+  left: 120px;
+}
+
+[gid=l_vip] {
+  top: 35px;
+  left: 120px;
+}
+
+[gid=hp] {
+  top: 20px;
+  left: 55px;
+}
+
+[gid=ex] {
+  top: 45px;
+  left: 55px;
+}
+
+[gid=cex] {
+  top: 70px;
+  left: 55px;
+}
+
+[gid=dmg] {
+  top: 95px;
+  left: 55px;
+}
+
+[gid=mag] {
+  top: 120px;
+  left: 55px;
+}
+
+[gid=def] {
+  top: 145px;
+  left: 55px;
+}
+
+[gid=gold] {
+  top: 145px;
+  left: 55px;
+}
+
+[gid=level] {
+  top: 10px;
+  left: 170px;
+}
+
+[gid=vip] {
+  top: 35px;
+  left: 170px;
+}
+
+#city_frame {
+  background: #eeeeee;
+  top: 10px;
+  left: 240px;
+  width: 440px;
+  height: 400px;
+  z-index: 40;
+}
+
+[gid=city_name] {
+  top: 0px;
+  left: 5px;
+  font-size: 200%;
+}
+
+[gid=city_desc] {
+  top: 50px;
+  left: 30px;
+}
+
+.city_button {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  width: 80px;
+  height: 80px;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
+  position: absolute;
+  cursor: pointer;
+  font-size: 70%;
+  text-align: center;
+  line-height: 150px;
+}
+
+[gid=city_btn_frame] {
+  top: 80px;
+  left: 30px;
+  position: absolute;
+}
+
+[gid=city_quest_btn] {
+  top: 0px;
+  left: 0px;
+  background: #ffffee;
+}
+
+[gid=city_pet_btn] {
+  top: 100px;
+  left: 200px;
+  background: #eeeeff;
+}
+
+[gid=city_mix_btn] {
+  top: 100px;
+  left: 300px;
+  background: #eeeeff;
+}
+
+[gid=city_act_btn] {
+  top: 100px;
+  left: 0px;
+  background: #eeffee;
+}
+
+[gid=city_shop_btn] {
+  top: 100px;
+  left: 100px;
+  background: #eeffee;
+}
+
+[gid=city_map_btn] {
+  top: 200px;
+  left: 0px;
+  background: #ffeeee;
+}
+
+[gid=city_cha_btn] {
+  top: 200px;
+  left: 100px;
+  background: #ffeeee;
+}
+
+#guest_frame {
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #eeeecc), color-stop(100%, #ffffee));
+  background-image: -webkit-linear-gradient(0, #eeeecc, #ffffee);
+  background-image: -moz-linear-gradient(0, #eeeecc, #ffffee);
+  background-image: -o-linear-gradient(0, #eeeecc, #ffffee);
+  background-image: linear-gradient(0, #eeeecc, #ffffee);
+  width: 250px;
+  height: 400px;
+  top: 10px;
+  left: 710px;
+  z-index: 40;
+}
+
+.guest_list {
+  -webkit-box-shadow: 1px 1px 2px #333333 inset;
+  -moz-box-shadow: 1px 1px 2px #333333 inset;
+  box-shadow: 1px 1px 2px #333333 inset;
+  top: 40px;
+  left: 10px;
+  width: 230px;
+  height: 85%;
+  background: #eeeeee;
+  position: absolute;
+  overflow: auto;
+  padding: 10px;
+}
+
+.guest {
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  width: 100%;
+  height: 80px;
+  background: white;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.guest > * {
+  position: absolute;
+}
+
+.guest > .guest_photo {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  width: 80px;
+  height: 80px;
+  background: #eeeeee;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
+  cursor: pointer;
+  top: 12px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.guest > .guest_name {
+  top: 10px;
+  left: 70px;
+}
+
+.guest > .guest_level {
+  top: 30px;
+  left: 70px;
+}
+
+.guest > .guest_cex {
+  top: 50px;
+  left: 70px;
 }

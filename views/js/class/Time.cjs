@@ -8,10 +8,9 @@ TimeClass.prototype = {
 	day_list : ['日', '一', '二', '三', '四', '五', '六'],
   initialize: function() {
   	var self = this;
-  	this.frame = document.createElement('div');
+  	this.frame = $('show_time');
   	this.frame.className = 'cs_showtime';
   	this.frame.innerHTML = '時間載入中...';
-  	document.body.appendChild(this.frame);
 		//顯示Server時間
 		setInterval(
 			function(){
@@ -27,8 +26,8 @@ TimeClass.prototype = {
         SHOWDATE.setSeconds(SHOWDATE.getSeconds() + 1);
         var st = SHOWDATE.getFullYear() 	+ '年' + 
         				(SHOWDATE.getMonth() + 1) + '月' + 
-        				SHOWDATE.getDate() 				+ '日(' + 
-        				base.day_list[SHOWDATE.getDay()] +')　' +
+        				SHOWDATE.getDate() 				+ '日</br>(' + 
+        				base.day_list[SHOWDATE.getDay()] +')' +
         				SHOWDATE.getHours() 			+ '點' + 
         				SHOWDATE.getMinutes() 		+ '分' + 
         				SHOWDATE.getSeconds() 		+ '秒';

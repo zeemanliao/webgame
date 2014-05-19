@@ -21,9 +21,11 @@
   top: $top
   left: $left
 
-@mixin wh($width,$height)
-  width: $width
-  height: $height
+@mixin wh($width: default '',$height: default '')
+  @if $width != ''
+    width: $width
+  @if $height != ''
+    height: $height
   
 @mixin dv($point)  
   @if $point == b

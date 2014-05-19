@@ -12,7 +12,7 @@ BuildCityClass.prototype.initialize=function(){
 }
 BuildCityClass.prototype.create=function(){
   var self = this;
-  this.append($('cityframe'));
+  this.frame = $('city_frame');
 }
 
 

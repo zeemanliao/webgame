@@ -6,7 +6,6 @@
 var BaseViewClass = function(){};//Class.create();
 BaseViewClass.prototype = {
   base: function(args) {
-    this.frame = this.createObj();
     this.data=null;
     this.objs={};
     this.__defineGetter__("vis", function(){
@@ -26,9 +25,7 @@ BaseViewClass.prototype = {
     if (typeof(this.mouseout)=='function')
       addEventHandler(this.frame,"mouseout",BindAsEventListener(this,this.mouseout));
     if (typeof(this.create)=='function'){
-
-      this.create(args);
-      
+      this.create();
     } else {
       this.frame = null;
     }
@@ -51,12 +48,13 @@ BaseViewClass.prototype = {
     }
     this.frame.appendChild(obj);
   },
-  createObj:function(tag){
-    if (tag) {
-      return document.createElement(tag);
-    } else {
-      return document.createElement('div');
-    }
+  gid:function(id){
+      var elements = this.frame.getElementsByTagName('gid');
+      for (var i = 0; i < elements.length; i++) {
+           if (elements[i].innerHTML.indexOf(searchString) !== -1) {
+               return elements[i];
+           }
+      }
   }
 }
 
