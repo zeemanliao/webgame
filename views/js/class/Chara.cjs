@@ -12,7 +12,7 @@ CharaClass.prototype.initialize=function(){
 CharaClass.prototype.create=function(){
   var self = this;
   this.frame = $('chara_frame');
-  
+  /*
   this.v.name = this.gid('name');
   this.v.level = this.gid('level');
   this.v.gold = this.gid('gold');
@@ -23,6 +23,7 @@ CharaClass.prototype.create=function(){
   this.v.hp = this.gid('hp');
   this.v.ex = this.gid('ex');
   this.v.cex = this.gid('cex');
+  */
 }
 
 CharaClass.prototype.update=function(data){
@@ -37,7 +38,7 @@ CharaClass.prototype.update=function(data){
         }
     }
     for (var i in this.data){
-      put(this[i],this.data[i]);
+      //put(this[i],this.data[i]);
     }
 /*
 

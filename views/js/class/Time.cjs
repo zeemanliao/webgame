@@ -9,8 +9,7 @@ TimeClass.prototype = {
   initialize: function() {
   	var self = this;
   	this.frame = $('show_time');
-  	this.frame.className = 'cs_showtime';
-  	this.frame.innerHTML = '時間載入中...';
+  	this.frame.html('時間載入中...');
 		//顯示Server時間
 		setInterval(
 			function(){
@@ -31,7 +30,7 @@ TimeClass.prototype = {
         				SHOWDATE.getHours() 			+ '點' + 
         				SHOWDATE.getMinutes() 		+ '分' + 
         				SHOWDATE.getSeconds() 		+ '秒';
-				put(base.frame, st);
+				$(this.frome).html(st);
     }
   }
 }

@@ -4,8 +4,7 @@
 <title><%=title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
-    <link href='http://fonts.googleapis.com/css?family=Averia+Serif+Libre' rel='stylesheet' type='text/css'>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 <link rel="stylesheet" type="text/css" href="stylesheets/obj.css">
@@ -121,6 +120,7 @@
     </div>
 <script>
 window.onload = function(){
+<% include js/Modernizr.cjs%>
 <% include js/main.cjs%>
 <% include js/baseclass.cjs%>
 <%- classjs%>

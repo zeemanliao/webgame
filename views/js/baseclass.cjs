@@ -15,15 +15,7 @@ BaseViewClass.prototype = {
     this.__defineSetter__("vis", function(val){
         $s(this.frame,{visibility:val?'visible':'hidden'});
     });
-    if (typeof(this.click)=='function'){
-      addEventHandler(this.frame,"click",BindAsEventListener(this,this._click));
-    }
-    if (typeof(this.mouseenter)=='function')
-      addEventHandler(this.frame,"mouseenter",BindAsEventListener(this,this.mouseenter));
-    if (typeof(this.mousemove)=='function')
-      addEventHandler(this.frame,"mousemove",BindAsEventListener(this,this.mousemove));
-    if (typeof(this.mouseout)=='function')
-      addEventHandler(this.frame,"mouseout",BindAsEventListener(this,this.mouseout));
+
     if (typeof(this.create)=='function'){
       this.create();
     } else {
