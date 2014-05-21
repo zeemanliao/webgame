@@ -1,0 +1,36 @@
+$btnsize: 80px
+@mixin city_btn($gid,$col,$row,$color)
+  +gid($gid,($col - 1) * $btnsize +($col - 1) * 20,($row - 1) * $btnsize + ($row - 1) * 20)
+    +bgc($color)
+    @content
+
+.city_button
+  +border-radius(2px)
+  +box-shadow(1px 1px 2px #333)
+  +wh($btnsize,$btnsize)
+  border: solid
+  border-color: white
+  border-width: 2px
+  position: absolute
+  cursor: pointer
+  font-size: 70%
+  text-align: center
+  line-height: $btnsize * 2 - $padding
+  +opacity(0.6)
+
+
++city_btn(city_quest_btn,1,1,#ffe)
+
++city_btn(city_pet_btn,3,2,#eef)
++city_btn(city_mix_btn,4,2,#eef)
+
++city_btn(city_act_btn,1,2,#efe)
++city_btn(city_shop_btn,2,2,#efe)
+
++city_btn(city_map_btn,1,3,#fee)
++city_btn(city_cha_btn,2,3,#fee)
+
++city_btn(city_cha_btn,2,3,#fee)
+
+
++city_btn(city_back_btn,4,1,#fce)
