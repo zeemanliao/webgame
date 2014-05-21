@@ -10,31 +10,22 @@ MessageClass.prototype.initialize=function(){
 }
 
 MessageClass.prototype.create=function(){
-    var self = this;
-  	this.frame.className = 'cs_msgframe';
-  	this.frame.innerHTML = '<div CLASS="cs_msgbox">'+
-                            '<h2>訊息</h2>'+
-                            '<hr>'+
-                            '<h3></h3>'+
-                            '</div>';
-    this.msg = this.frame.lastChild.lastChild;
+  var self = this;
+	this.frame = $('#msg_frame');
+  this.msg = $('#msg');
 
-    document.body.appendChild(this.frame);
+  this.frame.bind("click",function(){self.click()});
 }
 MessageClass.prototype.click=function(){
     if (this.loginout){
       location.href='/';
     } else {
-      this.vis=false;
+       this.frame.fadeOut("fast");
     }
   }
 
 MessageClass.prototype.show= function(val,loginout){
-    if (!this.vis){
-      this.msg.innerHTML = val;
-      this.vis=true;
-      this.loginout = loginout;
-    }
+    this.loginout = loginout || false;
+    this.msg.html(val);
+    this.frame.fadeIn("fast");
   }
-
-

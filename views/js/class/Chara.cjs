@@ -11,9 +11,9 @@ CharaClass.prototype.initialize=function(){
 }
 CharaClass.prototype.create=function(){
   var self = this;
-  this.frame = $('chara_frame');
-  /*
-  this.v.name = this.gid('name');
+  this.frame = $('#chara_frame');
+  
+  this.v.nam = this.gid('nam');
   this.v.level = this.gid('level');
   this.v.gold = this.gid('gold');
   this.v.vip = this.gid('vip');
@@ -23,7 +23,7 @@ CharaClass.prototype.create=function(){
   this.v.hp = this.gid('hp');
   this.v.ex = this.gid('ex');
   this.v.cex = this.gid('cex');
-  */
+  
 }
 
 CharaClass.prototype.update=function(data){
@@ -38,17 +38,13 @@ CharaClass.prototype.update=function(data){
         }
     }
     for (var i in this.data){
-      //put(this[i],this.data[i]);
-    }
-/*
 
-  this.nam.innerHTML=data.nam;
-  this.level.innerHTML=data.level;
-  this.ex.innerHTML=data.ex;
-  this.hp.innerHTML=data.hp;
-  this.mag.innerHTML=data.mag;
-  this.dmg.innerHTML=data.dmg;
-  this.def.innerHTML=data.def;
-  */
+      var dta = this.data[i];
+      
+      if (this.v[i])
+        this.v[i].html(dta);
+    }
+    
+    this.v.gold.html(this.data.gold + ' G');
 }
 

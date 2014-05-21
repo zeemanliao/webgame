@@ -1,4 +1,7 @@
 
+$frame_w: 440px
+$frame_h: 400px
+
 %all_frame
   padding: $padding
   overflow : hidden
@@ -24,3 +27,34 @@ html
   text-align: right
   right: $body_margin
   z-index: $zindex
+  font-size: 90%
+.msg_frame 
+  z-index: $zindex+50
+  display: none
+  overflow-x: hidden
+  overflow-y: auto
+  position: absolute
+  +xy(0px,0px)
+  +wh(100%,100%)
+  +bgc(#333)
+  +opacity(0.9)
+
+.msg_box
+  position: absolute
+  +xy(25%,25%)
+  +wh(50%,50%)
+  +box-shadow(1px 1px 2px #888)
+  +border-radius(2px)
+  +bgc(#E88)
+  border: 2px  solid white
+  text-align: center
+.content_frame
+  @extend %all_frame
+  +xy(240px,$body_margin)
+  +wh($frame_w,$frame_h)
+  z-index: $zindex - 10
+  display: none
+
+.content_frame > .btn_frame
+  +wh(30px,80px)
+  position: absolute

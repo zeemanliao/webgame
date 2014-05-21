@@ -11,4 +11,14 @@ var o = {};
 o.message =  new MessageClass();
 //角色元件
 o.chara = new CharaClass();
+//城鎮元件
+o.city = new CityClass();
+o.quest = new QuestClass();
+o.act = new ActClass();
+o.mix = new MixClass();
+o.cha = new ChaClass();
+o.pet = new PetClass();
+o.map = new MapClass();
+o.shop = new ShopClass();
 
+o.city.show();

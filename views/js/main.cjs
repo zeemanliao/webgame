@@ -1,4 +1,4 @@
-if(Modernizr.localStorage){
+if(!Modernizr.localstorage){
     alert('您的瀏覽器為舊版本！不支援Loacl Storage！');
     location.href='/';
 }
@@ -9,34 +9,6 @@ var crlf = '<br/>',
     SHOWDATE = new Date(<%=new Date().getTime()%>),
     socket = io.connect('http://<%=host%>');
 
-
-function keyDownHandler(e) {
-    if (e) { // Firefox
-        if (e.keyCode == 116) {
-            //F5
-            //reflush();
-            e.preventDefault();
-            e.stopPropagation();
-        } else if (e.keyCode == 115) {
-            //F4
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    } else { // IE
-        e=windows.event;
-        if (window.event.keyCode == 116) {
-            window.event.keyCode = 0;
-            //F5
-            //reflush();
-            return false;
-        } else if (window.event.keyCode == 115) {
-            window.event.keyCode = 0;
-            //F4
-            return false;
-        }
-    }
-}
-document.onkeydown = keyDownHandler;
 
 var Class = {
   create: function() {
@@ -74,3 +46,4 @@ Object.Extend=function(P){
   C.prototype= new F();
   return C;
 }
+

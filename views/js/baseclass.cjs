@@ -8,13 +8,6 @@ BaseViewClass.prototype = {
   base: function(args) {
     this.data=null;
     this.objs={};
-    this.__defineGetter__("vis", function(){
-        return this.frame.style.visibility=='visible';
-    });
-    
-    this.__defineSetter__("vis", function(val){
-        $s(this.frame,{visibility:val?'visible':'hidden'});
-    });
 
     if (typeof(this.create)=='function'){
       this.create();
@@ -23,30 +16,38 @@ BaseViewClass.prototype = {
     }
 
   },
-  remove:function(){
-    this.frame.parentNode.removeChild(this.frame);
+  gid:function(gid_name){
+    return $("[gid='"+gid_name+"']",this.frame.id);
   },
-  _click:function(ev){
-    if(ev.stopPropagation) {
-      ev.stopPropagation();
-    } else {
-      ev.returnValue = false;
-    }
-    this.click(ev);
-  },
-  append:function(obj){
-    if (this.hideAll){
-      this.hideAll();
-    }
-    this.frame.appendChild(obj);
-  },
-  gid:function(id){
-      var elements = this.frame.getElementsByTagName('gid');
-      for (var i = 0; i < elements.length; i++) {
-           if (elements[i].innerHTML.indexOf(searchString) !== -1) {
-               return elements[i];
-           }
+  hide:function() {
+    var self = this;
+    this.frame.delay(0).animate(
+      {opacity:'0'},
+      50,
+      null,
+      function(){
+        self.frame.hide();
       }
+    );
+  },
+  show:function() {
+    var self = this;
+    this.frame.delay(0).animate(
+      {opacity:'1'},
+      50,
+      null,
+      function(){
+        self.frame.show();
+      }
+    );
+  },
+  goto:function(goto_frame) {
+    if (o[goto_frame]) {
+      $('.content_frame').hide();
+      o[goto_frame].show();
+    } else {
+      debug('Object:'+goto_frame+'->can not find');
+    }
   }
 }
 
@@ -54,3 +55,4 @@ var BaseCityClass = Object.Extend(BaseViewClass);
 BaseCityClass.prototype.enter = function(){
   cframe.append(this.frame);
 }
+

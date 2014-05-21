@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-#chara_main, #chara_state, #city_frame, #guest_frame {
+.content_frame, #chara_main, #chara_state, #guest_frame {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -352,17 +352,17 @@ ol, ul {
   border-radius: 3px;
 }
 @media only screen and (max-width: 1200px) {
-  #chara_main, #chara_state, #city_frame, #guest_frame {
+  .content_frame, #chara_main, #chara_state, #guest_frame {
     font-size: 100%;
   }
 }
 @media only screen and (max-width: 800px) {
-  #chara_main, #chara_state, #city_frame, #guest_frame {
+  .content_frame, #chara_main, #chara_state, #guest_frame {
     font-size: 100%;
   }
 }
 @media only screen and (max-width: 450px) {
-  #chara_main, #chara_state, #city_frame, #guest_frame {
+  .content_frame, #chara_main, #chara_state, #guest_frame {
     font-size: 80%;
   }
 }
@@ -392,6 +392,56 @@ html {
   text-align: right;
   right: 10px;
   z-index: 50;
+  font-size: 90%;
+}
+
+.msg_frame {
+  z-index: 100;
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #333333;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+}
+
+.msg_box {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  -webkit-box-shadow: 1px 1px 2px #888888;
+  -moz-box-shadow: 1px 1px 2px #888888;
+  box-shadow: 1px 1px 2px #888888;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background: #ee8888;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.content_frame {
+  top: 10px;
+  left: 240px;
+  width: 440px;
+  height: 400px;
+  z-index: 40;
+  display: none;
+}
+
+.content_frame > .btn_frame {
+  width: 30px;
+  height: 80px;
+  position: absolute;
 }
 
 #chara_frame {
@@ -500,7 +550,7 @@ html {
   left: 5px;
 }
 
-[gid=name] {
+[gid=nam] {
   top: 120px;
   left: 5px;
 }
@@ -565,25 +615,6 @@ html {
   left: 170px;
 }
 
-#city_frame {
-  top: 10px;
-  left: 240px;
-  width: 440px;
-  height: 400px;
-  z-index: 40;
-}
-
-[gid=city_name] {
-  top: 0px;
-  left: 5px;
-  font-size: 200%;
-}
-
-[gid=city_desc] {
-  top: 50px;
-  left: 30px;
-}
-
 .city_button {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -603,12 +634,8 @@ html {
   font-size: 70%;
   text-align: center;
   line-height: 150px;
-}
-
-[gid=city_btn_frame] {
-  top: 80px;
-  left: 30px;
-  position: absolute;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
 }
 
 [gid=city_quest_btn] {
@@ -651,6 +678,18 @@ html {
   top: 200px;
   left: 100px;
   background: #ffeeee;
+}
+
+[gid=city_cha_btn] {
+  top: 200px;
+  left: 100px;
+  background: #ffeeee;
+}
+
+[gid=city_back_btn] {
+  top: 0px;
+  left: 300px;
+  background: #ffccee;
 }
 
 #guest_frame {
@@ -721,7 +760,7 @@ html {
   height: 50px;
 }
 
-.guest > .guest_name {
+.guest > .guest_nam {
   top: 10px;
   left: 70px;
 }
