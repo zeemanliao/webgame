@@ -438,7 +438,7 @@ html {
   display: none;
 }
 
-.content_frame > .btn_frame {
+.content_frame > .city_content {
   width: 30px;
   height: 80px;
   position: absolute;
@@ -687,9 +687,10 @@ html {
 }
 
 [gid=city_back_btn] {
-  top: 0px;
-  left: 300px;
   background: #ffccee;
+  right: 10px;
+  top: 30px;
+  position: absolute;
 }
 
 #guest_frame {
