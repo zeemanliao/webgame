@@ -387,7 +387,6 @@ html {
 
 #show_time {
   width: 130px;
-  height: default "";
   position: fixed;
   text-align: right;
   right: 10px;
@@ -493,7 +492,7 @@ html {
   background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
   background-image: linear-gradient(0, #bbeebb, #ccffcc);
   width: 150px;
-  height: 160px;
+  height: 200px;
   top: 190px;
   left: 17px;
   z-index: 30;
@@ -520,99 +519,94 @@ html {
   position: absolute;
 }
 
-[gid=l_hp] {
-  top: 20px;
-  left: 5px;
-}
-
-[gid=l_ex] {
-  top: 45px;
-  left: 5px;
-}
-
-[gid=l_cex] {
-  top: 70px;
-  left: 5px;
-}
-
-[gid=l_dmg] {
-  top: 95px;
-  left: 5px;
-}
-
-[gid=l_mag] {
-  top: 120px;
-  left: 5px;
-}
-
-[gid=l_def] {
-  top: 145px;
-  left: 5px;
-}
-
 [gid=nam] {
   top: 120px;
   left: 5px;
-}
-
-[gid=l_gold] {
-  top: 145px;
-  left: 5px;
-}
-
-[gid=l_level] {
-  top: 10px;
-  left: 120px;
-}
-
-[gid=l_vip] {
-  top: 35px;
-  left: 120px;
-}
-
-[gid=hp] {
-  top: 20px;
-  left: 55px;
-}
-
-[gid=ex] {
-  top: 45px;
-  left: 55px;
-}
-
-[gid=cex] {
-  top: 70px;
-  left: 55px;
-}
-
-[gid=dmg] {
-  top: 95px;
-  left: 55px;
-}
-
-[gid=mag] {
-  top: 120px;
-  left: 55px;
-}
-
-[gid=def] {
-  top: 145px;
-  left: 55px;
+  background: url("/images/nam.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
 }
 
 [gid=gold] {
-  top: 145px;
-  left: 55px;
+  top: 155px;
+  left: 5px;
+  background: url("/images/gold.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+
+[gid=hp] {
+  top: 15px;
+  left: 10px;
+  background: url("/images/hp.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+
+[gid=ex] {
+  top: 47px;
+  left: 10px;
+  background: url("/images/ex.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+
+[gid=cex] {
+  top: 79px;
+  left: 10px;
+  background: url("/images/cex.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+
+[gid=dmg] {
+  top: 111px;
+  left: 10px;
+  background: url("/images/dmg.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+
+[gid=mag] {
+  top: 143px;
+  left: 10px;
+  background: url("/images/mag.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+
+[gid=def] {
+  top: 175px;
+  left: 10px;
+  background: url("/images/def.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
 }
 
 [gid=level] {
   top: 10px;
-  left: 170px;
+  left: 120px;
+  background: url("/images/level.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
 }
 
-[gid=vip] {
-  top: 35px;
-  left: 170px;
+[gid=vipgold] {
+  top: 45px;
+  left: 120px;
+  background: url("/images/vipgold.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
 }
 
 .city_button {
@@ -764,14 +758,17 @@ html {
 .guest > .guest_nam {
   top: 10px;
   left: 70px;
+  color: blue;
 }
 
 .guest > .guest_level {
   top: 30px;
   left: 70px;
+  color: green;
 }
 
 .guest > .guest_cex {
   top: 50px;
   left: 70px;
+  color: red;
 }

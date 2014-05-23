@@ -1,105 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title><%=title%></title>
+    <title>
+        <%=title%>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
 
-<script src="http://www.google.com/jsapi"></script>
-<script>
-  google.load("jquery", "1");
-  google.load("jqueryui", "1");
-</script>
-<script src="/socket.io/socket.io.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/obj.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/button.css">
+    <script src="http://www.google.com/jsapi"></script>
+    <script>
+    google.load("jquery", "1");
+    google.load("jqueryui", "1");
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 
 <body>
-<div CLASS="msg_frame" id="msg_frame">
-    <div CLASS="msg_box" id="msg_box">
-    <h2>訊息</h2>
-    <hr>
-    <h3 id="msg"></h3>
+    <div CLASS="msg_frame" id="msg_frame">
+        <div CLASS="msg_box" id="msg_box">
+            <h2>訊息</h2>
+            <hr>
+            <h3 id="msg"></h3>
+        </div>
     </div>
-</div>
     <div id="content">
         <div id="show_time">
-            2014年5月18日
-            <br>12:30:40
+
         </div>
         <div id="guest_frame">
             Guest List
             <div class="guest_list">
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name</div>
-                    <div class="guest_level">Lv.10</div>
-                    <div class="guest_cex">Cex:343</div>
-                </div>
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name2</div>
-                    <div class="guest_level">Lv.101</div>
-                    <div class="guest_cex">Cex:3403</div>
-                </div>
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name2</div>
-                    <div class="guest_level">Lv.101</div>
-                    <div class="guest_cex">Cex:3403</div>
-                </div>
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name2</div>
-                    <div class="guest_level">Lv.101</div>
-                    <div class="guest_cex">Cex:3403</div>
-                </div>
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name2</div>
-                    <div class="guest_level">Lv.101</div>
-                    <div class="guest_cex">Cex:3403</div>
-                </div>
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name2</div>
-                    <div class="guest_level">Lv.101</div>
-                    <div class="guest_cex">Cex:3403</div>
-                </div>
-                <div class="guest">
-                    <img class="guest_photo" alt="Photo">
-                    <div class="guest_nam">Guest Name2</div>
-                    <div class="guest_level">Lv.101</div>
-                    <div class="guest_cex">Cex:3403</div>
-                </div>
+
             </div>
         </div>
         <div id="chara_frame">
             <div id="chara_state">
-                <div class="label" gid="l_dmg">DMG</div>
-                <div class="label" gid="l_mag">MAG</div>
-                <div class="label" gid="l_def">DEF</div>
-                <div class="label" gid="l_hp">HP</div>
-                <div class="label" gid="l_ex">EX</div>
-                <div class="label" gid="l_cex">CEX</div>
-                <div class="number" gid="dmg">9999</div>
-                <div class="number" gid="mag">9999</div>
-                <div class="number" gid="def">9999</div>
-                <div class="number" gid="hp">99999999</div>
-                <div class="number" gid="ex">99999999</div>
-                <div class="number" gid="cex">9999</div>
+                <div class="number" gid="dmg">Loaing...</div>
+                <div class="number" gid="mag">Loaing...</div>
+                <div class="number" gid="def">Loaing...</div>
+                <div class="number" gid="hp">Loaing...</div>
+                <div class="number" gid="ex">Loaing...</div>
+                <div class="number" gid="cex">Loaing...</div>
             </div>
             <div id="chara_main">
                 <img alt="Chara Photo" gid="photo">
-                <div class="label" gid="nam">Name</div>
-                <div class="label" gid="l_level">Level</div>
-                <div class="label" gid="l_gold">Gold</div>
-                <div class="label" gid="l_vip">VIP</div>
-                <div class="number" gid="level">9999</div>
-                <div class="number" gid="gold">103w9669g</div>
-                <div class="number" gid="vip">9999</div>
+                <div class="label" gid="nam">Loaing...</div>
+                <div class="number" gid="level">Loaing...</div>
+                <div class="number" gid="gold">Loaing...</div>
+                <div class="number" gid="vipgold">Loaing...</div>
             </div>
         </div>
         <div class="content_frame" id="city_frame">
@@ -130,71 +80,70 @@
             </div>
         </div>
         <div class="content_frame" id="quest_frame">
-        <h2 gid="name">Quest</h2>
-        <h3 gid="desc">Quest Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Quest</h2>
+            <h3 gid="desc">Quest Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
         <div class="content_frame" id="act_frame">
-        <h2 gid="name">Active</h2>
-        <h3 gid="desc">Active Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Active</h2>
+            <h3 gid="desc">Active Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
         <div class="content_frame" id="pet_frame">
-        <h2 gid="name">Pet</h2>
-        <h3 gid="desc">Pet Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Pet</h2>
+            <h3 gid="desc">Pet Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
         <div class="content_frame" id="mix_frame">
-        <h2 gid="name">Mixin</h2>
-        <h3 gid="desc">Mixin Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Mixin</h2>
+            <h3 gid="desc">Mixin Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
         <div class="content_frame" id="map_frame">
-        <h2 gid="name">Map</h2>
-        <h3 gid="desc">Map Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Map</h2>
+            <h3 gid="desc">Map Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
         <div class="content_frame" id="cha_frame">
-        <h2 gid="name">Challenge</h2>
-        <h3 gid="desc">Challenge Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Challenge</h2>
+            <h3 gid="desc">Challenge Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
         <div class="content_frame" id="shop_frame">
-        <h2 gid="name">Shop</h2>
-        <h3 gid="desc">Shop Desc</h3>
-        <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-        <div class="city_content">
-        </div>
+            <h2 gid="name">Shop</h2>
+            <h3 gid="desc">Shop Desc</h3>
+            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
+            <div class="city_content">
+            </div>
         </div>
     </div>
-<script>
-window.onload = function(){
-<% include js/Modernizr.cjs%>
-<% include js/main.cjs%>
-<% include js/baseclass.cjs%>
-<%- classjs%>
-<% include js/obj.cjs%>
-<% include js/event.cjs%>
+    <script>
+    window.onload = function() { 
+        <%include js/Modernizr.cjs%> 
+        <%include js/main.cjs%>
+        <%include js/baseclass.cjs%> 
+        <%-classjs%> 
+        <%include js/obj.cjs%> 
+        <%include js/event.cjs%>
 
 
-    window.onresize = function(event) {
+        window.onresize = function(event) {
 
+        }
     }
-}
-
-</script>
+    </script>
 </body>
 
 </html>

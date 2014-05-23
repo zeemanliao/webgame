@@ -21,7 +21,7 @@
   top: $top
   left: $left
 
-@mixin wh($width: default '',$height: default '')
+@mixin wh($width: '',$height: '')
   @if $width != ''
     width: $width
   @if $height != ''
@@ -37,3 +37,13 @@
   @else if $point == s
     @media only screen and(max-width: 450px)
       @content
+
+@mixin icons($icon)
+  background: url('/images/#{$icon}.png') no-repeat left
+
+@mixin icon_label($gid,$x,$y,$icon)
+  +gid($gid,$x,$y)
+    +icons($icon)
+    +wh('',32px)
+    padding-left: 40px
+    line-height: 32px

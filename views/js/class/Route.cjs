@@ -49,7 +49,22 @@ coms.chara = new BaseCom("chara");
 coms.sys = new BaseCom("sys");
 coms.ready = new BaseCom("ready");
 coms.city = new BaseCom("city");
+coms.guest = new BaseCom("guest");
 
+coms.guest.add = function(data){
+  for (var i in data){
+    guest_list.append('<div class="guest" id="guest_list_'+data[i].nam+'">'+
+                    '<img class="guest_photo" alt="Photo" src="'+data[i].photo+'">'+
+                    '<div class="guest_nam">'+data[i].nam+'</div>'+
+                    '<div class="guest_level">Lv.'+data[i].level+'</div>'+
+                    '<div class="guest_cex">Cex:'+data[i].cex+'</div>'+
+                '</div>');
+  }
+}
+coms.guest.remove = function(data){
+  var nam = data;
+  $('#guest_list_'+nam).remove();
+}
 coms.chara.update = function(data) {
   o.chara.update(data);
 }

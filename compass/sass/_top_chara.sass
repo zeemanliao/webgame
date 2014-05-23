@@ -26,7 +26,7 @@ $s_chara_height:70px
   @extend %all_frame
   +box-shadow(1px 1px 2px #333)
   +background-image(linear-gradient(0,#beb,#cfc))
-  +wh(150px,160px)
+  +wh(150px,200px)
   +xy($body_margin + 7,190px)
   z-index: $zindex - 20
   position: fixed
@@ -42,25 +42,15 @@ $s_chara_height:70px
   border-width: 4px
   position: absolute
   
-+gid(l_hp,5px,20px)
-+gid(l_ex,5px,20px+25px)
-+gid(l_cex,5px,20px+25px*2)
-+gid(l_dmg,5px,20px+25px*3)
-+gid(l_mag,5px,20px+25px*4)
-+gid(l_def,5px,20px+25px*5)
++icon_label(nam,5px,120px,nam)
++icon_label(gold,5px,155px,gold)
 
-+gid(nam,5px,120px)
-+gid(l_gold,5px,145px)
-+gid(l_level,120px,10px)
-+gid(l_vip,120px,35px)
++icon_label(hp,$body_margin,15px,hp)
++icon_label(ex,$body_margin,15px+32px,ex)
++icon_label(cex,$body_margin,15px+32px*2,cex)
++icon_label(dmg,$body_margin,15px+32px*3,dmg)
++icon_label(mag,$body_margin,15px+32px*4,mag)
++icon_label(def,$body_margin,15px+32px*5,def)
 
-+gid(hp,55px,20px)
-+gid(ex,55px,20px+25px)
-+gid(cex,55px,20px+25px*2)
-+gid(dmg,55px,20px+25px*3)
-+gid(mag,55px,20px+25px*4)
-+gid(def,55px,20px+25px*5)
-
-+gid(gold,55px,145px)
-+gid(level,170px,10px)
-+gid(vip,170px,35px)
++icon_label(level,120px,$body_margin,level)
++icon_label(vipgold,120px,45px,vipgold)

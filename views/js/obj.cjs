@@ -22,3 +22,5 @@ o.map = new MapClass();
 o.shop = new ShopClass();
 
 o.city.show();
+
+var guest_list = $('.guest_list');

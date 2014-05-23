@@ -3,7 +3,7 @@ var User = require('../lib/obj/user'),
 
 module.exports = function(io) {
     var game = require('../lib/game');
-    game.load();
+    game.load(io.sockets);
     //act.load(game);
     //chat.load(game);
 
