@@ -12,4 +12,5 @@ ChaClass.prototype.initialize=function(){
 ChaClass.prototype.create=function(){
   var self = this;
   this.frame = $('#cha_frame');
+  this.content = $('.city_content','#chaframe');
  }

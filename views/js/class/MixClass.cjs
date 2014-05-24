@@ -12,4 +12,5 @@ MixClass.prototype.initialize=function(){
 MixClass.prototype.create=function(){
   var self = this;
   this.frame = $('#mix_frame');
+  this.content = $('.city_content','#mix_frame');
  }

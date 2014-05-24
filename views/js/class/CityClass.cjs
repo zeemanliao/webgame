@@ -11,18 +11,16 @@ CityClass.prototype.initialize=function(){
 CityClass.prototype.create=function(){
   var self = this;
   this.frame = $('#city_frame');
-  
+  this.content = $('.city_content','#city_frame');
   //alert(this.frame.attr('id'));
-  $('.city_button').hover(
-      function () {
-          $(this).delay(0).animate({opacity:'1'},50);
-      },
-      function () {
-          $(this).delay(0).animate({opacity:'0.6'},50);
-      }
-  );
-  $('.city_button').click(
-      function (event) {
+ $('.city_button').live({
+    mouseenter: function() {       
+      $(this).delay(0).animate({opacity:'1'},50);
+    },
+    mouseleave: function() {
+      $(this).delay(0).animate({opacity:'0.6'},50);
+    },
+    click:function (event) {
         event.preventDefault();
         
         $(this).delay(0).animate(
@@ -48,6 +46,6 @@ CityClass.prototype.create=function(){
            }
          );
       }
-  );
+  });
 }
 

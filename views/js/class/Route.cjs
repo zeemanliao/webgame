@@ -16,6 +16,12 @@ function route(data){
       debug('Route找不到指令'+i);
     }
   }
+  debug('run All reflush');
+  for (var i in o){
+    if (typeof(o[i].reflush)=='function'){
+      o[i].reflush();
+    }
+  }
 }
 
 var BaseCom = Class.create();
@@ -40,6 +46,7 @@ BaseCom.prototype = {
         this[i](data[i]);
       }
     }
+    
   }
 }
 var coms = {};
@@ -63,7 +70,11 @@ coms.guest.add = function(data){
 }
 coms.guest.remove = function(data){
   var nam = data;
-  $('#guest_list_'+nam).remove();
+  if (nam.length >0 ) {
+    $('#guest_list_'+nam).remove();
+  } else {
+    debug('coms.guest.remove('+data+')無移除元件');
+  }
 }
 coms.chara.update = function(data) {
   o.chara.update(data);

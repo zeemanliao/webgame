@@ -12,4 +12,5 @@ ShopClass.prototype.initialize=function(){
 ShopClass.prototype.create=function(){
   var self = this;
   this.frame = $('#shop_frame');
+  this.content = $('.city_content','#shop_frame');
  }

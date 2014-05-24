@@ -12,4 +12,5 @@ ActClass.prototype.initialize=function(){
 ActClass.prototype.create=function(){
   var self = this;
   this.frame = $('#act_frame');
+  this.content = $('.city_content','#act_frame');
  }

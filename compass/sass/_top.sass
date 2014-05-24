@@ -56,5 +56,6 @@ html
   display: none
 
 .content_frame > .city_content
-  +wh(30px,80px)
+  +wh($frame_w - $body_margin * 2,$frame_h)
+  overflow: auto
   position: absolute

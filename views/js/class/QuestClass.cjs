@@ -12,4 +12,5 @@ QuestClass.prototype.initialize=function(){
 QuestClass.prototype.create=function(){
   var self = this;
   this.frame = $('#quest_frame');
+  this.content = $('.city_content','#quest_frame');
  }

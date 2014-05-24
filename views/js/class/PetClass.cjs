@@ -12,4 +12,5 @@ PetClass.prototype.initialize=function(){
 PetClass.prototype.create=function(){
   var self = this;
   this.frame = $('#pet_frame');
+  this.content = $('.city_content','#pet_frame');
  }

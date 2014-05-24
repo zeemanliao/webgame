@@ -1,6 +1,6 @@
 $btnsize: 80px
 @mixin city_btn($gid,$col,$row,$color)
-  +gid($gid,($col - 1) * $btnsize +($col - 1) * 20,($row - 1) * $btnsize + ($row - 1) * 20)
+  +gid($gid,ColToPix($col,$btnsize),ColToPix($row,$btnsize))
     +bgc($color)
     @content
 
