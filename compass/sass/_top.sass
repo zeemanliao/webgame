@@ -2,6 +2,8 @@
 $frame_w: 440px
 $frame_h: 400px
 
+$battle_w: 700px
+$battle_h: 400px
 %all_frame
   padding: $padding
   overflow : hidden
@@ -56,6 +58,24 @@ html
   display: none
 
 .content_frame > .city_content
-  +wh($frame_w - $body_margin * 2,$frame_h)
+  +wh($frame_w - $body_margin * 2,100% - 15)
   overflow: auto
   position: absolute
+ 
+.content_frame > [gid="nam"]
+  color: blue
+
+.content_frame > [gid="desc"]
+  color: #666
+
+
+btn
+  +border-radius(2px)
+  +box-shadow(1px 1px 2px #333)
+  border: solid
+  border-color: white
+  border-width: 2px
+  position: absolute
+  cursor: pointer
+  text-align: center
+  +opacity(0.6)

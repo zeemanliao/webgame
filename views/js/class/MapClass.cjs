@@ -14,58 +14,35 @@ MapClass.prototype.create=function(){
   var self = this;
   this.frame = $('#map_frame');
   this.content = $('.city_content','#map_frame');
- $('.map_button').live({
-    mouseenter: function() {       
-      $(this).delay(0).animate({opacity:'1'},50);
-    },
-    mouseleave: function() {
-      $(this).delay(0).animate({opacity:'0.6'},50);
-    },
+  this.nam = this.gid('nam');
+  this.desc = this.gid('desc');
+  live('.map_button',{
     click:function (event) {
-        event.preventDefault();
-        
-        $(this).delay(0).animate(
-          {
-            width: $(this).width()+10,
-            height: $(this).height()+10,
-            top: $(this).position().top-5,
-            left: $(this).position().left-5
-          }
-          ,50
-          );
-       $(this).delay(0).animate(
-           {
-              width: $(this).width(),
-              height: $(this).height(),
-              top: $(this).position().top,
-              left: $(this).position().left
-            },
-           50,
-           null,
-           function(){
-             
-           }
-         );
-      }
+      self.battle($(this));
+    }
   });
 }
+MapClass.prototype.update=function(area){
+  if (!area) {
+    debug('未傳入area區域編號');
+    return;
+  }
+  var area = db.areas[area];
+  var sub_map_idx = area.sub;
+  this.nam.html(area.nam);
+  this.desc.html(area.desc);
+  this.content.empty()
+		for (var i in sub_map_idx){
 
-MapClass.prototype.reflush=function(){
-	this.update();
-}
-
-MapClass.prototype.update=function(){
-	if (this.ver != db.ver.maps) {
-		this.ver = db.ver.maps;
-		this.content.empty();
-		for (var i in db.maps){
-			var map = db.maps[i];
-			this.content.append('<div class="map_button" gid="map-'+
-				map.position.x+
-				'-'+map.position.y+
-				'">' + map.nam 
-				+'</div>');
-			debug(map.nam);
-		}
+			var map = db.maps[sub_map_idx[i]];
+      
+    this.content.append('<btn data="' + map.id + '" ' +
+      'enable="'+(o.chara.data.level>=map.level)+'" class="map_button" gid="map-'+
+        map.position.x+
+        '-'+map.position.y+
+        '"><span gid="nam">' + map.nam +'</span> <span gid="desc">'+
+        map.desc +'</span><span gid="level">lv.' +
+        + map.level
+        +'</span></btn>');
 	}
 }

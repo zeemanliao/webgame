@@ -47,3 +47,9 @@ Object.Extend=function(P){
   return C;
 }
 
+function bind(obj,fn){
+  $(obj).on(fn);
+}
+function live(obj,fn){
+  $(document).on(fn,obj);
+}

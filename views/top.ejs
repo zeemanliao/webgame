@@ -7,12 +7,15 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
-
+<!--
     <script src="http://www.google.com/jsapi"></script>
     <script>
     google.load("jquery", "1");
     google.load("jqueryui", "1");
     </script>
+-->
+<script src="/javascripts/jquery-1.11.1.min.js"></script>
+<script src="/javascripts/jquery-ui-1.10.4.custom.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
@@ -29,104 +32,119 @@
         <div id="show_time">
 
         </div>
+
+        <div id="chara_frame">
+            <div id="chara_state">
+                <div class="number" gid="chara_dmg">Loaing...</div>
+                <div class="number" gid="chara_mag">Loaing...</div>
+                <div class="number" gid="chara_def">Loaing...</div>
+                <div class="number" gid="chara_hp">Loaing...</div>
+                <div class="number" gid="chara_ex">Loaing...</div>
+                <div class="number" gid="chara_cex">Loaing...</div>
+            </div>
+            <div id="chara_main">
+                <img alt="Chara Photo" gid="photo">
+                <div class="label" gid="chara_nam">Loaing...</div>
+                <div class="number" gid="chara_level">Loaing...</div>
+                <div class="number" gid="chara_gold">Loaing...</div>
+                <div class="number" gid="chara_vipgold">Loaing...</div>
+            </div>
+        </div>
+        <div class="content_frame" id="city_frame">
+            <h2 gid="nam">City Name</h2>
+            <h3 gid="desc">City Desc</h3>
+            <div class="city_content">
+                <btn class="city_button" gid="city_quest_btn" data="quest">
+                    Quest
+                </btn>
+                <btn class="city_button" gid="city_pet_btn" data="pet">
+                    Pet
+                </btn>
+                <btn class="city_button" gid="city_mix_btn" data="mix">
+                    Mix
+                </btn>
+                <btn class="city_button" gid="city_act_btn" data="act">
+                    Act
+                </btn>
+                <btn class="city_button" gid="city_shop_btn" data="shop">
+                    Shop
+                </btn>
+                <btn class="city_button" gid="city_area_btn" data="area">
+                    Area
+                </btn>
+                <btn class="city_button" gid="city_cha_btn" data="cha">
+                    Cha
+                </btn>
+            </div>
+        </div>
+        <div id="city">
         <div id="guest_frame">
             Guest List
             <div class="guest_list">
 
             </div>
         </div>
-        <div id="chara_frame">
-            <div id="chara_state">
-                <div class="number" gid="dmg">Loaing...</div>
-                <div class="number" gid="mag">Loaing...</div>
-                <div class="number" gid="def">Loaing...</div>
-                <div class="number" gid="hp">Loaing...</div>
-                <div class="number" gid="ex">Loaing...</div>
-                <div class="number" gid="cex">Loaing...</div>
-            </div>
-            <div id="chara_main">
-                <img alt="Chara Photo" gid="photo">
-                <div class="label" gid="nam">Loaing...</div>
-                <div class="number" gid="level">Loaing...</div>
-                <div class="number" gid="gold">Loaing...</div>
-                <div class="number" gid="vipgold">Loaing...</div>
-            </div>
-        </div>
-        <div class="content_frame" id="city_frame">
-            <h2 gid="name">City Name</h2>
-            <h3 gid="desc">City Desc</h3>
-            <div class="city_content">
-                <div class="city_button" gid="city_quest_btn" data="quest">
-                    Quest
-                </div>
-                <div class="city_button" gid="city_pet_btn" data="pet">
-                    Pet
-                </div>
-                <div class="city_button" gid="city_mix_btn" data="mix">
-                    Mix
-                </div>
-                <div class="city_button" gid="city_act_btn" data="act">
-                    Act
-                </div>
-                <div class="city_button" gid="city_shop_btn" data="shop">
-                    Shop
-                </div>
-                <div class="city_button" gid="city_map_btn" data="map">
-                    Map
-                </div>
-                <div class="city_button" gid="city_cha_btn" data="cha">
-                    Cha
+            <div class="content_frame" id="quest_frame">
+                <h2 gid="nam">Quest</h2>
+                <h3 gid="desc">Quest Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
                 </div>
             </div>
-        </div>
-        <div class="content_frame" id="quest_frame">
-            <h2 gid="name">Quest</h2>
-            <h3 gid="desc">Quest Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
+            <div class="content_frame" id="act_frame">
+                <h2 gid="nam">Active</h2>
+                <h3 gid="desc">Active Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
+                </div>
+            </div>
+            <div class="content_frame" id="pet_frame">
+                <h2 gid="nam">Pet</h2>
+                <h3 gid="desc">Pet Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
+                </div>
+            </div>
+            <div class="content_frame" id="mix_frame">
+                <h2 gid="nam">Mixin</h2>
+                <h3 gid="desc">Mixin Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
+                </div>
+            </div>
+            <div class="content_frame" id="area_frame">
+                <h2 gid="nam">Area</h2>
+                <h3 gid="desc">Area Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
+                </div>
+            </div>
+            <div class="content_frame" id="map_frame">
+                <h2 gid="nam">Map</h2>
+                <h3 gid="desc">Map Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="area">Back Area</btn>
+                <div class="city_content">
+                </div>
+            </div>
+            <div class="content_frame" id="cha_frame">
+                <h2 gid="nam">Challenge</h2>
+                <h3 gid="desc">Challenge Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
+                </div>
+            </div>
+            <div class="content_frame" id="shop_frame">
+                <h2 gid="nam">Shop</h2>
+                <h3 gid="desc">Shop Desc</h3>
+                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
+                <div class="city_content">
+                </div>
             </div>
         </div>
-        <div class="content_frame" id="act_frame">
-            <h2 gid="name">Active</h2>
-            <h3 gid="desc">Active Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
-            </div>
-        </div>
-        <div class="content_frame" id="pet_frame">
-            <h2 gid="name">Pet</h2>
-            <h3 gid="desc">Pet Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
-            </div>
-        </div>
-        <div class="content_frame" id="mix_frame">
-            <h2 gid="name">Mixin</h2>
-            <h3 gid="desc">Mixin Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
-            </div>
-        </div>
-        <div class="content_frame" id="map_frame">
-            <h2 gid="name">Map</h2>
-            <h3 gid="desc">Map Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
-            </div>
-        </div>
-        <div class="content_frame" id="cha_frame">
-            <h2 gid="name">Challenge</h2>
-            <h3 gid="desc">Challenge Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
-            </div>
-        </div>
-        <div class="content_frame" id="shop_frame">
-            <h2 gid="name">Shop</h2>
-            <h3 gid="desc">Shop Desc</h3>
-            <div class="city_button" gid="city_back_btn" data="city">Back Town</div>
-            <div class="city_content">
-            </div>
+        <div id="battle">
+          <div id="battle_frame">
+            <btn class="battle_button" gid="leave_battle_btn" data="city">Leave Battle</btn>
+          </div>
         </div>
     </div>
     <script>

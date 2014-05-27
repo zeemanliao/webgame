@@ -1,16 +1,35 @@
 [
 	{
-		"id":1,
-		"nam":"草原",
-		"desc":"適合新手練習的地點",
+		"id":101,
+		"type":"map",
+		"nam":"空曠草地",
+		"desc":"可愛的小動物，在草地上來回奔跑。",
 		"level":1,
 		"position":{"x":1,"y":1}
 	},
 	{
-		"id":2,
-		"nam":"山洞",
-		"desc":"適合新手練習的地點",
+		"id":102,
+		"type":"map",
+		"nam":"彩虹山丘",
+		"desc":"",
 		"level":10,
-		"position":{"x":2,"y":1}
+		"position":{"x":1,"y":2}
+	},
+	{
+		"id":103,
+		"type":"map",
+		"nam":"草原3",
+		"desc":"",
+		"level":30,
+		"position":{"x":1,"y":3}
+	},
+	{
+		"id":104,
+		"type":"map",
+		"nam":"草原4",
+		"desc":"",
+		"level":50,
+		"position":{"x":1,"y":4}
 	}
+
 ]

@@ -17,7 +17,8 @@ BaseViewClass.prototype = {
 
   },
   gid:function(gid_name){
-    return $("[gid='"+gid_name+"']",this.frame.id);
+    //return $("[gid='"+gid_name+"']",this.frame.id);
+    return this.frame.find("[gid='"+gid_name+"']");
   },
   hide:function() {
     var self = this;
@@ -38,16 +39,28 @@ BaseViewClass.prototype = {
       null,
       function(){
         self.frame.show();
-      }
-    );
+    });
   },
-  goto:function(goto_frame) {
-    if (o[goto_frame]) {
-      $('.content_frame').hide();
-      o[goto_frame].show();
-    } else {
-      debug('Object:'+goto_frame+'->can not find');
+  city:function(obj) {
+    var f = o[obj.attr('data')];
+    if ($('#city').is(':hidden')) {
+      $('#battle').hide();
+      $('#city').show();
     }
+    if (f) {
+      $('.content_frame').hide();
+      f.show();
+    } else {
+      debug('Object:'+f.attr("data")+'->can not find');
+    }
+  },
+  battle:function(obj) {
+    var f = o[obj.attr('data')];
+    if ($('#battle').is(':hidden')) {
+      $('#battle').show();
+      $('#city').hide();
+    }
+    debug(obj);
   }
 }
 

@@ -12,8 +12,10 @@ CityClass.prototype.create=function(){
   var self = this;
   this.frame = $('#city_frame');
   this.content = $('.city_content','#city_frame');
+  this.nam = this.gid('nam');
+  this.desc = this.gid('desc');
   //alert(this.frame.attr('id'));
- $('.city_button').live({
+  live('btn',{
     mouseenter: function() {       
       $(this).delay(0).animate({opacity:'1'},50);
     },
@@ -39,13 +41,14 @@ CityClass.prototype.create=function(){
               top: $(this).position().top,
               left: $(this).position().left
             },
-           50,
-           null,
-           function(){
-             self.goto($(this).attr("data"));
-           }
+           50
          );
       }
+  });
+  live('.city_button',{
+    click:function (event) {
+      self.city($(this));
+    }
   });
 }
 

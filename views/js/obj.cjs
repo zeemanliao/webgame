@@ -18,8 +18,10 @@ o.act = new ActClass();
 o.mix = new MixClass();
 o.cha = new ChaClass();
 o.pet = new PetClass();
+o.area = new AreaClass();
 o.map = new MapClass();
 o.shop = new ShopClass();
+o.battle = new BattleClass();
 
 o.city.show();
 
