@@ -1,0 +1,26 @@
+$btnsize: 80px
+
+.area_button
+  +border-radius(2px)
+  +box-shadow(1px 1px 2px #333)
+  +wh($btnsize,$btnsize)
+  border: solid
+  border-width: 2px
+  position: absolute
+  cursor: pointer
+  border-color: green
+  text-align: center
+  line-height: $btnsize * 2 - $padding
+  +opacity(0.6)
+
+#area_frame [enable="true"]
+  border-color: green
+
+#area_frame [enable="false"]
+  border-color: red
+
+$class-slug: area !default
+
+@for $i from 1 through 4
+  @for $j from 1 through 4
+    +gid(#{$class-slug}-#{$i}-#{$j},ColToPix($i,$btnsize),ColToPix($j,$btnsize))

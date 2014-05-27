@@ -1,0 +1,37 @@
+$btnsize2: 30px
+
+.map_button
+  +border-radius(2px)
+  +box-shadow(1px 1px 2px #333)
+  +wh(70%,$btnsize2)
+  border: solid
+  border-width: 1px
+  position: absolute
+  cursor: pointer
+  border-color: green
+  padding-left: 40px
+  line-height: $btnsize2
+  +opacity(0.6)
+  text-align: left
+
+.map_button > [gid="nam"]
+  color: blue
+.map_button > [gid="level"]
+  right: 5px
+  font-size: 70%
+  position: absolute
+.map_button > [gid="desc"]
+  font-size: 70%
+  color: green
+
+#map_frame [enable="true"]
+  border-color: green
+
+#map_frame [enable="false"]
+  border-color: red
+
+$class-slug2: map !default
+
+@for $i from 1 through 4
+  @for $j from 1 through 10
+    +gid(#{$class-slug2}-#{$i}-#{$j},ColToPix($i,$btnsize2),ColToPix($j,$btnsize2))
