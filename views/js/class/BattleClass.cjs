@@ -16,30 +16,7 @@ BattleClass.prototype.create=function(){
   this.content = $('.battle_content','#battle_frame');
   live('.battle_button',{
     click:function (event) {
-        event.preventDefault();
-        
-        $(this).delay(0).animate(
-          {
-            width: $(this).width()+10,
-            height: $(this).height()+10,
-            top: $(this).position().top-5,
-            left: $(this).position().left-5
-          }
-          ,50
-          );
-       $(this).delay(0).animate(
-           {
-              width: $(this).width(),
-              height: $(this).height(),
-              top: $(this).position().top,
-              left: $(this).position().left
-            },
-           50,
-           null,
-           function(){
-             self.city($(this));
-           }
-         );
+      self.city($(this));
       }
   });
 }

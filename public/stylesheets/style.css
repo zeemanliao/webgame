@@ -467,8 +467,27 @@ btn {
   position: absolute;
   cursor: pointer;
   text-align: center;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-  opacity: 0.6;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+
+sel {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  border: solid;
+  border-color: yellow;
+  border-width: 1px;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
 }
 
 #chara_frame {
@@ -1152,5 +1171,184 @@ btn {
   width: 700px;
   height: 400px;
   z-index: 40;
-  display: none;
+}
+
+#skill_frame {
+  z-index: 60;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  width: 100px;
+  height: 200px;
+}
+
+#skill_frame > [gid=skill1] {
+  top: 10px;
+  left: 10px;
+}
+
+#skill_frame > [gid=skill2] {
+  top: 70px;
+  left: 10px;
+}
+
+#skill_frame > [gid=skill3] {
+  top: 130px;
+  left: 10px;
+}
+
+#skill_frame > [gid=skill4] {
+  top: 190px;
+  left: 10px;
+}
+
+#skill_frame > [gid=skill5] {
+  top: 250px;
+  left: 10px;
+}
+
+.skill_button {
+  width: 50px;
+  height: 50px;
+  background: white;
+}
+
+#battle_content {
+  width: 500px;
+  height: 320px;
+  background: #eeffee;
+}
+
+#battle_log {
+  width: 690px;
+  height: 80px;
+  background: #eeeeff;
+  line-height: 50%;
+  overflow-y: auto;
+  top: 400px;
+  left: 100px;
+  font-size: 50%;
+}
+
+[gid=leave_battle_btn] {
+  right: 10px;
+}
+
+enemy {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #ffeeee;
+  cursor: pointer;
+  font-size: 70%;
+}
+
+#team {
+  position: absolute;
+  right: 10px;
+  width: 100px;
+  height: 400px;
+}
+
+team {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #eeeeff;
+  cursor: pointer;
+  font-size: 70%;
+}
+
+enemy > .nam {
+  position: absolute;
+  bottom: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+team > .nam {
+  position: absolute;
+  bottom: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+#enemy > [pos="1-1"] {
+  top: 40px;
+  left: 120px;
+}
+
+#enemy > [pos="1-2"] {
+  top: 100px;
+  left: 120px;
+}
+
+#enemy > [pos="1-3"] {
+  top: 160px;
+  left: 120px;
+}
+
+#enemy > [pos="1-4"] {
+  top: 220px;
+  left: 120px;
+}
+
+#enemy > [pos="1-5"] {
+  top: 280px;
+  left: 120px;
+}
+
+#enemy > [pos="2-1"] {
+  top: 40px;
+  left: 40px;
+}
+
+#enemy > [pos="2-2"] {
+  top: 100px;
+  left: 40px;
+}
+
+#enemy > [pos="2-3"] {
+  top: 160px;
+  left: 40px;
+}
+
+#enemy > [pos="2-4"] {
+  top: 220px;
+  left: 40px;
+}
+
+#enemy > [pos="2-5"] {
+  top: 280px;
+  left: 40px;
+}
+
+#enemy > [pos="king"] {
+  top: 100px;
+  left: 40px;
+}
+
+#team > [pos="1"] {
+  top: 40px;
+  left: 40px;
+}
+
+#team > [pos="2"] {
+  top: 100px;
+  left: 40px;
+}
+
+#team > [pos="3"] {
+  top: 160px;
+  left: 40px;
+}
+
+#team > [pos="4"] {
+  top: 220px;
+  left: 40px;
+}
+
+#team > [pos="5"] {
+  top: 280px;
+  left: 40px;
 }
