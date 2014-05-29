@@ -7,8 +7,9 @@ function route(data){
   if (!data)
     return;
 
-  for (var i in data){
+    for (var i in data){
     var obj = coms[i];
+
     if (obj) {
       debug('指令元件'+i);
       obj.on(data[i]);
@@ -30,12 +31,15 @@ BaseCom.prototype = {
     this.com = com_name;
   },
   emit: function(com2,data){
+    debug('emit act com:'+this.com+',com2:'+com2+',data=>');
+    debug(data);
     socket.emit('act',{com:this.com,com2:com2,data:data});
   },
   on: function(data){
     if (!data){
       return debug(this.com+'.on未傳入資料');
     }
+
     for (var i in data){
       var obj = this[i];
       if (typeof obj != 'function') {
@@ -57,24 +61,28 @@ coms.sys = new BaseCom("sys");
 coms.ready = new BaseCom("ready");
 coms.city = new BaseCom("city");
 coms.guest = new BaseCom("guest");
+coms.map = new BaseCom("map");
+coms.team = new BaseCom("team");
+
+coms.team.list = function() {
+  debug('Team List...');
+}
+coms.map.enter = function(map_id) {
+  o.team.update(map_id);
+  o.city.city('team');
+}
 
 coms.guest.add = function(data){
-  for (var i in data){
-    guest_list.append('<div class="guest" id="guest_list_'+data[i].nam+'">'+
-                    '<img class="guest_photo" alt="Photo" src="'+data[i].photo+'">'+
-                    '<div class="guest_nam">'+data[i].nam+'</div>'+
-                    '<div class="guest_level">Lv.'+data[i].level+'</div>'+
-                    '<div class="guest_cex">Cex:'+data[i].cex+'</div>'+
-                '</div>');
-  }
+  if (data)
+    o.guest.add(data);
+  else
+    debug('Route guest add data empty');
 }
 coms.guest.remove = function(data){
-  var nam = data;
-  if (nam.length >0 ) {
-    $('#guest_list_'+nam).remove();
-  } else {
-    debug('coms.guest.remove('+data+')無移除元件');
-  }
+  if (data)
+    o.guest.remove(data);
+  else
+    debug('Route guest remove nam empty')
 }
 coms.chara.update = function(data) {
   o.chara.update(data);

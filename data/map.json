@@ -5,7 +5,8 @@
 		"nam":"空曠草地",
 		"desc":"可愛的小動物，在草地上來回奔跑。",
 		"level":1,
-		"position":{"x":1,"y":1}
+		"position":{"x":1,"y":1},
+		"teams":[]
 	},
 	{
 		"id":102,
@@ -13,7 +14,8 @@
 		"nam":"彩虹山丘",
 		"desc":"",
 		"level":10,
-		"position":{"x":1,"y":2}
+		"position":{"x":1,"y":2},
+		"teams":[]
 	},
 	{
 		"id":103,
@@ -21,7 +23,8 @@
 		"nam":"草原3",
 		"desc":"",
 		"level":30,
-		"position":{"x":1,"y":3}
+		"position":{"x":1,"y":3},
+		"teams":[]
 	},
 	{
 		"id":104,
@@ -29,7 +32,8 @@
 		"nam":"草原4",
 		"desc":"",
 		"level":50,
-		"position":{"x":1,"y":4}
+		"position":{"x":1,"y":4},
+		"teams":[]
 	}
 
 ]

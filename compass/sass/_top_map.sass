@@ -13,22 +13,21 @@ $btnsize2: 30px
   line-height: $btnsize2
   +opacity(0.6)
   text-align: left
+  [gid="nam"]
+    color: blue
+  [gid="level"]
+    right: 5px
+    font-size: 70%
+    position: absolute
+  [gid="desc"]
+    font-size: 70%
+    color: green
 
-.map_button > [gid="nam"]
-  color: blue
-.map_button > [gid="level"]
-  right: 5px
-  font-size: 70%
-  position: absolute
-.map_button > [gid="desc"]
-  font-size: 70%
-  color: green
-
-#map_frame [enable="true"]
-  border-color: green
-
-#map_frame [enable="false"]
-  border-color: red
+#map_frame
+  [enable="true"]
+    border-color: green
+  [enable="false"]
+    border-color: red
 
 $class-slug2: map !default
 

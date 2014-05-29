@@ -8,49 +8,44 @@ $s_chara_height:70px
 #chara_frame
   +xy($body_margin,$body_margin)
   z-index: $zindex
-#chara_main
-  @extend %all_frame
-  +box-shadow(1px 1px 2px #333)
-  +background-image(linear-gradient(0,#bee,#cff))
-  +xy($body_margin,$body_margin)
-  position: fixed
-  z-index: $zindex - 10
-  +dv(b)
-    +wh($b_chara_width,$b_chara_height)
-  +dv(m)
-    +wh($m_chara_width,$m_chara_height)
-  +dv(s)
-    +wh($s_chara_width,$s_chara_height)
-
-#chara_state
-  @extend %all_frame
-  +box-shadow(1px 1px 2px #333)
-  +background-image(linear-gradient(0,#beb,#cfc))
-  +wh(150px,200px)
-  +xy($body_margin + 7,190px)
-  z-index: $zindex - 20
-  position: fixed
-
-[gid=photo]
-  +border-radius(2px)
-  +box-shadow(1px 1px 2px #333)
-  +bgc(#ccc)
-  +wh(100px,100px)
-  +xy(5px,5px)
-  border: solid
-  border-color: white
-  border-width: 4px
-  position: absolute
-  
-+icon_label(chara_nam,5px,120px,nam)
-+icon_label(chara_gold,5px,155px,gold)
-
-+icon_label(chara_hp,$body_margin,15px,hp)
-+icon_label(chara_ex,$body_margin,15px+32px,ex)
-+icon_label(chara_cex,$body_margin,15px+32px*2,cex)
-+icon_label(chara_dmg,$body_margin,15px+32px*3,dmg)
-+icon_label(chara_mag,$body_margin,15px+32px*4,mag)
-+icon_label(chara_def,$body_margin,15px+32px*5,def)
-
-+icon_label(chara_level,120px,$body_margin,level)
-+icon_label(chara_vipgold,120px,45px,vipgold)
+  #main
+    @extend %all_frame
+    +box-shadow(1px 1px 2px #333)
+    +background-image(linear-gradient(0,#bee,#cff))
+    +xy($body_margin,$body_margin)
+    position: fixed
+    z-index: $zindex - 10
+    +dv(b)
+      +wh($b_chara_width,$b_chara_height)
+    +dv(m)
+      +wh($m_chara_width,$m_chara_height)
+    +dv(s)
+      +wh($s_chara_width,$s_chara_height)
+  #info
+    @extend %all_frame
+    +box-shadow(1px 1px 2px #333)
+    +background-image(linear-gradient(0,#beb,#cfc))
+    +wh(150px,200px)
+    +xy($body_margin + 7,190px)
+    z-index: $zindex - 20
+    position: fixed
+  [gid=photo]
+    +border-radius(2px)
+    +box-shadow(1px 1px 2px #333)
+    +bgc(#ccc)
+    +wh(100px,100px)
+    +xy(5px,5px)
+    border: solid
+    border-color: white
+    border-width: 4px
+    position: absolute
+  +icon_label(nam,5px,120px,nam)
+  +icon_label(gold,5px,155px,gold)
+  +icon_label(hp,$body_margin,15px,hp)
+  +icon_label(ex,$body_margin,15px+32px,ex)
+  +icon_label(cex,$body_margin,15px+32px*2,cex)
+  +icon_label(dmg,$body_margin,15px+32px*3,dmg)
+  +icon_label(mag,$body_margin,15px+32px*4,mag)
+  +icon_label(def,$body_margin,15px+32px*5,def)
+  +icon_label(level,120px,$body_margin,level)
+  +icon_label(vipgold,120px,45px,vipgold)

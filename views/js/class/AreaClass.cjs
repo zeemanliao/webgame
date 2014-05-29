@@ -18,8 +18,14 @@ AreaClass.prototype.create=function(){
   this.desc = this.gid('desc');
   live('.area_button',{
     click:function (event) {
-      o.map.update($(this).attr('area'));
-      self.city($(this));
+      if ($(this).attr('enable') != 'true') {
+        var area = db.areas[$(this).attr('area')];
+        
+        o.message.show('您的等級不足「'+area.level+'」<br><br>無法進入「'+area.nam+'」');
+      } else {
+        o.map.update($(this).attr('area'));
+        self.city($(this));
+      }
     }
   });
 }

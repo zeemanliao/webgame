@@ -18,7 +18,13 @@ MapClass.prototype.create=function(){
   this.desc = this.gid('desc');
   live('.map_button',{
     click:function (event) {
-      self.battle($(this));
+      if ($(this).attr('enable') != 'true') {
+        var map = db.maps[$(this).attr('map')];
+        
+        o.message.show('您的等級不足「'+map.level+'」<br><br>無法進入「'+map.nam+'」');
+      } else {
+        coms.map.emit('enter',$(this).attr('map'));
+      }
     }
   });
 }
@@ -36,7 +42,7 @@ MapClass.prototype.update=function(area){
 
 			var map = db.maps[sub_map_idx[i]];
       
-    this.content.append('<btn data="' + map.id + '" ' +
+    this.content.append('<btn data="team" map="' + map.id + '" ' +
       'enable="'+(o.chara.data.level>=map.level)+'" class="map_button" gid="map-'+
         map.position.x+
         '-'+map.position.y+

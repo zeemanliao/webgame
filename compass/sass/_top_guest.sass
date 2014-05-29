@@ -10,46 +10,38 @@ $frame_h: 400px
   +xy(710px,$body_margin)
   z-index: $zindex - 10
   position: fixed
-  
-.guest_list
-  +box-shadow(1px 1px 2px #333 inset)
-  +xy($body_margin,40px)
-  +wh($frame_w - 20,100% - 15)
-  +bgc(#eee)
-  position: absolute
-  overflow: auto
-  padding: $padding
+  .guest_content
+    +xy($body_margin,40px)
+    +wh($frame_w - 20,100% - 15)
+    position: absolute
+    overflow: auto
+    padding: $padding
 
-.guest
-  +box-shadow(1px 1px 2px #333)
-  +wh(100%,80px)
-  +bgc(#fff)
-  position: relative
-  margin-bottom: $body_margin
-
-.guest > *
-  position: absolute
-
-.guest > .guest_photo
-  +border-radius(2px)
-  +box-shadow(1px 1px 2px #333)
-  +wh($btnsize,$btnsize)
-  +bgc(#eee)
-  border: solid
-  border-color: white
-  border-width: 2px
-  cursor: pointer
-  +xy($body_margin,12px)
-  +wh(50px,50px)
-
-.guest > .guest_nam
-  +xy($body_margin+60,10px)
-  color: blue
-
-.guest > .guest_level
-  +xy($body_margin+60,30px)
-  color: green
-
-.guest > .guest_cex
-  +xy($body_margin+60,50px)
-  color: red
+  .guest
+    +box-shadow(1px 1px 5px #aaa)
+    +wh(100%,80px)
+    +bgc(#fff)
+    position: relative
+    margin-bottom: $body_margin
+    *
+      position: absolute
+    .photo
+      +border-radius(2px)
+      +box-shadow(1px 1px 2px #333)
+      +wh($btnsize,$btnsize)
+      +bgc(#eee)
+      border: solid
+      border-color: white
+      border-width: 2px
+      cursor: pointer
+      +xy($body_margin,12px)
+      +wh(50px,50px)
+    .nam
+      +xy($body_margin+60,10px)
+      color: blue
+    .level
+      +xy($body_margin+60,30px)
+      color: green
+    .cex
+      +xy($body_margin+60,50px)
+      color: red

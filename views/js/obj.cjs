@@ -22,8 +22,9 @@ o.area = new AreaClass();
 o.map = new MapClass();
 o.shop = new ShopClass();
 o.battle = new BattleClass();
+o.guest = new GuestClass();
+o.team = new TeamClass();
 
 o.city.show();
 
-var guest_list = $('.guest_list');
 

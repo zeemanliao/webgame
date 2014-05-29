@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-.content_frame, #chara_main, #chara_state, #guest_frame, #battle {
+.content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -352,17 +352,17 @@ ol, ul {
   border-radius: 3px;
 }
 @media only screen and (max-width: 1200px) {
-  .content_frame, #chara_main, #chara_state, #guest_frame, #battle {
+  .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
     font-size: 100%;
   }
 }
 @media only screen and (max-width: 800px) {
-  .content_frame, #chara_main, #chara_state, #guest_frame, #battle {
+  .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
     font-size: 100%;
   }
 }
 @media only screen and (max-width: 450px) {
-  .content_frame, #chara_main, #chara_state, #guest_frame, #battle {
+  .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
     font-size: 80%;
   }
 }
@@ -495,8 +495,7 @@ sel {
   left: 10px;
   z-index: 50;
 }
-
-#chara_main {
+#chara_frame #main {
   -webkit-box-shadow: 1px 1px 2px #333333;
   -moz-box-shadow: 1px 1px 2px #333333;
   box-shadow: 1px 1px 2px #333333;
@@ -511,25 +510,24 @@ sel {
   z-index: 40;
 }
 @media only screen and (max-width: 1200px) {
-  #chara_main {
+  #chara_frame #main {
     width: 200px;
     height: 170px;
   }
 }
 @media only screen and (max-width: 800px) {
-  #chara_main {
+  #chara_frame #main {
     width: 200px;
     height: 170px;
   }
 }
 @media only screen and (max-width: 450px) {
-  #chara_main {
+  #chara_frame #main {
     width: 90%;
     height: 70px;
   }
 }
-
-#chara_state {
+#chara_frame #info {
   -webkit-box-shadow: 1px 1px 2px #333333;
   -moz-box-shadow: 1px 1px 2px #333333;
   box-shadow: 1px 1px 2px #333333;
@@ -545,8 +543,7 @@ sel {
   z-index: 30;
   position: fixed;
 }
-
-[gid=photo] {
+#chara_frame [gid=photo] {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -565,8 +562,7 @@ sel {
   border-width: 4px;
   position: absolute;
 }
-
-[gid=chara_nam] {
+#chara_frame [gid=nam] {
   top: 120px;
   left: 5px;
   background: url("/images/nam.png") no-repeat left;
@@ -574,8 +570,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_gold] {
+#chara_frame [gid=gold] {
   top: 155px;
   left: 5px;
   background: url("/images/gold.png") no-repeat left;
@@ -583,8 +578,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_hp] {
+#chara_frame [gid=hp] {
   top: 15px;
   left: 10px;
   background: url("/images/hp.png") no-repeat left;
@@ -592,8 +586,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_ex] {
+#chara_frame [gid=ex] {
   top: 47px;
   left: 10px;
   background: url("/images/ex.png") no-repeat left;
@@ -601,8 +594,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_cex] {
+#chara_frame [gid=cex] {
   top: 79px;
   left: 10px;
   background: url("/images/cex.png") no-repeat left;
@@ -610,8 +602,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_dmg] {
+#chara_frame [gid=dmg] {
   top: 111px;
   left: 10px;
   background: url("/images/dmg.png") no-repeat left;
@@ -619,8 +610,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_mag] {
+#chara_frame [gid=mag] {
   top: 143px;
   left: 10px;
   background: url("/images/mag.png") no-repeat left;
@@ -628,8 +618,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_def] {
+#chara_frame [gid=def] {
   top: 175px;
   left: 10px;
   background: url("/images/def.png") no-repeat left;
@@ -637,8 +626,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_level] {
+#chara_frame [gid=level] {
   top: 10px;
   left: 120px;
   background: url("/images/level.png") no-repeat left;
@@ -646,8 +634,7 @@ sel {
   padding-left: 40px;
   line-height: 32px;
 }
-
-[gid=chara_vipgold] {
+#chara_frame [gid=vipgold] {
   top: 45px;
   left: 120px;
   background: url("/images/vipgold.png") no-repeat left;
@@ -738,37 +725,29 @@ sel {
   z-index: 40;
   position: fixed;
 }
-
-.guest_list {
-  -webkit-box-shadow: 1px 1px 2px #333333 inset;
-  -moz-box-shadow: 1px 1px 2px #333333 inset;
-  box-shadow: 1px 1px 2px #333333 inset;
+#guest_frame .guest_content {
   top: 40px;
   left: 10px;
   width: 230px;
   height: 85%;
-  background: #eeeeee;
   position: absolute;
   overflow: auto;
   padding: 10px;
 }
-
-.guest {
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  box-shadow: 1px 1px 2px #333333;
+#guest_frame .guest {
+  -webkit-box-shadow: 1px 1px 5px #aaaaaa;
+  -moz-box-shadow: 1px 1px 5px #aaaaaa;
+  box-shadow: 1px 1px 5px #aaaaaa;
   width: 100%;
   height: 80px;
   background: white;
   position: relative;
   margin-bottom: 10px;
 }
-
-.guest > * {
+#guest_frame .guest * {
   position: absolute;
 }
-
-.guest > .guest_photo {
+#guest_frame .guest .photo {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -789,20 +768,17 @@ sel {
   width: 50px;
   height: 50px;
 }
-
-.guest > .guest_nam {
+#guest_frame .guest .nam {
   top: 10px;
   left: 70px;
   color: blue;
 }
-
-.guest > .guest_level {
+#guest_frame .guest .level {
   top: 30px;
   left: 70px;
   color: green;
 }
-
-.guest > .guest_cex {
+#guest_frame .guest .cex {
   top: 50px;
   left: 70px;
   color: red;
@@ -940,18 +916,15 @@ sel {
   opacity: 0.6;
   text-align: left;
 }
-
-.map_button > [gid="nam"] {
+.map_button [gid="nam"] {
   color: blue;
 }
-
-.map_button > [gid="level"] {
+.map_button [gid="level"] {
   right: 5px;
   font-size: 70%;
   position: absolute;
 }
-
-.map_button > [gid="desc"] {
+.map_button [gid="desc"] {
   font-size: 70%;
   color: green;
 }
@@ -959,7 +932,6 @@ sel {
 #map_frame [enable="true"] {
   border-color: green;
 }
-
 #map_frame [enable="false"] {
   border-color: red;
 }
@@ -1164,6 +1136,28 @@ sel {
   left: 150px;
 }
 
+#team_frame [gid=area_nam] {
+  color: blue;
+}
+#team_frame [gid=map_nam] {
+  color: green;
+}
+#team_frame [gid=map_desc] {
+  color: gray;
+}
+
+input {
+  border: 1px solid #d5d9da;
+  box-shadow: 0 0 5px #e8e9eb inset;
+}
+
+input:focus {
+  border: 1px solid #b9d4e9;
+  border-top-color: #b6d5ea;
+  border-bottom-color: #b8d4ea;
+  box-shadow: 0 0 5px #b9d4e9;
+}
+
 #battle {
   display: none;
   top: 10px;
@@ -1172,54 +1166,95 @@ sel {
   height: 400px;
   z-index: 40;
 }
-
-#skill_frame {
-  z-index: 60;
-  position: absolute;
-  right: 10px;
-  top: 50px;
-  width: 100px;
-  height: 200px;
-}
-
-#skill_frame > [gid=skill1] {
-  top: 10px;
-  left: 10px;
-}
-
-#skill_frame > [gid=skill2] {
-  top: 70px;
-  left: 10px;
-}
-
-#skill_frame > [gid=skill3] {
-  top: 130px;
-  left: 10px;
-}
-
-#skill_frame > [gid=skill4] {
-  top: 190px;
-  left: 10px;
-}
-
-#skill_frame > [gid=skill5] {
-  top: 250px;
-  left: 10px;
-}
-
-.skill_button {
-  width: 50px;
-  height: 50px;
-  background: white;
-}
-
-#battle_content {
+#battle #battle_content {
   width: 500px;
   height: 320px;
   background: #eeffee;
+  float: left;
+  position: relative;
 }
-
-#battle_log {
+#battle #battle_content #team {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 400px;
+}
+#battle #battle_content #enemy {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: 400px;
+}
+#battle #skill_frame {
+  z-index: 60;
+  float: left;
+  position: relative;
+  top: 10px;
+  width: 100px;
+  height: 320px;
+  font-size: 70%;
+}
+#battle #skill_frame [gid=skill1] {
+  top: 10px;
+  left: 10px;
+}
+#battle #skill_frame [gid=skill2] {
+  top: 70px;
+  left: 10px;
+}
+#battle #skill_frame [gid=skill3] {
+  top: 130px;
+  left: 10px;
+}
+#battle #skill_frame [gid=skill4] {
+  top: 190px;
+  left: 10px;
+}
+#battle #skill_frame [gid=skill5] {
+  top: 250px;
+  left: 10px;
+}
+#battle #skill_frame .skill_button {
+  width: 50px;
+  height: 50px;
+  background: white;
+  line-height: 90px;
+}
+#battle #cmd_frame {
+  z-index: 60;
+  float: left;
+  position: relative;
+  right: 20px;
+  top: 10px;
+  width: 100px;
+  height: 320px;
+  font-size: 70%;
+}
+#battle #cmd_frame [gid=cmd1] {
+  top: 10px;
+  left: 10px;
+}
+#battle #cmd_frame [gid=cmd2] {
+  top: 70px;
+  left: 10px;
+}
+#battle #cmd_frame [gid=cmd3] {
+  top: 130px;
+  left: 10px;
+}
+#battle #cmd_frame [gid=cmd4] {
+  top: 190px;
+  left: 10px;
+}
+#battle #cmd_frame [gid=cmd5] {
+  top: 250px;
+  left: 10px;
+}
+#battle #cmd_frame .cmd_button {
+  width: 50px;
+  height: 50px;
+}
+#battle #battle_log {
   width: 690px;
   height: 80px;
   background: #eeeeff;
@@ -1242,12 +1277,11 @@ enemy {
   cursor: pointer;
   font-size: 70%;
 }
-
-#team {
+enemy .nam {
   position: absolute;
-  right: 10px;
-  width: 100px;
-  height: 400px;
+  bottom: 4px;
+  text-align: center;
+  width: 100%;
 }
 
 team {
@@ -1258,97 +1292,75 @@ team {
   cursor: pointer;
   font-size: 70%;
 }
-
-enemy > .nam {
+team .nam {
   position: absolute;
   bottom: 4px;
   text-align: center;
   width: 100%;
 }
 
-team > .nam {
-  position: absolute;
-  bottom: 4px;
-  text-align: center;
-  width: 100%;
-}
-
-#enemy > [pos="1-1"] {
-  top: 40px;
+#enemy [pos="1-1"] {
+  top: 20px;
   left: 120px;
 }
-
-#enemy > [pos="1-2"] {
-  top: 100px;
+#enemy [pos="1-2"] {
+  top: 80px;
   left: 120px;
 }
-
-#enemy > [pos="1-3"] {
-  top: 160px;
+#enemy [pos="1-3"] {
+  top: 140px;
   left: 120px;
 }
-
-#enemy > [pos="1-4"] {
-  top: 220px;
+#enemy [pos="1-4"] {
+  top: 200px;
   left: 120px;
 }
-
-#enemy > [pos="1-5"] {
-  top: 280px;
+#enemy [pos="1-5"] {
+  top: 260px;
   left: 120px;
 }
-
-#enemy > [pos="2-1"] {
-  top: 40px;
-  left: 40px;
+#enemy [pos="2-1"] {
+  top: 20px;
+  left: 20px;
+}
+#enemy [pos="2-2"] {
+  top: 80px;
+  left: 20px;
+}
+#enemy [pos="2-3"] {
+  top: 140px;
+  left: 20px;
+}
+#enemy [pos="2-4"] {
+  top: 200px;
+  left: 20px;
+}
+#enemy [pos="2-5"] {
+  top: 260px;
+  left: 20px;
+}
+#enemy [pos="king"] {
+  top: 80px;
+  left: 20px;
 }
 
-#enemy > [pos="2-2"] {
-  top: 100px;
+#team [pos="1"] {
+  top: 20px;
   left: 40px;
 }
-
-#enemy > [pos="2-3"] {
-  top: 160px;
+#team [pos="2"] {
+  top: 80px;
   left: 40px;
 }
-
-#enemy > [pos="2-4"] {
-  top: 220px;
+#team [pos="3"] {
+  top: 140px;
   left: 40px;
 }
-
-#enemy > [pos="2-5"] {
-  top: 280px;
+#team [pos="4"] {
+  top: 200px;
   left: 40px;
 }
-
-#enemy > [pos="king"] {
-  top: 100px;
-  left: 40px;
-}
-
-#team > [pos="1"] {
-  top: 40px;
-  left: 40px;
-}
-
-#team > [pos="2"] {
-  top: 100px;
-  left: 40px;
-}
-
-#team > [pos="3"] {
-  top: 160px;
-  left: 40px;
-}
-
-#team > [pos="4"] {
-  top: 220px;
-  left: 40px;
-}
-
-#team > [pos="5"] {
-  top: 280px;
+#team [pos="5"] {
+  top: 260px;
   left: 40px;
 }

@@ -13,16 +13,16 @@ CharaClass.prototype.create=function(){
   var self = this;
   this.frame = $('#chara_frame');
   
-  this.v.nam = this.gid('chara_nam');
-  this.v.level = this.gid('chara_level');
-  this.v.gold = this.gid('chara_gold');
-  this.v.vipgold = this.gid('chara_vipgold');
-  this.v.dmg = this.gid('chara_dmg');
-  this.v.mag = this.gid('chara_mag');
-  this.v.def = this.gid('chara_def');
-  this.v.hp = this.gid('chara_hp');
-  this.v.ex = this.gid('chara_ex');
-  this.v.cex = this.gid('chara_cex');
+  this.v.nam = this.gid('nam');
+  this.v.level = this.gid('level');
+  this.v.gold = this.gid('gold');
+  this.v.vipgold = this.gid('vipgold');
+  this.v.dmg = this.gid('dmg');
+  this.v.mag = this.gid('mag');
+  this.v.def = this.gid('def');
+  this.v.hp = this.gid('hp');
+  this.v.ex = this.gid('ex');
+  this.v.cex = this.gid('cex');
   this.v.photo = this.gid('photo');
   
 }

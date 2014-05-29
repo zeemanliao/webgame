@@ -42,7 +42,11 @@ BaseViewClass.prototype = {
     });
   },
   city:function(obj) {
-    var f = o[obj.attr('data')];
+    var f;
+    if (typeof(obj) == 'string')
+      f = o[obj];
+    else
+      f = o[obj.attr('data')];
     if ($('#city').is(':hidden')) {
       $('#battle').hide();
       $('#city').show();
@@ -51,16 +55,16 @@ BaseViewClass.prototype = {
       $('.content_frame').hide();
       f.show();
     } else {
-      debug('Object:'+f.attr("data")+'->can not find');
+      debug('Object:'+obj.attr('data')+'->can not find');
     }
   },
-  battle:function(obj) {
-    var f = o[obj.attr('data')];
+  battle:function(room_id) {
+    
     if ($('#battle').is(':hidden')) {
       $('#battle').show();
       $('#city').hide();
     }
-    debug(obj);
+    debug(map_id);
   }
 }
 
