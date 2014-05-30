@@ -1,4 +1,5 @@
 $btnsize: 80px
+$sub_btnsize: 40px
 @mixin city_btn($gid,$col,$row,$color)
   +gid($gid,ColToPix($col,$btnsize),ColToPix($row,$btnsize))
     +bgc($color)
@@ -25,12 +26,28 @@ $btnsize: 80px
 
 +city_btn(city_cha_btn,2,3,#fee)
 
-
-+gid(city_back_btn)
-  +bgc(#fce)
-  right: $body_margin
-  top: $body_margin 
-  position: absolute
-  z-index: $zindex+10
-  +wh(60px,60px)
-  line-height: 120px - $padding
+.content_frame
+  +gid(sub_btn_1)
+    +bgc(#fce)
+    right: $body_margin
+    top: $body_margin 
+    position: absolute
+    z-index: $zindex+10
+    +wh($sub_btnsize,$sub_btnsize)
+    line-height: $sub_btnsize
+  +gid(sub_btn_2)
+    +bgc(#fde)
+    right: $body_margin * 2 + $sub_btnsize
+    top: $body_margin 
+    position: absolute
+    z-index: $zindex+10
+    +wh($sub_btnsize,$sub_btnsize)
+    line-height: $sub_btnsize
+  +gid(sub_btn_3)
+    +bgc(#fee)
+    right: $body_margin * 3 + $sub_btnsize * 2
+    top: $body_margin 
+    position: absolute
+    z-index: $zindex+10
+    +wh($sub_btnsize,$sub_btnsize)
+    line-height: $sub_btnsize

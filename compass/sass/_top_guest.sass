@@ -1,22 +1,21 @@
 $guestsize: 60px
-$frame_w: 250px
-$frame_h: 400px
+$guest_w: 250px
+$guest_h: $frame_h
 
 #guest_frame
   @extend %all_frame
-  +box-shadow(1px 1px 2px #333)
+  +box-shadow(0px 0px 3px #333)
   +background-image(linear-gradient(0,#eec,#ffe))
-  +wh($frame_w,$frame_h)
+  +wh($guest_w,$guest_h)
   +xy(710px,$body_margin)
   z-index: $zindex - 10
   position: fixed
   .guest_content
     +xy($body_margin,40px)
-    +wh($frame_w - 20,100% - 15)
+    +wh($guest_w - 20,100% - 15)
     position: absolute
     overflow: auto
     padding: $padding
-
   .guest
     +box-shadow(1px 1px 5px #aaa)
     +wh(100%,80px)
@@ -26,14 +25,6 @@ $frame_h: 400px
     *
       position: absolute
     .photo
-      +border-radius(2px)
-      +box-shadow(1px 1px 2px #333)
-      +wh($btnsize,$btnsize)
-      +bgc(#eee)
-      border: solid
-      border-color: white
-      border-width: 2px
-      cursor: pointer
       +xy($body_margin,12px)
       +wh(50px,50px)
     .nam

@@ -5,19 +5,26 @@
     color: green
   +gid(map_desc)
     color: gray
-input 
-  border: 1px solid #d5d9da
-  box-shadow: 0 0 5px #e8e9eb inset
-input:focus 
-  border: 1px solid #b9d4e9
-  border-top-color: #b6d5ea
-  border-bottom-color: #b8d4ea
-  box-shadow: 0 0 5px #b9d4e9
-
-hr
-  border: 0
-  height: 1px
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) 
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) 
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) 
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0))
+  +gid(create_team)
+    position: static
+  #team_list
+    overflow-y: auto
+    overflow-x: 0
+    +wh($frame_w,300px)
+    margin-left: 0px
+    list-style-position: outside
+  .team
+    +wh($frame_w - $body_margin * 2,60px)
+    +bgc(#eee)
+    position: relative
+    margin-bottom: $body_margin
+    line-height: 60px
+    .photo
+      +wh(40px,40px)
+    .join
+      top: 7px
+      right: 7px
+      +wh(40px,40px)
+      +bgc(#fe6)
+      position: absolute
+      line-height: 40px

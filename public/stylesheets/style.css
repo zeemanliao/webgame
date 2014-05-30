@@ -350,21 +350,7 @@ ol, ul {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-}
-@media only screen and (max-width: 1200px) {
-  .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
-    font-size: 100%;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
-    font-size: 100%;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
-    font-size: 80%;
-  }
+  font-size: 100%;
 }
 
 .label {
@@ -375,6 +361,22 @@ ol, ul {
 .number {
   position: absolute;
   color: #226622;
+}
+
+.photo {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 1px #333333;
+  -moz-box-shadow: 0px 0px 1px #333333;
+  box-shadow: 0px 0px 1px #333333;
+  background: #eeeeee;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
+  cursor: pointer;
 }
 
 html {
@@ -414,7 +416,6 @@ html {
   top: 25%;
   left: 25%;
   width: 50%;
-  height: 50%;
   -webkit-box-shadow: 1px 1px 2px #888888;
   -moz-box-shadow: 1px 1px 2px #888888;
   box-shadow: 1px 1px 2px #888888;
@@ -432,7 +433,7 @@ html {
   top: 10px;
   left: 240px;
   width: 440px;
-  height: 400px;
+  height: 500px;
   z-index: 40;
   display: none;
 }
@@ -444,12 +445,15 @@ html {
   position: absolute;
 }
 
-.content_frame > [gid="nam"] {
+.content_frame [gid=nam] {
   color: blue;
 }
-
-.content_frame > [gid="desc"] {
+.content_frame [gid=desc] {
   color: #666666;
+}
+
+.message {
+  color: #636363;
 }
 
 btn {
@@ -464,11 +468,11 @@ btn {
   border: solid;
   border-color: white;
   border-width: 2px;
-  position: absolute;
   cursor: pointer;
   text-align: center;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
+  position: absolute;
 }
 
 sel {
@@ -490,15 +494,36 @@ sel {
   opacity: 0.8;
 }
 
+input {
+  border: 1px solid #d5d9da;
+  box-shadow: 0 0 5px #e8e9eb inset;
+}
+
+input:focus {
+  border: 1px solid #b9d4e9;
+  border-top-color: #b6d5ea;
+  border-bottom-color: #b8d4ea;
+  box-shadow: 0 0 5px #b9d4e9;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
 #chara_frame {
   top: 10px;
   left: 10px;
   z-index: 50;
 }
 #chara_frame #main {
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  box-shadow: 1px 1px 2px #333333;
+  -webkit-box-shadow: 0px 0px 2px #333333;
+  -moz-box-shadow: 0px 0px 2px #333333;
+  box-shadow: 0px 0px 2px #333333;
   background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeeee), color-stop(100%, #ccffff));
   background-image: -webkit-linear-gradient(0, #bbeeee, #ccffff);
   background-image: -moz-linear-gradient(0, #bbeeee, #ccffff);
@@ -508,37 +533,21 @@ sel {
   left: 10px;
   position: fixed;
   z-index: 40;
-}
-@media only screen and (max-width: 1200px) {
-  #chara_frame #main {
-    width: 200px;
-    height: 170px;
-  }
-}
-@media only screen and (max-width: 800px) {
-  #chara_frame #main {
-    width: 200px;
-    height: 170px;
-  }
-}
-@media only screen and (max-width: 450px) {
-  #chara_frame #main {
-    width: 90%;
-    height: 70px;
-  }
+  width: 200px;
+  height: 220px;
 }
 #chara_frame #info {
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  box-shadow: 1px 1px 2px #333333;
+  -webkit-box-shadow: 0px 0px 2px #333333;
+  -moz-box-shadow: 0px 0px 2px #333333;
+  box-shadow: 0px 0px 2px #333333;
   background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
   background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
   background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
   background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
   background-image: linear-gradient(0, #bbeebb, #ccffcc);
   width: 150px;
-  height: 200px;
-  top: 190px;
+  height: 280px;
+  top: 240px;
   left: 17px;
   z-index: 30;
   position: fixed;
@@ -698,28 +707,48 @@ sel {
   background: #ffeeee;
 }
 
-[gid=city_back_btn] {
+.content_frame [gid=sub_btn_1] {
   background: #ffccee;
   right: 10px;
   top: 10px;
   position: absolute;
   z-index: 60;
-  width: 60px;
-  height: 60px;
-  line-height: 110px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+.content_frame [gid=sub_btn_2] {
+  background: #ffddee;
+  right: 60px;
+  top: 10px;
+  position: absolute;
+  z-index: 60;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+.content_frame [gid=sub_btn_3] {
+  background: #ffeeee;
+  right: 110px;
+  top: 10px;
+  position: absolute;
+  z-index: 60;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
 }
 
 #guest_frame {
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  box-shadow: 1px 1px 2px #333333;
+  -webkit-box-shadow: 0px 0px 3px #333333;
+  -moz-box-shadow: 0px 0px 3px #333333;
+  box-shadow: 0px 0px 3px #333333;
   background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #eeeecc), color-stop(100%, #ffffee));
   background-image: -webkit-linear-gradient(0, #eeeecc, #ffffee);
   background-image: -moz-linear-gradient(0, #eeeecc, #ffffee);
   background-image: -o-linear-gradient(0, #eeeecc, #ffffee);
   background-image: linear-gradient(0, #eeeecc, #ffffee);
   width: 250px;
-  height: 400px;
+  height: 500px;
   top: 10px;
   left: 710px;
   z-index: 40;
@@ -748,21 +777,6 @@ sel {
   position: absolute;
 }
 #guest_frame .guest .photo {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  box-shadow: 1px 1px 2px #333333;
-  width: 80px;
-  height: 80px;
-  background: #eeeeee;
-  border: solid;
-  border-color: white;
-  border-width: 2px;
-  cursor: pointer;
   top: 12px;
   left: 10px;
   width: 50px;
@@ -1145,26 +1159,37 @@ sel {
 #team_frame [gid=map_desc] {
   color: gray;
 }
-
-input {
-  border: 1px solid #d5d9da;
-  box-shadow: 0 0 5px #e8e9eb inset;
+#team_frame [gid=create_team] {
+  position: static;
 }
-
-input:focus {
-  border: 1px solid #b9d4e9;
-  border-top-color: #b6d5ea;
-  border-bottom-color: #b8d4ea;
-  box-shadow: 0 0 5px #b9d4e9;
+#team_frame #team_list {
+  overflow-y: auto;
+  overflow-x: 0;
+  width: 440px;
+  height: 300px;
+  margin-left: 0px;
+  list-style-position: outside;
 }
-
-hr {
-  border: 0;
-  height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+#team_frame .team {
+  width: 420px;
+  height: 60px;
+  background: #eeeeee;
+  position: relative;
+  margin-bottom: 10px;
+  line-height: 60px;
+}
+#team_frame .team .photo {
+  width: 40px;
+  height: 40px;
+}
+#team_frame .team .join {
+  top: 7px;
+  right: 7px;
+  width: 40px;
+  height: 40px;
+  background: #ffee66;
+  position: absolute;
+  line-height: 40px;
 }
 
 #battle {
@@ -1172,12 +1197,12 @@ hr {
   top: 10px;
   left: 240px;
   width: 700px;
-  height: 400px;
+  height: 500px;
   z-index: 40;
 }
 #battle #battle_content {
   width: 500px;
-  height: 320px;
+  height: 420px;
   background: #eeffee;
   float: left;
   position: relative;
@@ -1186,13 +1211,13 @@ hr {
   position: absolute;
   right: 0;
   width: 100px;
-  height: 400px;
+  height: 500px;
 }
 #battle #battle_content #enemy {
   position: absolute;
   left: 0;
   width: 100px;
-  height: 400px;
+  height: 500px;
 }
 #battle #skill_frame {
   z-index: 60;
@@ -1200,7 +1225,7 @@ hr {
   position: relative;
   top: 10px;
   width: 100px;
-  height: 320px;
+  height: 420px;
   font-size: 70%;
 }
 #battle #skill_frame [gid=skill1] {
@@ -1236,7 +1261,7 @@ hr {
   right: 20px;
   top: 10px;
   width: 100px;
-  height: 320px;
+  height: 420px;
   font-size: 70%;
 }
 #battle #cmd_frame [gid=cmd1] {
@@ -1269,7 +1294,7 @@ hr {
   background: #eeeeff;
   line-height: 50%;
   overflow-y: auto;
-  top: 400px;
+  top: 500px;
   left: 100px;
   font-size: 50%;
 }

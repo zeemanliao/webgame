@@ -7,15 +7,15 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
-<!--
+    <!--
     <script src="http://www.google.com/jsapi"></script>
     <script>
     google.load("jquery", "1");
     google.load("jqueryui", "1");
     </script>
 -->
-<script src="/javascripts/jquery-1.11.1.min.js"></script>
-<script src="/javascripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/jquery-ui-1.10.4.custom.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
@@ -49,164 +49,216 @@
                 <div class="number" gid="vipgold">Loaing...</div>
             </div>
         </div>
-      </div>
-        <div class="content_frame" id="city_frame">
-            <h2 gid="nam">City Name</h2>
-            <h3 gid="desc">City Desc</h3>
-            <div class="city_content">
-                <btn class="city_button" gid="city_quest_btn" data="quest">
-                    Quest
-                </btn>
-                <btn class="city_button" gid="city_pet_btn" data="pet">
-                    Pet
-                </btn>
-                <btn class="city_button" gid="city_mix_btn" data="mix">
-                    Mix
-                </btn>
-                <btn class="city_button" gid="city_act_btn" data="act">
-                    Act
-                </btn>
-                <btn class="city_button" gid="city_shop_btn" data="shop">
-                    Shop
-                </btn>
-                <btn class="city_button" gid="city_area_btn" data="area">
-                    Area
-                </btn>
-                <btn class="city_button" gid="city_cha_btn" data="cha">
-                    Cha
-                </btn>
-            </div>
+    </div>
+    <div class="content_frame" id="city_frame">
+        <h2 gid="nam">City Name</h2>
+        <h3 gid="desc">City Desc</h3>
+        <div class="city_content">
+            <btn class="city_button" gid="city_quest_btn" data="quest">
+                Quest
+            </btn>
+            <btn class="city_button" gid="city_pet_btn" data="pet">
+                Pet
+            </btn>
+            <btn class="city_button" gid="city_mix_btn" data="mix">
+                Mix
+            </btn>
+            <btn class="city_button" gid="city_act_btn" data="act">
+                Act
+            </btn>
+            <btn class="city_button" gid="city_shop_btn" data="shop">
+                Shop
+            </btn>
+            <btn class="city_button" gid="city_area_btn" data="area">
+                Area
+            </btn>
+            <btn class="city_button" gid="city_cha_btn" data="cha">
+                Cha
+            </btn>
         </div>
-        <div id="city">
+    </div>
+    <div id="city">
         <div id="guest_frame">
             Guest List
             <div class="guest_content">
 
             </div>
         </div>
-            <div class="content_frame" id="quest_frame">
-                <h2 gid="nam">Quest</h2>
-                <h3 gid="desc">Quest Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="act_frame">
-                <h2 gid="nam">Active</h2>
-                <h3 gid="desc">Active Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="pet_frame">
-                <h2 gid="nam">Pet</h2>
-                <h3 gid="desc">Pet Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="mix_frame">
-                <h2 gid="nam">Mixin</h2>
-                <h3 gid="desc">Mixin Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="area_frame">
-                <h2 gid="nam">Area</h2>
-                <h3 gid="desc">Area Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="map_frame">
-                <h2 gid="nam">Map</h2>
-                <h3 gid="desc">Map Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="area">Back Area</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="cha_frame">
-                <h2 gid="nam">Challenge</h2>
-                <h3 gid="desc">Challenge Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="shop_frame">
-                <h2 gid="nam">Shop</h2>
-                <h3 gid="desc">Shop Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
-            </div>
-            <div class="content_frame" id="team_frame">
-                <h2 gid="nam">Team</h2>
-                <h3 gid="desc">Team Desc</h3>
-                <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-                <div class="city_content">
-                </div>
+        <div class="content_frame" id="quest_frame">
+            <h2 gid="nam">Quest</h2>
+            <h3 gid="desc">Quest Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
             </div>
         </div>
-        <div id="battle">
-          <div id="battle_frame">
-            <btn class="battle_button" gid="leave_battle_btn" data="city">Leave<BR>Battle</btn>
+        <div class="content_frame" id="act_frame">
+            <h2 gid="nam">Active</h2>
+            <h3 gid="desc">Active Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="pet_frame">
+            <h2 gid="nam">Pet</h2>
+            <h3 gid="desc">Pet Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="mix_frame">
+            <h2 gid="nam">Mixin</h2>
+            <h3 gid="desc">Mixin Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="area_frame">
+            <h2 gid="nam">Area</h2>
+            <h3 gid="desc">Area Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="map_frame">
+            <h2 gid="nam">Map</h2>
+            <h3 gid="desc">Map Desc</h3>
+            <btn class="city_button" gid="sub_btn_2" data="area">Area</btn>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="cha_frame">
+            <h2 gid="nam">Challenge</h2>
+            <h3 gid="desc">Challenge Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="shop_frame">
+            <h2 gid="nam">Shop</h2>
+            <h3 gid="desc">Shop Desc</h3>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            <div class="city_content">
+            </div>
+        </div>
+        <div class="content_frame" id="team_frame">
+            <h2 gid="nam">Team</h2>
+            <h3 gid="desc">Team Desc</h3>
+            <hr>
+            <span gid="area_nam">Area Nam</span>
+            <span gid="map_nam">Map Nam</span>
+            <span gid="map_desc">Map Desc</span>
+            <p>
+                Pass:
+                <input type="password" size="10"></input>
+                <btn gid="create_team">Create Team</btn>
+            </p>
+            <btn class="city_button" gid="sub_btn_3" data="map">Map</btn>
+            <btn class="city_button" gid="sub_btn_2" data="area">Area</btn>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
+            </div>
+        </div>
+    </div>
+    <div id="battle">
+        <div id="battle_frame">
+            <btn class="battle_button" gid="leave_battle_btn" data="city">Leave
+                <BR>Battle</btn>
             <div id="battle_content">
-              <div id="enemy">
-                <enemy pos="1-1"><span class="nam">M 1-1</span><hp></hp></enemy>
-                <enemy pos="1-2"><span class="nam">M 1-2</span><hp></hp></enemy>
-                <enemy pos="1-3"><span class="nam">M 1-3</span><hp></hp></enemy>
-                <enemy pos="1-4"><span class="nam">M 1-4</span><hp></hp></enemy>
-                <enemy pos="1-5"><span class="nam">M 1-5</span><hp></hp></enemy>
-                <enemy pos="2-1"><span class="nam">M 2-1</span><hp></hp></enemy>
-                <enemy pos="2-2"><span class="nam">M 2-2</span><hp></hp></enemy>
-                <enemy pos="2-3"><span class="nam">M 2-3</span><hp></hp></enemy>
-                <enemy pos="2-4"><span class="nam">M 2-4</span><hp></hp></enemy>
-                <enemy pos="2-5"><span class="nam">M 2-5</span><hp></hp></enemy>
-              </div>
-              <div id="team">
-                <team pos="1"><span class="nam">P Name</span><hp></hp></team>
-                <team pos="2"></team>
-                <team pos="3"></team>
-                <team pos="4"></team>
-                <team pos="5"></team>
-              </div>
+                <div id="enemy">
+                    <enemy pos="1-1">
+                        <span class="nam">M 1-1</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="1-2">
+                        <span class="nam">M 1-2</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="1-3">
+                        <span class="nam">M 1-3</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="1-4">
+                        <span class="nam">M 1-4</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="1-5">
+                        <span class="nam">M 1-5</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="2-1">
+                        <span class="nam">M 2-1</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="2-2">
+                        <span class="nam">M 2-2</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="2-3">
+                        <span class="nam">M 2-3</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="2-4">
+                        <span class="nam">M 2-4</span>
+                        <hp></hp>
+                    </enemy>
+                    <enemy pos="2-5">
+                        <span class="nam">M 2-5</span>
+                        <hp></hp>
+                    </enemy>
+                </div>
+                <div id="team">
+                    <team pos="1">
+                        <span class="nam">P Name</span>
+                        <hp></hp>
+                    </team>
+                    <team pos="2"></team>
+                    <team pos="3"></team>
+                    <team pos="4"></team>
+                    <team pos="5"></team>
+                </div>
             </div>
             <div id="skill_frame">
-              <sel class="skill_button" gid="skill1" data="1">Skill 1</sel>
-              <sel class="skill_button" gid="skill2" data="2">Skill 2</sel>
-              <sel class="skill_button" gid="skill3" data="3">Skill 3</sel>
-              <sel class="skill_button" gid="skill4" data="4">Skill 4</sel>
-              <sel class="skill_button" gid="skill5" data="5$">Skill 5</sel>
+                <sel class="skill_button" gid="skill1" data="1">Skill 1</sel>
+                <sel class="skill_button" gid="skill2" data="2">Skill 2</sel>
+                <sel class="skill_button" gid="skill3" data="3">Skill 3</sel>
+                <sel class="skill_button" gid="skill4" data="4">Skill 4</sel>
+                <sel class="skill_button" gid="skill5" data="5$">Skill 5</sel>
             </div>
             <div id="cmd_frame">
-              <btn class="cmd_button" gid="cmd1" data="1">Cmd 1</btn>
-              <btn class="cmd_button" gid="cmd2" data="2">Cmd 2</btn>
-              <btn class="cmd_button" gid="cmd3" data="3">Cmd 3</btn>
-              <btn class="cmd_button" gid="cmd4" data="4">Cmd 4</btn>
-              <btn class="cmd_button" gid="cmd5" data="5">Cmd 5</btn>
-            </div>
-          </div>
-            <div id="battle_log">
-                <p><span></span>.............Test</p>
-                <p><span></span>.............Test</p>
-                <p><span></span>.............Test</p>
-                <p><span></span>.............Test</p>
-                <p><span></span>.............Test</p>
-                <p><span></span>.............Test</p>
-                <p><span></span>.............Test</p>
+                <btn class="cmd_button" gid="cmd1" data="1">Cmd 1</btn>
+                <btn class="cmd_button" gid="cmd2" data="2">Cmd 2</btn>
+                <btn class="cmd_button" gid="cmd3" data="3">Cmd 3</btn>
+                <btn class="cmd_button" gid="cmd4" data="4">Cmd 4</btn>
+                <btn class="cmd_button" gid="cmd5" data="5">Cmd 5</btn>
             </div>
         </div>
+        <div id="battle_log">
+            <p>
+                <span></span>.............Test</p>
+            <p>
+                <span></span>.............Test</p>
+            <p>
+                <span></span>.............Test</p>
+            <p>
+                <span></span>.............Test</p>
+            <p>
+                <span></span>.............Test</p>
+            <p>
+                <span></span>.............Test</p>
+            <p>
+                <span></span>.............Test</p>
+        </div>
+    </div>
     </div>
     </div>
     <script>
     window.onload = function() { 
-        <%include js/Modernizr.cjs%> 
-        <%include js/main.cjs%>
-        <%include js/baseclass.cjs%> 
-        <%-classjs%> 
-        <%include js/obj.cjs%> 
-        <%include js/event.cjs%>
+      <%include js/Modernizr.cjs%> 
+      <%include js/main.cjs%> 
+      <%include js/baseclass.cjs%> 
+      <%-classjs%> 
+      <%include js/obj.cjs%> 
+      <%include js/event.cjs%>
 
 
         window.onresize = function(event) {

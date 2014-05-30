@@ -1,32 +1,26 @@
-$b_chara_width:200px
-$m_chara_width:200px
-$s_chara_width:90%
-$b_chara_height:170px
-$m_chara_height:170px
-$s_chara_height:70px
+$chara_main_w:200px
+$chara_main_h:220px
 
+
+$chara_info_w:150px
+$chara_info_h:$frame_h - $chara_main_h
 #chara_frame
   +xy($body_margin,$body_margin)
   z-index: $zindex
   #main
     @extend %all_frame
-    +box-shadow(1px 1px 2px #333)
+    +box-shadow(0px 0px 2px #333)
     +background-image(linear-gradient(0,#bee,#cff))
     +xy($body_margin,$body_margin)
     position: fixed
     z-index: $zindex - 10
-    +dv(b)
-      +wh($b_chara_width,$b_chara_height)
-    +dv(m)
-      +wh($m_chara_width,$m_chara_height)
-    +dv(s)
-      +wh($s_chara_width,$s_chara_height)
+    +wh($chara_main_w,$chara_main_h)
   #info
     @extend %all_frame
-    +box-shadow(1px 1px 2px #333)
+    +box-shadow(0px 0px 2px #333)
     +background-image(linear-gradient(0,#beb,#cfc))
-    +wh(150px,200px)
-    +xy($body_margin + 7,190px)
+    +wh($chara_info_w,$chara_info_h)
+    +xy($body_margin + 7,$chara_main_h + 20px)
     z-index: $zindex - 20
     position: fixed
   [gid=photo]

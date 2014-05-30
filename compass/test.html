@@ -92,14 +92,31 @@
             <span gid="map_nam">Map Nam</span>
             <span gid="map_desc">Map Desc</span>
             <p>
-            Pass:<input type="password" size="10"></input><btn gid="create_team">Create Team</btn>
+                Pass:
+                <input type="password" size="10"></input>
+                <btn gid="create_team">Create Team</btn><span class="message">(沒設定密碼視為公開房)</span>
             </p>
-            <btn class="city_button" gid="city_back_btn" data="city">Back Town</btn>
-            <div class="city_content">
+            <ul id="team_list">
+              <li class="team">
+                <img class="photo"></img>
+                <btn class="join">Join</btn>
+              </li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+              <li class="team"></li>
+            </ul>
+            <btn class="city_button" gid="sub_btn_3" data="map">Map</btn>
+            <btn class="city_button" gid="sub_btn_2" data="area">Area</btn>
+            <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 </body>
 <script>
