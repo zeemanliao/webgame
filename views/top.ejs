@@ -57,7 +57,7 @@
             <btn class="city_button" gid="city_quest_btn" data="quest">
                 Quest
             </btn>
-            <btn class="city_button" gid="city_pet_btn" data="pet">
+            <btn class="city_button" gid="city_pet_btn" data="peta">
                 Pet
             </btn>
             <btn class="city_button" gid="city_mix_btn" data="mix">
@@ -122,6 +122,9 @@
         <div class="content_frame" id="map_frame">
             <h2 gid="nam">Map</h2>
             <h3 gid="desc">Map Desc</h3>
+            <hr>
+            <span gid="area_nam">Area Nam</span>
+            <span gid="area_desc">Area Desc</span>
             <btn class="city_button" gid="sub_btn_2" data="area">Area</btn>
             <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
             <div class="city_content">
@@ -150,9 +153,40 @@
             <span gid="map_desc">Map Desc</span>
             <p>
                 Pass:
-                <input type="password" size="10"></input>
-                <btn gid="create_team">Create Team</btn>
+                <input type="password" gid="team_pass" size="10"></input>
+                <btn gid="create_team">Create Team</btn><span class="message">(沒設定密碼視為公開房)</span>
             </p>
+            <div class="city_content">
+              <div class="team">
+              <btn class="join">Join</btn>
+              <ul class="members">
+                <li class ="member" sn="0">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+                <li class ="member" sn="1">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+                <li class ="member" sn="2">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+                <li class ="member" sn="3">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+              </ul>
+              </div>
+            </div>
             <btn class="city_button" gid="sub_btn_3" data="map">Map</btn>
             <btn class="city_button" gid="sub_btn_2" data="area">Area</btn>
             <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>

@@ -22,5 +22,8 @@ LocalStorageClass.prototype = {
   put:function(d,data) {
     localStorage[d] = JSON.stringify(data)
   	this[d] = data;
+    if (d == 'citys') {
+      o.city.updateInfo();
+    }
   }
 }

@@ -43,15 +43,19 @@ BaseViewClass.prototype = {
   },
   city:function(obj) {
     var f;
+    var cmd;
     if (typeof(obj) == 'string')
-      f = o[obj];
+      cmd = obj;
     else
-      f = o[obj.attr('data')];
-    if ($('#city').is(':hidden')) {
-      $('#battle').hide();
-      $('#city').show();
-    }
+      cmd = obj.attr('data');
+
+    f = o[cmd];
+    coms.city.emit('enter',cmd);
     if (f) {
+      if ($('#city').is(':hidden')) {
+        $('#battle').hide();
+        $('#city').show();
+      }
       $('.content_frame').hide();
       f.show();
     } else {

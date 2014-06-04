@@ -53,3 +53,17 @@ function bind(obj,fn){
 function live(obj,fn){
   $(document).on(fn,obj);
 }
+
+
+
+live('input',{
+  focus:function(){
+    $(this).addClass('focus');
+  },
+  blur:function(){
+    $(this).removeClass('focus');
+  },
+  mouseover:function(){
+    $(this).focus();
+  }
+});

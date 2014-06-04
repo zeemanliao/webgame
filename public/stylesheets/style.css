@@ -515,6 +515,10 @@ hr {
   background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
+.focus {
+  background: #f2f26f;
+}
+
 #chara_frame {
   top: 10px;
   left: 10px;
@@ -712,7 +716,7 @@ hr {
   right: 10px;
   top: 10px;
   position: absolute;
-  z-index: 60;
+  z-index: 80;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -722,7 +726,7 @@ hr {
   right: 60px;
   top: 10px;
   position: absolute;
-  z-index: 60;
+  z-index: 80;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -732,7 +736,7 @@ hr {
   right: 110px;
   top: 10px;
   position: absolute;
-  z-index: 60;
+  z-index: 80;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -908,7 +912,19 @@ hr {
   left: 300px;
 }
 
-.map_button {
+#map_frame [enable="true"] {
+  border-color: green;
+}
+#map_frame [enable="false"] {
+  border-color: red;
+}
+#map_frame [gid=area_nam] {
+  color: green;
+}
+#map_frame [gid=area_desc] {
+  color: gray;
+}
+#map_frame .map_button {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -930,24 +946,17 @@ hr {
   opacity: 0.6;
   text-align: left;
 }
-.map_button [gid="nam"] {
+#map_frame .map_button [gid="nam"] {
   color: blue;
 }
-.map_button [gid="level"] {
+#map_frame .map_button [gid="level"] {
   right: 5px;
   font-size: 70%;
   position: absolute;
 }
-.map_button [gid="desc"] {
+#map_frame .map_button [gid="desc"] {
   font-size: 70%;
   color: green;
-}
-
-#map_frame [enable="true"] {
-  border-color: green;
-}
-#map_frame [enable="false"] {
-  border-color: red;
 }
 
 [gid=map-1-1] {
@@ -1162,34 +1171,82 @@ hr {
 #team_frame [gid=create_team] {
   position: static;
 }
-#team_frame #team_list {
+#team_frame .city_content {
   overflow-y: auto;
   overflow-x: 0;
   width: 440px;
   height: 300px;
   margin-left: 0px;
-  list-style-position: outside;
 }
 #team_frame .team {
-  width: 420px;
-  height: 60px;
+  width: 400px;
+  height: 47px;
   background: #eeeeee;
   position: relative;
   margin-bottom: 10px;
-  line-height: 60px;
-}
-#team_frame .team .photo {
-  width: 40px;
-  height: 40px;
+  padding: 2px;
+  overflow-x: 0;
 }
 #team_frame .team .join {
-  top: 7px;
-  right: 7px;
+  position: static;
+  float: left;
   width: 40px;
   height: 40px;
   background: #ffee66;
-  position: absolute;
   line-height: 40px;
+}
+#team_frame .team .members {
+  position: absolute;
+  overflow: hidden;
+  list-style: none;
+  left: 55px;
+  width: 345px;
+  height: 47px;
+  margin: 0;
+  padding: 0;
+}
+#team_frame .team .members [sn='0'] {
+  left: 0px;
+}
+#team_frame .team .members [sn='1'] {
+  left: 200px;
+}
+#team_frame .team .members [sn='2'] {
+  left: 250px;
+}
+#team_frame .team .members [sn='3'] {
+  left: 300px;
+}
+#team_frame .team .members .member {
+  background: white;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  height: 45px;
+}
+#team_frame .team .members .member .photo {
+  width: 40px;
+  height: 40px;
+}
+#team_frame .team .members .member .nam {
+  position: absolute;
+  top: 0px;
+  left: 47px;
+  color: blue;
+}
+#team_frame .team .members .member .lv {
+  position: absolute;
+  left: 47px;
+  bottom: 0px;
+  color: green;
+}
+#team_frame .team .members .member .cex {
+  position: absolute;
+  right: 7px;
+  bottom: 0px;
+  color: red;
 }
 
 #battle {

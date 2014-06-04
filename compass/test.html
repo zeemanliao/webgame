@@ -79,7 +79,7 @@
     </div>
     <div id="city">
         <div id="guest_frame">
-            Guest List
+            Guest divst
             <div class="guest_content">
 
             </div>
@@ -96,22 +96,37 @@
                 <input type="password" size="10"></input>
                 <btn gid="create_team">Create Team</btn><span class="message">(沒設定密碼視為公開房)</span>
             </p>
-            <ul id="team_list">
-              <li class="team">
-                <img class="photo"></img>
-                <btn class="join">Join</btn>
-              </li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-              <li class="team"></li>
-            </ul>
+            <div class="city_content">
+              <div class="team">
+              <btn class="join">Join</btn>
+              <ul class="members">
+                <li class ="member" sn="0">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+                <li class ="member" sn="1">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+                <li class ="member" sn="2">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+                <li class ="member" sn="3">
+                  <img class="photo" src="vipgold.png">
+                  <div class=nam>廖哥</div>
+                  <div class=lv>lv.99</div>
+                  <div class=cex>cex.869</div>
+                </li>
+              </ul>
+              </div>
+            </div>
             <btn class="city_button" gid="sub_btn_3" data="map">Map</btn>
             <btn class="city_button" gid="sub_btn_2" data="area">Area</btn>
             <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
@@ -122,6 +137,59 @@
 <script>
 $('#city').show();
 $('#team_frame').show();
+
+$(function(){
+  // 初始化參數
+  var _navLi = $(".members > .member"),
+    speed = 200,  // 移動速度
+    maxWidth = 200, // 最大寬
+    minWidth = 50,  // 最小寬
+    diffWidth = maxWidth - minWidth;
+ 
+  _navLi.each(function(i){
+    var _this = $(this),
+      _idx = parseInt(_this.attr('sn'));
+      //_left = !_idx ? 0: (maxWidth + minWidth * (_idx -1 ));
+      //_prev = _this.prev(),
+    //_left = !_prev.length ? 0 :(_prev.position().left + (i==1 ? maxWidth : minWidth));
+    // 先把每一個 li 的位置都放到定位
+    // 並把 left 值記錄起來
+    var _left = 0;
+    switch (i) {
+      case 0:
+        _left = 0;
+        break;
+      default:
+        _left = 200 + (_idx-1) * 50;
+    }
+    _this.css("left", _left).data("left", _left);
+  }).mouseover(function(){
+    // 當滑鼠移到選項時, 把它後面選項都滑動回去
+    // 再把自己跟前面的選項都往前滑揩
+    $(this).nextAll().each(slideBack).end().prevAll().andSelf().each(function(){
+      var _this = $(this);
+      //if(_navLi.index(_this)>0){
+      if (_this.attr('sn') != '0') {
+        _this.stop().animate({
+          left: _this.data("left") - diffWidth
+        }, speed);
+      }
+    });
+  });
+ 
+  // 當滑鼠離開 #nav 時把選項都滑回原來位置
+  $(".members").mouseleave(function(){
+    $("li", this).each(slideBack);
+  });
+ 
+  // 控制選項的滑動
+  function slideBack(){
+    var _this = $(this);
+    _this.stop().animate({
+      left: _this.data("left")
+    }, speed);
+  }
+});
 </script>
 
 </html>

@@ -64,14 +64,16 @@ coms.guest = new BaseCom("guest");
 coms.map = new BaseCom("map");
 coms.team = new BaseCom("team");
 
-coms.team.list = function() {
-  debug('Team List...');
-}
-coms.map.enter = function(map_id) {
-  o.team.update(map_id);
+coms.team.list = function(data) {
+  o.team.update(data);
   o.city.city('team');
 }
 
+coms.team.map = function(data) {
+  var map_id = data;
+  o.team.updateInfo(map_id);
+}
+  
 coms.guest.add = function(data){
   if (data)
     o.guest.add(data);
@@ -101,6 +103,7 @@ coms.sys.db = function(data){
     db.put(i,data[i]);
   }
 }
+
 
 /*
   此區為剛登入後資料就續後需先執行的區域

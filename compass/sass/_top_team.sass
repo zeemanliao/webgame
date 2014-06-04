@@ -7,24 +7,64 @@
     color: gray
   +gid(create_team)
     position: static
-  #team_list
+  .city_content
     overflow-y: auto
     overflow-x: 0
     +wh($frame_w,300px)
     margin-left: 0px
-    list-style-position: outside
   .team
-    +wh($frame_w - $body_margin * 2,60px)
+    +wh($frame_w - $body_margin * 4,47px)
     +bgc(#eee)
     position: relative
     margin-bottom: $body_margin
-    line-height: 60px
-    .photo
-      +wh(40px,40px)
+    padding: 2px
+    overflow-x: 0
     .join
-      top: 7px
-      right: 7px
+      position: static
+      float: left
       +wh(40px,40px)
       +bgc(#fe6)
-      position: absolute
       line-height: 40px
+    .members
+      position: absolute
+      overflow: hidden
+      list-style: none
+      left: 55px
+      width: $frame_w - $body_margin * 4 - 55
+      height: 47px
+      margin: 0
+      padding: 0
+      [sn='0']
+        left: 0px
+      [sn='1']
+        left: 200px
+      [sn='2']
+        left: 250px
+      [sn='3']
+        left: 300px
+      .member
+        +bgc(#fff)
+        position: absolute
+        overflow: hidden
+        padding: 0
+        margin: 0
+        width: 200px
+        height: 45px
+        .photo
+          +wh(40px,40px)
+        .nam
+          position: absolute
+          +xy(47px,0px)
+          color: blue
+        .lv
+          position: absolute
+          left: 47px
+          bottom: 0px
+          color: green
+        .cex
+          position: absolute
+          right: 7px
+          bottom: 0px
+          color: red
+
+        

@@ -14,8 +14,8 @@ MapClass.prototype.create=function(){
   var self = this;
   this.frame = $('#map_frame');
   this.content = $('.city_content','#map_frame');
-  this.nam = this.gid('nam');
-  this.desc = this.gid('desc');
+  this.nam = this.gid('area_nam');
+  this.desc = this.gid('area_desc');
   live('.map_button',{
     click:function (event) {
       if ($(this).attr('enable') != 'true') {
@@ -27,6 +27,18 @@ MapClass.prototype.create=function(){
       }
     }
   });
+}
+MapClass.prototype.findArea = function(map_id) {
+  map_id = parseInt(map_id);
+  for (var i in db.areas) {
+    var area = db.areas[i];
+    var maps = area.sub;
+    for (var m in maps) {
+      if (map_id == maps[m]) {
+        return area;
+      }
+    }
+  }
 }
 MapClass.prototype.update=function(area){
   if (!area) {
