@@ -63,6 +63,7 @@ coms.city = new BaseCom("city");
 coms.guest = new BaseCom("guest");
 coms.map = new BaseCom("map");
 coms.team = new BaseCom("team");
+coms.battle = new BaseCom("battle");
 /*
 
       Team
@@ -151,11 +152,20 @@ coms.city.move = function(data){
     debug('Object:'+obj.attr('data')+'->can not find');
   }
 }
+/*
 
+      Battle
+
+*/
+coms.battle.move = function(data){
+    if ($('#battle').is(':hidden')) {
+      $('#battle').show();
+      $('#city').hide();
+    }
+}
 /*
   此區為剛登入後資料就續後需先執行的區域
  */
 coms.ready.load = function(){
   log('載入Ready Load');
-  
 }

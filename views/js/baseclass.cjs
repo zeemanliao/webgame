@@ -52,19 +52,5 @@ BaseViewClass.prototype = {
     
     coms.city.emit('move',cmd);
 
-  },
-  battle:function(room_id) {
-    
-    if ($('#battle').is(':hidden')) {
-      $('#battle').show();
-      $('#city').hide();
-    }
-    debug(map_id);
   }
 }
-
-var BaseCityClass = Object.Extend(BaseViewClass);
-BaseCityClass.prototype.enter = function(){
-  cframe.append(this.frame);
-}
-

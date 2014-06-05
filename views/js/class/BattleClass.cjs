@@ -22,21 +22,9 @@ BattleClass.prototype.create=function(){
 }
 
 BattleClass.prototype.reflush=function(){
-  this.update();
+
 }
 
 BattleClass.prototype.update=function(){
-	if (this.ver != db.ver.battles) {
-		this.ver = db.ver.battles;
-		this.content.empty();
-		for (var i in db.battles){
-			var battle = db.battles[i];
-    this.content.append('<div data="map" battle="' + battle.id + '" ' +
-      'enable="'+(o.chara.data.level>=battle.level)+'" class="battle_button" gid="battle-'+
-        battle.position.x+
-        '-'+battle.position.y+
-        '">' + battle.nam 
-        +'</div>');
-		}
-	}
+
 }

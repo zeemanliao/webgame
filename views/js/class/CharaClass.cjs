@@ -7,6 +7,7 @@ var CharaClass = Object.Extend(BaseViewClass);
 
 CharaClass.prototype.initialize=function(){
   this.v = {};
+  this.data = {};
   this.base();
 }
 CharaClass.prototype.create=function(){

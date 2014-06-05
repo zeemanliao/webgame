@@ -6,7 +6,7 @@
 		"desc":"可愛的小動物，在草地上來回奔跑。",
 		"level":1,
 		"position":{"x":1,"y":1},
-		"teams":[]
+		"teams":{}
 	},
 	{
 		"id":102,
@@ -15,7 +15,7 @@
 		"desc":"",
 		"level":10,
 		"position":{"x":1,"y":2},
-		"teams":[]
+		"teams":{}
 	},
 	{
 		"id":103,
@@ -24,7 +24,7 @@
 		"desc":"",
 		"level":30,
 		"position":{"x":1,"y":3},
-		"teams":[]
+		"teams":{}
 	},
 	{
 		"id":104,
@@ -33,7 +33,7 @@
 		"desc":"",
 		"level":50,
 		"position":{"x":1,"y":4},
-		"teams":[]
+		"teams":{}
 	}
 
 ]

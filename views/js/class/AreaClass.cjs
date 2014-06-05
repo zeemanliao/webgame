@@ -38,10 +38,13 @@ AreaClass.prototype.update=function(){
 	if (this.ver != db.ver.areas) {
 		this.ver = db.ver.areas;
 		this.content.empty();
+    debug(o.chara.data);
+    var chara_level = o.chara.data.level;
 		for (var i in db.areas){
 			var area = db.areas[i];
+      var area_level = area.level;
       this.content.append('<btn data="map" area="' + area.id + '" ' +
-        'enable="'+(o.chara.data.level>=area.level)+'" class="area_button" gid="area-'+
+        'enable="'+(chara_level>=area_level)+'" class="area_button" gid="area-'+
         area.position.x+
         '-'+area.position.y+
         '">' + area.nam 

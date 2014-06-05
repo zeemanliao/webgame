@@ -20,7 +20,6 @@ TeamClass.prototype.create=function(){
   this.map;
   live('.members > .member',{
     mouseover:function(){
-      
         // 當滑鼠移到選項時, 把它後面選項都滑動回去
         // 再把自己跟前面的選項都往前滑揩
         $(this).nextAll().each(slideBack).end().prevAll().andSelf().each(function(){
@@ -33,6 +32,11 @@ TeamClass.prototype.create=function(){
           }
         });
       }
+  });
+  live('.team > .join',{
+    click:function(){
+      coms.team.emit('join',{team:$(this).attr('team')});
+    }
   });
   live('.members',{
   mouseleave:function(){
@@ -60,7 +64,7 @@ TeamClass.prototype.clear=function(){
 TeamClass.prototype.addTeam=function(team){
   var self = this;
 
-  var html='<div class="team" team="'+team.id+'">\n<btn class="join">Join</btn>\n<ul class="members">\n';
+  var html='<div class="team" team="'+team.id+'">\n<btn class="join" team="'+team.id+'">Join</btn>\n<ul class="members">\n';
   
   html +='\n</ul>\n</div>';
 
@@ -75,7 +79,7 @@ TeamClass.prototype.putTeamData=function(team){
     html+=this.getMemberHtml(member,m);
   }
   members.append(html);
-  var _navLi = this.content.find("[team=" + team.id + "] > .member");
+  var _navLi = members.find(".member");
   _navLi.each(function(i){
     var _this = $(this),
     _idx = parseInt(_this.attr('sn'));
@@ -89,7 +93,6 @@ TeamClass.prototype.putTeamData=function(team){
         _left = 200 + (_idx-1) * 50;
     }
     // 先把每一個 li 的位置都放到定位
-
     // 並把 left 值記錄起來
     _this.css("left", _left).data("left", _left);
   });
@@ -104,6 +107,7 @@ TeamClass.prototype.getMemberHtml=function(member,m){
 }
 
 TeamClass.prototype.updateTeam=function(team){
+  this.content.find("[team=" + team.id + "] > .members").empty();
   this.putTeamData(team);
 }
 
