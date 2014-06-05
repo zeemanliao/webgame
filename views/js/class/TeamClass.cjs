@@ -54,28 +54,28 @@ TeamClass.prototype.updateInfo = function(data) {
   this.map_nam.html(this.map.nam);
   this.map_desc.html(this.map.desc);
 }
-TeamClass.prototype.update=function(data){
-  
+TeamClass.prototype.clear=function(){
   this.content.empty();
-  for (var i in data) {
-    var team = data[i];
+}
+TeamClass.prototype.addTeam=function(team){
+  var self = this;
 
-    var html='<div class="team">\n<btn class="join">Join</btn>\n<ul class="members">\n';
-    for (var m in team.members) {
-      var member = team.members[m];
-      html+='<li class ="member" sn="'+m+'">'+
-                '  <img class="photo" src="/images/'+member.photo+'">'+
-                '  <div class="nam">'+member.nam+'</div>'+
-                '  <div class="lv">lv.'+member.level+'</div>'+
-                '  <div class="cex">cex.'+member.cex+'</div>'+
-                '</li>';
-    }
-    html +='\n</ul>\n</div>';
+  var html='<div class="team" team="'+team.id+'">\n<btn class="join">Join</btn>\n<ul class="members">\n';
+  
+  html +='\n</ul>\n</div>';
 
-    this.content.append(html);
+  this.content.append(html);
+  this.putTeamData(team);
+}
+TeamClass.prototype.putTeamData=function(team){
+  var members = this.content.find("[team=" + team.id + "] > .members");
+  var html='';
+  for (var m in team.members) {
+    var member = team.members[m];
+    html+=this.getMemberHtml(member,m);
   }
-
-  var _navLi = $(".members > .member");
+  members.append(html);
+  var _navLi = this.content.find("[team=" + team.id + "] > .member");
   _navLi.each(function(i){
     var _this = $(this),
     _idx = parseInt(_this.attr('sn'));
@@ -93,6 +93,22 @@ TeamClass.prototype.update=function(data){
     // 並把 left 值記錄起來
     _this.css("left", _left).data("left", _left);
   });
+}
+TeamClass.prototype.getMemberHtml=function(member,m){
+  return '<li class ="member" sn="'+m+'" nam="'+member.nam+'">'+
+          '  <img class="photo" src="/images/'+member.photo+'">'+
+          '  <div class="nam">'+member.nam+'</div>'+
+          '  <div class="lv">lv.'+member.level+'</div>'+
+          '  <div class="cex">cex.'+member.cex+'</div>'+
+          '</li>';
+}
+
+TeamClass.prototype.updateTeam=function(team){
+  this.putTeamData(team);
+}
+
+TeamClass.prototype.removeTeam=function(team_id){
+  this.content.find('[team='+team_id+']').remove();
 }
 
 

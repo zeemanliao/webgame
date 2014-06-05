@@ -49,18 +49,9 @@ BaseViewClass.prototype = {
     else
       cmd = obj.attr('data');
 
-    f = o[cmd];
-    coms.city.emit('enter',cmd);
-    if (f) {
-      if ($('#city').is(':hidden')) {
-        $('#battle').hide();
-        $('#city').show();
-      }
-      $('.content_frame').hide();
-      f.show();
-    } else {
-      debug('Object:'+obj.attr('data')+'->can not find');
-    }
+    
+    coms.city.emit('move',cmd);
+
   },
   battle:function(room_id) {
     

@@ -23,7 +23,7 @@ MapClass.prototype.create=function(){
         
         o.message.show('您的等級不足「'+map.level+'」<br><br>無法進入「'+map.nam+'」');
       } else {
-        coms.map.emit('enter',$(this).attr('map'));
+        coms.map.emit('move',$(this).attr('map'));
       }
     }
   });

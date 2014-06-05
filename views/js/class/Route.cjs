@@ -63,17 +63,40 @@ coms.city = new BaseCom("city");
 coms.guest = new BaseCom("guest");
 coms.map = new BaseCom("map");
 coms.team = new BaseCom("team");
+/*
 
+      Team
+
+ */
 coms.team.list = function(data) {
-  o.team.update(data);
-  o.city.city('team');
+  o.team.clear();
+  for (var i in data) {
+      o.team.addTeam(data[i]);
+  }
+}
+coms.team.addTeam = function(data) {
+  o.team.addTeam(data);
 }
 
 coms.team.map = function(data) {
   var map_id = data;
   o.team.updateInfo(map_id);
 }
-  
+
+coms.team.updateTeam = function(data) {
+  o.team.updateTeam(data);
+}
+
+coms.team.removeTeam = function(data){
+  var team_id = data;
+  o.team.removeTeam(team_id);
+}
+
+/*
+
+      Guest
+
+ */
 coms.guest.add = function(data){
   if (data)
     o.guest.add(data);
@@ -86,6 +109,12 @@ coms.guest.remove = function(data){
   else
     debug('Route guest remove nam empty')
 }
+
+/*
+
+      Chara
+
+ */
 coms.chara.update = function(data) {
   o.chara.update(data);
 }
@@ -104,6 +133,24 @@ coms.sys.db = function(data){
   }
 }
 
+/*
+
+        City
+
+ */
+coms.city.move = function(data){
+  f = o[data];
+  if (f) {
+    if ($('#city').is(':hidden')) {
+      $('#battle').hide();
+      $('#city').show();
+    }
+    $('.content_frame').hide();
+    f.show();
+  } else {
+    debug('Object:'+obj.attr('data')+'->can not find');
+  }
+}
 
 /*
   此區為剛登入後資料就續後需先執行的區域
