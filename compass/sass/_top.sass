@@ -49,26 +49,33 @@ html
   +wh(50%,'')
   +box-shadow(1px 1px 2px #888)
   +border-radius(2px)
-  +bgc(#E88)
   border: 2px  solid white
   text-align: center
-.content_frame
-  @extend %all_frame
-  +xy(240px,$body_margin)
-  +wh($frame_w,$frame_h)
-  z-index: $zindex - 10
-  display: none
 
-.content_frame > .city_content
-  +wh($frame_w - $body_margin * 2,100% - 15)
-  overflow: auto
-  position: absolute
- 
-.content_frame
-  +gid(nam)
-    color: blue
-  +gid(desc)
-    color: #666
+#msg_frame
+  .msg_box
+    +bgc(#E88)
+#load_frame
+  display: inline
+  .msg_box
+    +bgc(#7B7)
+#content
+  display: none
+  .content_frame
+    @extend %all_frame
+    +xy(240px,$body_margin)
+    +wh($frame_w,$frame_h)
+    z-index: $zindex - 10
+    display: none
+  .content_frame > .city_content
+    +wh($frame_w - $body_margin * 2,100% - 15)
+    overflow: auto
+    position: absolute
+  .content_frame
+    +gid(nam)
+      color: blue
+    +gid(desc)
+      color: #666
 
 .message
   color: #636363

@@ -31,10 +31,21 @@ module.exports = function(io) {
          **************************************************************************************
          *************************************************************************************/
         socket.on('act', function(data) {
-            game.on(chara, data);
+            try{
+                game.on(chara, data);
+            } catch (e) {
+                var msg = e.message + '</br>' + e.stack ? e.stack:'';
+                socket.emit('show error',msg);
+            }
         });
         socket.on('check ver', function(data) {
-            game.update(chara, data);
+            try{
+                game.update(chara, data);
+            } catch (e) {
+                var msg = e.message + '</br>' + e.stack ? e.stack:'';
+                socket.emit('show error',msg);
+            }
+            
         });
         /*************************************************************************************
          **************************************************************************************

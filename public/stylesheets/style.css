@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-.content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
+#content .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -424,12 +424,25 @@ html {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  background: #ee8888;
   border: 2px solid white;
   text-align: center;
 }
 
-.content_frame {
+#msg_frame .msg_box {
+  background: #ee8888;
+}
+
+#load_frame {
+  display: inline;
+}
+#load_frame .msg_box {
+  background: #77bb77;
+}
+
+#content {
+  display: none;
+}
+#content .content_frame {
   top: 10px;
   left: 240px;
   width: 440px;
@@ -437,18 +450,16 @@ html {
   z-index: 40;
   display: none;
 }
-
-.content_frame > .city_content {
+#content .content_frame > .city_content {
   width: 420px;
   height: 85%;
   overflow: auto;
   position: absolute;
 }
-
-.content_frame [gid=nam] {
+#content .content_frame [gid=nam] {
   color: blue;
 }
-.content_frame [gid=desc] {
+#content .content_frame [gid=desc] {
   color: #666666;
 }
 

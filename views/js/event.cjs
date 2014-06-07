@@ -4,7 +4,9 @@
 	});
 
 	socket.on('show error',function(data){
-		o.message.show(data.msg,true);
+		debug('Error = >');
+		debug(data);
+		o.message.show('程式出現非預期錯誤',false);
 	});
 
 	socket.on('show message',function(data){

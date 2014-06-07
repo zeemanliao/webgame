@@ -168,4 +168,6 @@ coms.battle.move = function(data){
  */
 coms.ready.load = function(){
   log('載入Ready Load');
+  GameContent.show();
+  $('#load_frame').hide();
 }
