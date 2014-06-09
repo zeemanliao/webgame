@@ -353,118 +353,12 @@ ol, ul {
   font-size: 100%;
 }
 
-.label {
-  position: absolute;
-  color: #222288;
-}
-
-.number {
-  position: absolute;
-  color: #226622;
-}
-
-.photo {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 1px #333333;
-  -moz-box-shadow: 0px 0px 1px #333333;
-  box-shadow: 0px 0px 1px #333333;
-  background: #eeeeee;
-  border: solid;
-  border-color: white;
-  border-width: 2px;
-  cursor: pointer;
-}
-
 html {
   background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #eeeeee), color-stop(100%, #ffffff));
   background-image: -webkit-linear-gradient(0, #eeeeee, #ffffff);
   background-image: -moz-linear-gradient(0, #eeeeee, #ffffff);
   background-image: -o-linear-gradient(0, #eeeeee, #ffffff);
   background-image: linear-gradient(0, #eeeeee, #ffffff);
-}
-
-#show_time {
-  width: 130px;
-  position: fixed;
-  text-align: right;
-  right: 10px;
-  z-index: 50;
-  font-size: 90%;
-}
-
-.msg_frame {
-  z-index: 100;
-  display: none;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #333333;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
-}
-
-.msg_box {
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  -webkit-box-shadow: 1px 1px 2px #888888;
-  -moz-box-shadow: 1px 1px 2px #888888;
-  box-shadow: 1px 1px 2px #888888;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  border: 2px solid white;
-  text-align: center;
-}
-
-#msg_frame .msg_box {
-  background: #ee8888;
-}
-
-#load_frame {
-  display: inline;
-}
-#load_frame .msg_box {
-  background: #77bb77;
-}
-
-#content {
-  display: none;
-}
-#content .content_frame {
-  top: 10px;
-  left: 240px;
-  width: 440px;
-  height: 500px;
-  z-index: 40;
-  display: none;
-}
-#content .content_frame > .city_content {
-  width: 420px;
-  height: 85%;
-  overflow: auto;
-  position: absolute;
-}
-#content .content_frame [gid=nam] {
-  color: blue;
-}
-#content .content_frame [gid=desc] {
-  color: #666666;
-}
-
-.message {
-  color: #636363;
 }
 
 btn {
@@ -528,6 +422,151 @@ hr {
 
 .focus {
   background: #f2f26f;
+}
+
+.label {
+  position: absolute;
+  color: #222288;
+}
+
+.number {
+  position: absolute;
+  color: #226622;
+}
+
+.photo {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 1px #333333;
+  -moz-box-shadow: 0px 0px 1px #333333;
+  box-shadow: 0px 0px 1px #333333;
+  background: #eeeeee;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
+  cursor: pointer;
+}
+
+#show_time {
+  width: 130px;
+  position: fixed;
+  text-align: right;
+  right: 10px;
+  z-index: 50;
+  font-size: 90%;
+}
+
+.msg_frame {
+  z-index: 100;
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #333333;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+}
+
+.msg_box {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  -webkit-box-shadow: 1px 1px 2px #888888;
+  -moz-box-shadow: 1px 1px 2px #888888;
+  box-shadow: 1px 1px 2px #888888;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 2px solid white;
+  text-align: center;
+}
+
+#msg_frame .msg_box {
+  background: #ee8888;
+}
+
+#load_frame {
+  display: inline;
+}
+#load_frame .msg_box {
+  background: #ccffdd;
+}
+
+#input_frame .msg_box {
+  background: #ffeecc;
+  text-align: center;
+}
+#input_frame #data {
+  width: 50%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 200%;
+}
+#input_frame .btn {
+  cursor: pointer;
+  width: 70% -5;
+  height: 50px;
+  line-height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 1px #333333;
+  -moz-box-shadow: 0px 0px 1px #333333;
+  box-shadow: 0px 0px 1px #333333;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
+  margin: 5px;
+}
+#input_frame [gid=ok] {
+  background: #eeffcc;
+}
+#input_frame [gid=cl] {
+  background: #eeeeee;
+}
+
+#content {
+  display: none;
+}
+#content .content_frame {
+  top: 10px;
+  left: 240px;
+  width: 440px;
+  height: 500px;
+  z-index: 40;
+  display: none;
+}
+#content .content_frame > .city_content {
+  width: 420px;
+  height: 85%;
+  overflow: auto;
+  position: absolute;
+}
+#content .content_frame [gid=nam] {
+  color: blue;
+}
+#content .content_frame [gid=desc] {
+  color: #666666;
+}
+
+.message {
+  color: #636363;
 }
 
 #chara_frame {
@@ -1181,6 +1220,8 @@ hr {
 }
 #team_frame [gid=create_team] {
   position: static;
+  width: 70px;
+  height: 40px;
 }
 #team_frame .city_content {
   overflow-y: auto;
@@ -1205,6 +1246,7 @@ hr {
   height: 40px;
   background: #ffee66;
   line-height: 40px;
+  background: #ffeeee;
 }
 #team_frame .team .members {
   position: absolute;

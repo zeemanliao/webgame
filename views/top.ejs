@@ -21,6 +21,15 @@
 </head>
 
 <body>
+    <div CLASS="msg_frame" id="input_frame">
+        <div CLASS="msg_box" id="msg_box">
+            <h2 id="title">輸入</h2>
+            <hr>
+            <input type="text" id="data">
+            <div class="btn" gid="ok">確定</div>
+            <div class="btn" gid="cl">取消</div>
+        </div>
+    </div>
     <div CLASS="msg_frame" id="msg_frame">
         <div CLASS="msg_box" id="msg_box">
             <h2>訊息</h2>
@@ -161,7 +170,7 @@
             <p>
                 Pass:
                 <input type="password" gid="team_pass" size="10"></input>
-                <btn gid="create_team">Create Team</btn><span class="message">(沒設定密碼視為公開房)</span>
+                <btn gid="create_team">建立</btn><span class="message">(沒設定密碼視為公開房)</span>
             </p>
             <div class="city_content">
               <div class="team">

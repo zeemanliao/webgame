@@ -35,7 +35,13 @@ TeamClass.prototype.create=function(){
   });
   live('.team > .join',{
     click:function(){
-      coms.team.emit('join',{team:$(this).attr('team')});
+      if ($(this).attr('public')=='true') {
+        coms.team.emit('join',{team:$(this).attr('team'),pwd:''});
+      } else {
+        o.input.popup('請輸入密碼',function(data){
+          debug(data);
+        });
+      }
     }
   });
   live('.members',{
@@ -64,9 +70,10 @@ TeamClass.prototype.clear=function(){
 TeamClass.prototype.addTeam=function(team){
   var self = this;
 
-  var html='<div class="team" team="'+team.id+'">\n<btn class="join" team="'+team.id+'">Join</btn>\n<ul class="members">\n';
-  
-  html +='\n</ul>\n</div>';
+  var html='<div class="team" team="'+team.id+'">\n';
+  html += '<btn class="join" public="'+team.public+'" team="'+team.id+'">加入</btn>\n';
+  html += '<ul class="members">\n';
+  html +='</ul>\n</div>';
 
   this.content.append(html);
   this.putTeamData(team);

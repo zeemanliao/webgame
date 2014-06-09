@@ -14,8 +14,8 @@ CityClass.prototype.updateInfo=function(){
     var city = db.citys[c];
     var obj = $('#'+city.id+'_frame');
     //開發時不載入中文
-    obj.find('[gid=nam]').html(city.nam);
-    obj.find('[gid=desc]').html(city.desc);
+    //obj.find('[gid=nam]').html(city.nam);
+    //obj.find('[gid=desc]').html(city.desc);
   }
 }
 CityClass.prototype.create=function(){

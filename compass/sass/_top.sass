@@ -9,76 +9,9 @@ $frame_h: 500px
   position: absolute
   +border-radius(3px)
   font-size: 100%
-.label
-  position: absolute
-  color: #228
-.number
-  position: absolute
-  color: #262
-.photo
-  +border-radius(2px)
-  +box-shadow(0px 0px 1px #333)
-  +bgc(#eee)
-  border: solid
-  border-color: white
-  border-width: 2px
-  cursor: pointer
+
 html
   +background-image(linear-gradient(0,#eee,#fff))
-#show_time
-  +wh(130px)
-  position: fixed
-  text-align: right
-  right: $body_margin
-  z-index: $zindex
-  font-size: 90%
-.msg_frame 
-  z-index: $zindex+50
-  display: none
-  overflow-x: hidden
-  overflow-y: auto
-  position: absolute
-  +xy(0px,0px)
-  +wh(100%,100%)
-  +bgc(#333)
-  +opacity(0.9)
-
-.msg_box
-  position: absolute
-  +xy(25%,25%)
-  +wh(50%,'')
-  +box-shadow(1px 1px 2px #888)
-  +border-radius(2px)
-  border: 2px  solid white
-  text-align: center
-
-#msg_frame
-  .msg_box
-    +bgc(#E88)
-#load_frame
-  display: inline
-  .msg_box
-    +bgc(#7B7)
-#content
-  display: none
-  .content_frame
-    @extend %all_frame
-    +xy(240px,$body_margin)
-    +wh($frame_w,$frame_h)
-    z-index: $zindex - 10
-    display: none
-  .content_frame > .city_content
-    +wh($frame_w - $body_margin * 2,100% - 15)
-    overflow: auto
-    position: absolute
-  .content_frame
-    +gid(nam)
-      color: blue
-    +gid(desc)
-      color: #666
-
-.message
-  color: #636363
 
 btn
   +border-radius(2px)
@@ -121,3 +54,97 @@ hr
 
 .focus
   +bgc(#f2f26f)
+
+
+.label
+  position: absolute
+  color: #228
+.number
+  position: absolute
+  color: #262
+.photo
+  +border-radius(2px)
+  +box-shadow(0px 0px 1px #333)
+  +bgc(#eee)
+  border: solid
+  border-color: white
+  border-width: 2px
+  cursor: pointer
+#show_time
+  +wh(130px)
+  position: fixed
+  text-align: right
+  right: $body_margin
+  z-index: $zindex
+  font-size: 90%
+.msg_frame 
+  z-index: $zindex+50
+  display: none
+  overflow-x: hidden
+  overflow-y: auto
+  position: absolute
+  +xy(0px,0px)
+  +wh(100%,100%)
+  +bgc(#333)
+  +opacity(0.9)
+
+.msg_box
+  position: absolute
+  +xy(25%,25%)
+  +wh(50%,'')
+  +box-shadow(1px 1px 2px #888)
+  +border-radius(5px)
+  border: 2px  solid white
+  text-align: center
+
+#msg_frame
+  .msg_box
+    +bgc(#E88)
+#load_frame
+  display: inline
+  .msg_box
+    +bgc(#CFD)
+#input_frame
+  .msg_box
+    +bgc(#FEC)
+    text-align: center
+  #data
+    width: 50%
+    +border-radius(5px)
+    margin-bottom: 10px
+    font-size: 200%
+  .btn
+    cursor: pointer
+    +wh(70% -5,50px)
+    line-height: 50px
+    +border-radius(5px)
+    +box-shadow(0px 0px 1px #333)
+    border: solid
+    border-color: white
+    border-width: 2px
+    margin: 5px
+  +gid(ok)
+    +bgc(#EFC)
+  +gid(cl)
+    +bgc(#EEE)
+    
+#content
+  display: none
+  .content_frame
+    @extend %all_frame
+    +xy(240px,$body_margin)
+    +wh($frame_w,$frame_h)
+    z-index: $zindex - 10
+    display: none
+  .content_frame > .city_content
+    +wh($frame_w - $body_margin * 2,100% - 15)
+    overflow: auto
+    position: absolute
+  .content_frame
+    +gid(nam)
+      color: blue
+    +gid(desc)
+      color: #666
+
+.message
+  color: #636363

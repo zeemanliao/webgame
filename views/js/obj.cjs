@@ -9,6 +9,8 @@ var db = new LocalStorageClass();
 var o = {};
 //訊息視窗
 o.message =  new MessageClass();
+//輸入元件
+o.input = new InputClass();
 //角色元件
 o.chara = new CharaClass();
 //城鎮元件
