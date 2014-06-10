@@ -35,11 +35,12 @@ TeamClass.prototype.create=function(){
   });
   live('.team > .join',{
     click:function(){
+      var team_id = $(this).attr('team');
       if ($(this).attr('public')=='true') {
-        coms.team.emit('join',{team:$(this).attr('team'),pwd:''});
+        coms.team.emit('join',{team:team_id,pwd:''});
       } else {
         o.input.popup('請輸入密碼',function(data){
-          debug(data);
+          coms.team.emit('join',{team:team_id,pwd:data});
         });
       }
     }

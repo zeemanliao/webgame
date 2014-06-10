@@ -158,11 +158,19 @@ coms.city.move = function(data){
 
 */
 coms.battle.move = function(data){
-    if ($('#battle').is(':hidden')) {
-      $('#battle').show();
-      $('#city').hide();
-    }
+  o.battle.reset(data);
+  if ($('#battle').is(':hidden')) {
+    $('#battle').show();
+    $('#city').hide();
+  }
 }
+coms.battle.addMember = function(data){
+  o.battle.addMember(data);
+}
+coms.battle.removeMember = function(data){
+  o.battle.removeMember(data);
+}
+
 /*
   此區為剛登入後資料就續後需先執行的區域
  */

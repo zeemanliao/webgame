@@ -9,9 +9,7 @@ var InputClass = Object.Extend(BaseViewClass);
 InputClass.prototype.initialize=function(){
   this.base();
 }
-InputClass.prototype.click=function(){
-    this.frame.fadeOut("fast");
-  }
+
 InputClass.prototype.create=function(){
   var self = this;
   this.frame = $('#input_frame');
@@ -26,13 +24,17 @@ InputClass.prototype.create=function(){
   		}
   	}
   );
-  this.frame.bind("click",function(){self.click()});
+  this.frame.bind("click",function(){
+  	self.frame.fadeOut("fast");
+  });
 
  }
 
 InputClass.prototype.popup=function(data,callback){
 	this.title.html(data.title);
+	this.text.val("");
 	this.text.focus();
+
 	this.frame.fadeIn("fast");
 	this.callback = callback;
 }

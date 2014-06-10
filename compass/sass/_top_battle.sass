@@ -21,10 +21,32 @@ $skill_frame_h: $battle_h
       position: absolute
       right: 0
       +wh(100px,$battle_h)
-    #enemy
+      member
+        position: absolute
+        +wh(50px,50px)
+        +bgc(#eef)
+        cursor: pointer
+        font-size: 70%
+        .nam
+          position: absolute
+          bottom: 4px
+          text-align: center
+          width: 100%
+    #enemys
       position: absolute
       left: 0
       +wh(100px,$battle_h)
+      enemy
+        position: absolute
+        +wh(50px,50px)
+        +bgc(#fee)
+        cursor: pointer
+        font-size: 70%
+        .nam
+          position: absolute
+          bottom: 4px
+          text-align: center
+          width: 100%
   #skill_frame
     z-index: $zindex + 10
     float: left
@@ -77,31 +99,10 @@ $skill_frame_h: $battle_h
 +gid(leave_battle_btn)
   right: $body_margin
 
-enemy
-  position: absolute
-  +wh(50px,50px)
-  +bgc(#fee)
-  cursor: pointer
-  font-size: 70%
-  .nam
-    position: absolute
-    bottom: 4px
-    text-align: center
-    width: 100%
 
-team
-  position: absolute
-  +wh(50px,50px)
-  +bgc(#eef)
-  cursor: pointer
-  font-size: 70%
-  .nam
-    position: absolute
-    bottom: 4px
-    text-align: center
-    width: 100%
 
-#enemy
+
+#enemys
   [pos="1-1"]
     +xy(120px,20px)
   [pos="1-2"]
