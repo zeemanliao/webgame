@@ -38,7 +38,7 @@ BattleClass.prototype.addMember=function(m){
 BattleClass.prototype.removeMember=function(pos){
   this.team.find('[pos='+pos+']').remove();
 }
-BattleClass.prototype.reset=function(data){
+BattleClass.prototype.init=function(data){
 
   this.enemys.empty();
   
