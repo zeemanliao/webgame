@@ -1441,43 +1441,43 @@ hr {
   right: 10px;
 }
 
-#enemys [pos="1-1"] {
+#enemys [pos="1"] {
   top: 20px;
   left: 120px;
 }
-#enemys [pos="1-2"] {
+#enemys [pos="2"] {
   top: 80px;
   left: 120px;
 }
-#enemys [pos="1-3"] {
+#enemys [pos="3"] {
   top: 140px;
   left: 120px;
 }
-#enemys [pos="1-4"] {
+#enemys [pos="4"] {
   top: 200px;
   left: 120px;
 }
-#enemys [pos="1-5"] {
+#enemys [pos="5"] {
   top: 260px;
   left: 120px;
 }
-#enemys [pos="2-1"] {
+#enemys [pos="6"] {
   top: 20px;
   left: 20px;
 }
-#enemys [pos="2-2"] {
+#enemys [pos="7"] {
   top: 80px;
   left: 20px;
 }
-#enemys [pos="2-3"] {
+#enemys [pos="8"] {
   top: 140px;
   left: 20px;
 }
-#enemys [pos="2-4"] {
+#enemys [pos="9"] {
   top: 200px;
   left: 20px;
 }
-#enemys [pos="2-5"] {
+#enemys [pos="10"] {
   top: 260px;
   left: 20px;
 }

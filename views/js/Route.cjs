@@ -64,6 +64,7 @@ coms.guest = new BaseCom("guest");
 coms.map = new BaseCom("map");
 coms.team = new BaseCom("team");
 coms.battle = new BaseCom("battle");
+coms.enemy = new BaseCom("enemy");
 coms.debug = new BaseCom("debug");
 /*
 
@@ -155,6 +156,14 @@ coms.city.move = function(data){
 }
 /*
 
+      Enemy
+
+*/
+coms.enemy.add = function(data){
+  o.enemy.add(data);
+}
+/*
+
       Battle
 
 */
@@ -164,6 +173,9 @@ coms.battle.init = function(data){
     $('#battle').show();
     $('#city').hide();
   }
+}
+coms.battle.addEnemy = function(data){
+  o.battle.addEnemy(data);
 }
 coms.battle.addMember = function(data){
   o.battle.addMember(data);

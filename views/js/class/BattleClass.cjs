@@ -28,6 +28,13 @@ BattleClass.prototype.create=function(){
   });
   
 }
+BattleClass.prototype.addEnemy=function(e){
+  var html = '<enemy pos="'+e.pos+'">'+
+              '<span class="nam">'+e.nam+'</span>'+
+              '<hp></hp>'+
+           '</enemy>';
+  this.enemys.append(html);
+}
 BattleClass.prototype.addMember=function(m){
   var html = '<member pos="'+m.pos+'">'+
               '<span class="nam">'+m.nam+'</span>'+

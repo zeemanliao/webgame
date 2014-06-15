@@ -10,7 +10,7 @@ BaseViewClass.prototype = {
     this.objs={};
 
     if (typeof(this.create)=='function'){
-      this.create();
+      this.create(args);
     } else {
       this.frame = null;
     }
