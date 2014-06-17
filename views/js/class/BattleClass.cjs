@@ -18,7 +18,7 @@ BattleClass.prototype.create=function(){
   };
   this.frame = $('#battle_frame');
   this.content = this.frame.find('#battle_content');
-  this.enemys = this.content.find('#enemys');
+  this.enemy = this.content.find('#enemy');
   this.team = this.content.find('#team');
   
   live('.battle_button',{
@@ -47,18 +47,22 @@ BattleClass.prototype.removeMember=function(pos){
 }
 BattleClass.prototype.init=function(data){
 
-  this.enemys.empty();
+  this.enemy.empty();
   
   this.team.empty();
-  if (data){
-    if (data.members)
-      this.data.members = data.members;
-    if (data.team)
-    this.data.team = data.team;
+  if (!data)
+    return;
+  if (data.team){
+    for (var i in data.team.members) {
+      var member = data.team.members[i];
+      this.addMember(member);
+    }
   }
-  for (var i in this.data.members) {
-    var member = this.data.members[i];
-    this.addMember(member);
+  if (data.enemy){
+    for (var i in data.enemy.memebers){
+      var enemy = data.team.members[i];
+      this.addEnemey(enemy);
+    }
   }
 }
 BattleClass.prototype.reflush=function(){
