@@ -33,7 +33,7 @@ BattleClass.prototype.addEnemy=function(e){
               '<span class="nam">'+e.nam+'</span>'+
               '<hp></hp>'+
            '</enemy>';
-  this.enemys.append(html);
+  this.enemy.append(html);
 }
 BattleClass.prototype.addMember=function(m){
   var html = '<member pos="'+m.pos+'">'+
