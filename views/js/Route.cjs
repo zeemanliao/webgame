@@ -183,7 +183,6 @@ coms.battle.addMember = function(data){
 coms.battle.removeMember = function(data){
   o.battle.removeMember(data);
 }
-
 coms.debug.test = function(data){
   debug(data);
 }
