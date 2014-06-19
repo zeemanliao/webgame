@@ -15,6 +15,22 @@ $chara_info_h:$frame_h - $chara_main_h
     position: fixed
     z-index: $zindex - 10
     +wh($chara_main_w,$chara_main_h)
+    +icon_label(nam,5px,120px,nam)
+    +icon_label(retime,5px,155px,retime)
+    +icon_label(gold,5px,190px,gold)
+    +icon_label(level,120px,$body_margin,level)
+    +icon_label(vipgold,120px,45px,vipgold)
+    .cricle
+      position: absolute
+      right: 5px
+      bottom: 5px
+      +wh(30px,30px)
+      +border-radius(3px)
+      +bgc(blue)
+      font-weight: bold
+      filter: Glow(Color=#000000, Strength=1) DropShadow(Color=#000000, OffX=2, OffY=1, Positive=1)
+      color: white
+      line-height: 27px
   [gid=photo]
     +border-radius(2px)
     +box-shadow(1px 1px 2px #333)
@@ -36,7 +52,9 @@ $chara_info_h:$frame_h - $chara_main_h
     li
       padding-left: 50px
       position: static
-      margin-top: 15px
+      margin-top: 10px
+      height: 30px
+      line-height: 30px
     +gid(cex)
       +icons(cex)
     +gid(ex)
@@ -49,8 +67,4 @@ $chara_info_h:$frame_h - $chara_main_h
       +icons(def)
     +gid(freecex)
       +icons(freecex)
-  +icon_label(nam,5px,120px,nam)
-  +icon_label(retime,5px,155px,retime)
-  +icon_label(gold,5px,190px,gold)
-  +icon_label(level,120px,$body_margin,level)
-  +icon_label(vipgold,120px,45px,vipgold)
+

@@ -590,6 +590,63 @@ hr {
   width: 200px;
   height: 220px;
 }
+#chara_frame #main [gid=nam] {
+  top: 120px;
+  left: 5px;
+  background: url("/images/nam.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+#chara_frame #main [gid=retime] {
+  top: 155px;
+  left: 5px;
+  background: url("/images/retime.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+#chara_frame #main [gid=gold] {
+  top: 190px;
+  left: 5px;
+  background: url("/images/gold.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+#chara_frame #main [gid=level] {
+  top: 10px;
+  left: 120px;
+  background: url("/images/level.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+#chara_frame #main [gid=vipgold] {
+  top: 45px;
+  left: 120px;
+  background: url("/images/vipgold.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+#chara_frame #main .cricle {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background: blue;
+  font-weight: bold;
+  filter: Glow(Color=black, Strength=1) DropShadow(Color=black, OffX=2, OffY=1, Positive=1);
+  color: white;
+  line-height: 27px;
+}
 #chara_frame [gid=photo] {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -628,7 +685,9 @@ hr {
 #chara_frame #info li {
   padding-left: 50px;
   position: static;
-  margin-top: 15px;
+  margin-top: 10px;
+  height: 30px;
+  line-height: 30px;
 }
 #chara_frame #info [gid=cex] {
   background: url("/images/cex.png") no-repeat left;
@@ -647,46 +706,6 @@ hr {
 }
 #chara_frame #info [gid=freecex] {
   background: url("/images/freecex.png") no-repeat left;
-}
-#chara_frame [gid=nam] {
-  top: 120px;
-  left: 5px;
-  background: url("/images/nam.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=retime] {
-  top: 155px;
-  left: 5px;
-  background: url("/images/retime.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=gold] {
-  top: 190px;
-  left: 5px;
-  background: url("/images/gold.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=level] {
-  top: 10px;
-  left: 120px;
-  background: url("/images/level.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=vipgold] {
-  top: 45px;
-  left: 120px;
-  background: url("/images/vipgold.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
 }
 
 .city_button {
