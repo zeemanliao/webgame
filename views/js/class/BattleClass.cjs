@@ -59,9 +59,9 @@ BattleClass.prototype.init=function(data){
     }
   }
   if (data.enemy){
-    for (var i in data.enemy.memebers){
-      var enemy = data.team.members[i];
-      this.addEnemey(enemy);
+    for (var i in data.enemy.members){
+      var enemy = data.enemy.members[i];
+      this.addEnemy(enemy);
     }
   }
 }
