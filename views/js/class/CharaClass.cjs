@@ -23,6 +23,8 @@ CharaClass.prototype.create=function(){
   this.v.def = this.gid('def');
   this.v.hp = this.gid('hp');
   this.v.ex = this.gid('ex');
+  this.v.freecex = this.gid('freecex');
+  this.v.retime = this.gid('retime');
   this.v.cex = this.gid('cex');
   this.v.photo = this.gid('photo');
   

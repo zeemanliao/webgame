@@ -590,22 +590,6 @@ hr {
   width: 200px;
   height: 220px;
 }
-#chara_frame #info {
-  -webkit-box-shadow: 0px 0px 2px #333333;
-  -moz-box-shadow: 0px 0px 2px #333333;
-  box-shadow: 0px 0px 2px #333333;
-  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
-  background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
-  background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
-  background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
-  background-image: linear-gradient(0, #bbeebb, #ccffcc);
-  width: 150px;
-  height: 280px;
-  top: 240px;
-  left: 17px;
-  z-index: 30;
-  position: fixed;
-}
 #chara_frame [gid=photo] {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -625,6 +609,45 @@ hr {
   border-width: 4px;
   position: absolute;
 }
+#chara_frame #info {
+  -webkit-box-shadow: 0px 0px 2px #333333;
+  -moz-box-shadow: 0px 0px 2px #333333;
+  box-shadow: 0px 0px 2px #333333;
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
+  background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: linear-gradient(0, #bbeebb, #ccffcc);
+  width: 150px;
+  height: 280px;
+  top: 220px;
+  left: 17px;
+  z-index: 30;
+  position: fixed;
+}
+#chara_frame #info li {
+  padding-left: 50px;
+  position: static;
+  margin-top: 15px;
+}
+#chara_frame #info [gid=cex] {
+  background: url("/images/cex.png") no-repeat left;
+}
+#chara_frame #info [gid=ex] {
+  background: url("/images/ex.png") no-repeat left;
+}
+#chara_frame #info [gid=dmg] {
+  background: url("/images/dmg.png") no-repeat left;
+}
+#chara_frame #info [gid=hp] {
+  background: url("/images/hp.png") no-repeat left;
+}
+#chara_frame #info [gid=def] {
+  background: url("/images/def.png") no-repeat left;
+}
+#chara_frame #info [gid=freecex] {
+  background: url("/images/freecex.png") no-repeat left;
+}
 #chara_frame [gid=nam] {
   top: 120px;
   left: 5px;
@@ -633,58 +656,18 @@ hr {
   padding-left: 40px;
   line-height: 32px;
 }
-#chara_frame [gid=gold] {
+#chara_frame [gid=retime] {
   top: 155px;
   left: 5px;
+  background: url("/images/retime.png") no-repeat left;
+  height: 32px;
+  padding-left: 40px;
+  line-height: 32px;
+}
+#chara_frame [gid=gold] {
+  top: 190px;
+  left: 5px;
   background: url("/images/gold.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=hp] {
-  top: 15px;
-  left: 10px;
-  background: url("/images/hp.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=ex] {
-  top: 47px;
-  left: 10px;
-  background: url("/images/ex.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=cex] {
-  top: 79px;
-  left: 10px;
-  background: url("/images/cex.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=dmg] {
-  top: 111px;
-  left: 10px;
-  background: url("/images/dmg.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=mag] {
-  top: 143px;
-  left: 10px;
-  background: url("/images/mag.png") no-repeat left;
-  height: 32px;
-  padding-left: 40px;
-  line-height: 32px;
-}
-#chara_frame [gid=def] {
-  top: 175px;
-  left: 10px;
-  background: url("/images/def.png") no-repeat left;
   height: 32px;
   padding-left: 40px;
   line-height: 32px;
@@ -1251,7 +1234,6 @@ hr {
 #team_frame .team .members {
   position: absolute;
   overflow: hidden;
-  list-style: none;
   left: 55px;
   width: 345px;
   height: 47px;
