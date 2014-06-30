@@ -1,12 +1,11 @@
 /**
  * Module dependencies.
  */
-//全域語言
-lang = require('./data/lang');
+var game = require('./lib/game');
 var cluster = require('cluster'),
     express = require('express'),
     routes = require('./routes'),
-    socket_routes = require('./routes/socket'),
+    socket_route = require('./lib/route'),
     settings = require('./lib/settings'),
     cookie = express.cookieParser(settings.cookie_secret),
     store = new express.session.MemoryStore(),
@@ -91,5 +90,7 @@ if (cluster.isMaster) {
             }
         });
     });
-    socket_routes(io);
+
+    game.load(io.sockets);
+    socket_routes(io, game);
 }
