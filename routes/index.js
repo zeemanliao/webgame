@@ -5,17 +5,7 @@ var appinfo = require('../package.json'),
     xss = require('escape-html');
 var fs = require('fs'),
     path = require('path');
-var util = require('../lib/util/tool.js');
 var lang = require('../class/lang');
-/*
-function GameError(msg){
-	this.name='Game Error';
-	this.message=(msg || '');
-}
-GameError.prototype = Error.prototype;
-require('../lib/fbauth');
-*/
-
 var settings = require('../lib/settings'),
     passport = require('passport'),
     CharaAccess = require('../class/db/CharaAccess'),
@@ -96,17 +86,21 @@ module.exports = function(app, Store) {
           res.redirect('/');
       }
   });
+
   app.get('/', function(req, res, params) {
       //res.render('index', { title: apptitle,subtitle:'Home Page' });
       login_page(res, '');
   });
+
   app.get('/login', function(req, res, params) {
       login_page(res, '');
   });
+
   app.get('/logout', function(req, res, next) {
       req.session.destroy();
       res.redirect('/');
   });
+
   app.post('/login', function(req, res, next) {
     if (req.body.acc == null || req.body.acc == '')
       return login_page(res, lang.err.E0001); //請輸入帳號!
@@ -117,20 +111,20 @@ module.exports = function(app, Store) {
     var acc = req.body.acc.trim();
     CharaAccess.getByAccount(
       acc: acc
-    function(err, chara) {
-      if (err) 
-        return login_page(res, err);
+      function(err, chara) {
+        if (err) 
+          return login_page(res, err);
 
-      if (!chara)
-        return login_page(res, lang.err('E0004')+'2'); //帳號或密碼有誤!
+        if (!chara)
+          return login_page(res, lang.err('E0004')+'2'); //帳號或密碼有誤!
 
-      if (chara.pwd != req.body.pwd.trim())
-        return login_page(res, lang.err('E0004')+'1'); //帳號或密碼有誤!
+        if (chara.pwd != req.body.pwd.trim())
+          return login_page(res, lang.err('E0004')+'1'); //帳號或密碼有誤!
 
-      req.session.id = chara.id;
-      res.redirect('/top');
+        req.session.id = chara.id;
+        res.redirect('/top');
 
-    });
+      });
 
   });
 
@@ -141,13 +135,7 @@ module.exports = function(app, Store) {
   app.get('/reg', function(req, res, params) {
       reg_page(res, '');
   });
-function verifyUserInputData(data){
-  if (!data)
-    return false;
 
-  if (data != xss(data.trim()))
-    return false;
-}
   app.post('/reg', function(req, res, next) {
     if (verifyUserInputData(req.body.acc))
       return reg_page(res, lang.err.E0001);
@@ -245,4 +233,12 @@ function login_page(res, msg) {
         name: '',
         msg: msg
     });
+}
+
+function verifyUserInputData(data){
+  if (!data)
+    return false;
+
+  if (data != xss(data.trim()))
+    return false;
 }
