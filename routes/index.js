@@ -5,10 +5,10 @@ var appinfo = require('../package.json'),
     xss = require('escape-html');
 var fs = require('fs'),
     path = require('path');
-var lang = require('../class/lang');
+var lang = require('../lib/class/lang');
 var settings = require('../lib/settings'),
     passport = require('passport'),
-    CharaAccess = require('../class/db/CharaAccess'),
+    CharaAccess = require('../lib/class/db/CharaAccess'),
     apptitle = appinfo.name;
 
 var js_path = path.dirname(process.mainModule.filename);
@@ -52,11 +52,10 @@ module.exports = function(app, Store) {
   setInterval(loadJS, 2000);
 
   app.get('/top', function(req, res, next) {
-      if (req.session.uid) {
+      if (req.session.id) {
           var js = '';
 
           for (var i in class_js) {
-              //console.log(class_js[i].filename);
               js += class_js[i].data;
           }
           var loadData = {
@@ -75,7 +74,7 @@ module.exports = function(app, Store) {
   });
 
   app.get('/admin', function(req, res, next) {
-      if (req.session.uid && req.session.admin) {
+      if (req.session.playerID && req.session.admin) {
           res.render('admin', {
               title: apptitle,
               settings: settings,
@@ -102,16 +101,18 @@ module.exports = function(app, Store) {
   });
 
   app.post('/login', function(req, res, next) {
+    
     if (req.body.acc == null || req.body.acc == '')
-      return login_page(res, lang.err.E0001); //請輸入帳號!
+      return login_page(res, lang.err('E0001')); //請輸入帳號!
 
     if (req.body.pwd == null || req.body.pwd.trim() == '')
-      return login_page(res, lang.err.E0002); //請輸名稱!
+      return login_page(res, lang.err('E0002')); //請輸名稱!
 
     var acc = req.body.acc.trim();
     CharaAccess.getByAccount(
-      acc: acc
+      acc,
       function(err, chara) {
+
         if (err) 
           return login_page(res, err);
 
@@ -121,7 +122,7 @@ module.exports = function(app, Store) {
         if (chara.pwd != req.body.pwd.trim())
           return login_page(res, lang.err('E0004')+'1'); //帳號或密碼有誤!
 
-        req.session.id = chara.id;
+        req.session.playerID = chara.id;
         res.redirect('/top');
 
       });
@@ -138,16 +139,16 @@ module.exports = function(app, Store) {
 
   app.post('/reg', function(req, res, next) {
     if (verifyUserInputData(req.body.acc))
-      return reg_page(res, lang.err.E0001);
+      return reg_page(res, lang.err('E0001'));
 
     if (verifyUserInputData(req.body.nam))
-      return reg_page(res, lang.err.E0002);
+      return reg_page(res, lang.err('E0002'));
 
     if (verifyUserInputData(req.body.pwd1))
-      return reg_page(res, lang.err.E0003);
+      return reg_page(res, lang.err('E0003'));
 
     if (req.body.pwd1 != req.body.pwd2)
-      return reg_page(res, lang.err.E0005);
+      return reg_page(res, lang.err('E0005'));
 
     var source = 'FB',
       acc = req.body.acc.trim(),
@@ -216,7 +217,7 @@ module.exports = function(app, Store) {
 function reg_page(res, msg) {
     res.render('reg', {
         title: apptitle,
-        subtitle: lang.txt.T0004,
+        subtitle: lang.txt('T0004'),
         lang: lang,
         photo: '',
         name: '',
@@ -227,7 +228,7 @@ function reg_page(res, msg) {
 function login_page(res, msg) {
     res.render('login', {
         title: apptitle,
-        subtitle: lang.txt.T0003,
+        subtitle: lang.txt('T0003'),
         lang: lang,
         photo: '',
         name: '',

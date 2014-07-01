@@ -2,9 +2,9 @@
 <img src="<%=photo%>"><br/>
 <%=name%>
 <form action="/login" method="post">
-<%=lang.txt.T0001%><input type="text" name="acc" value=""><br/>
-<%=lang.txt.T0002%><input type="password" name="pwd" id="pwd" value="">
-<input type="submit" value="<%=lang.txt.T0003%>">
+<%=lang.txt('T0001')%><input type="text" name="acc" value=""><br/>
+<%=lang.txt('T0002')%><input type="password" name="pwd" id="pwd" value="">
+<input type="submit" value="<%=lang.txt('T0003')%>">
 </form>
 <%=msg%>
 <% include layouts/footer %>

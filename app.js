@@ -16,7 +16,6 @@ var cluster = require('cluster'),
     }),
     http = require('http'),
     path = require('path'),
-    db = require('./lib/db'),
     app = express(),
     cpuCount = require('os').cpus().length;
 
@@ -92,5 +91,5 @@ if (cluster.isMaster) {
     });
 
     game.load(io.sockets);
-    socket_routes(io, game);
+    socket_route(io, game);
 }

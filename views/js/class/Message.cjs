@@ -25,6 +25,7 @@ MessageClass.prototype.click=function(){
   }
 
 MessageClass.prototype.show= function(val,loginout){
+    $('#load_frame').hide();
     this.loginout = loginout || false;
     this.msg.html(val);
     this.frame.fadeIn("fast");
