@@ -8,14 +8,14 @@ function route(data){
     return;
 
     for (var i in data){
-    var obj = coms[i];
+      var obj = coms[i];
 
-    if (obj) {
-      debug('指令元件'+i);
-      obj.on(data[i]);
-    } else {
-      debug('Route找不到指令'+i);
-    }
+      if (obj) {
+        debug('指令元件'+i);
+        obj.on(data[i]);
+      } else {
+        debug('Route找不到指令'+i);
+      }
   }
   debug('run All reflush');
   for (var i in o){
