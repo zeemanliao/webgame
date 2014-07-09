@@ -4,7 +4,7 @@
 	});
 
 	socket.on('show error',function(data){
-		o.message.show(data.msg,false);
+		o.message.show(data.code +':'+data.msg, true);
 	});
 
 	socket.on('show error2',function(data){
@@ -22,6 +22,4 @@
 		route(data);
 	});
 
-  socket.on('check ver', function(data){
-    socket.emit('check ver',db.ver);
-  });
+

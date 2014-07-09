@@ -7,7 +7,7 @@
 var AreaClass = Object.Extend(BaseViewClass);
 
 AreaClass.prototype.initialize=function(){
-	this.ver = 0;
+	this.version = 0;
   this.base();
 }
 AreaClass.prototype.create=function(){
@@ -35,8 +35,8 @@ AreaClass.prototype.reflush=function(){
 }
 
 AreaClass.prototype.update=function(){
-	if (this.ver != db.ver.areas) {
-		this.ver = db.ver.areas;
+	if (this.version != db.version.areas) {
+		this.version = db.version.areas;
 		this.content.empty();
     debug(o.chara.data);
     var chara_level = o.chara.data.level;

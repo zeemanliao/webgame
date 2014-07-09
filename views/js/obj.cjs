@@ -27,6 +27,5 @@ o.battle = new BattleClass();
 o.guest = new GuestClass();
 o.team = new TeamClass();
 o.enemy = new EnemyClass();
-o.city.show();
 
 

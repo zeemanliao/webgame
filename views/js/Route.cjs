@@ -17,12 +17,14 @@ function route(data){
         debug('Route找不到指令'+i);
       }
   }
+  /*
   debug('run All reflush');
   for (var i in o){
     if (typeof(o[i].reflush)=='function'){
       o[i].reflush();
     }
   }
+  */
 }
 
 var BaseCom = Class.create();
@@ -57,6 +59,7 @@ var coms = {};
 
 
 coms.chara = new BaseCom("chara");
+coms.login = new BaseCom("login");
 coms.sys = new BaseCom("sys");
 coms.ready = new BaseCom("ready");
 coms.city = new BaseCom("city");
@@ -185,6 +188,24 @@ coms.battle.removeMember = function(data){
 }
 coms.debug.test = function(data){
   debug(data);
+}
+/*
+
+      Login
+
+*/
+coms.login.getVersion = function(data){
+  this.emit('checkAndUpdateVersion',db.version);
+}
+
+coms.login.updateLoaclStorage = function(data){
+  
+  for (var i in data){
+    debug('載入db->'+i+'=>');
+    debug(data[i]);
+    db.put(i,data[i]);
+  }
+  this.emit('checkAndUpdateVersion',db.version);
 }
 
 /*
