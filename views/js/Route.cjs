@@ -61,7 +61,6 @@ var coms = {};
 coms.chara = new BaseCom("chara");
 coms.login = new BaseCom("login");
 coms.sys = new BaseCom("sys");
-coms.ready = new BaseCom("ready");
 coms.city = new BaseCom("city");
 coms.guest = new BaseCom("guest");
 coms.map = new BaseCom("map");
@@ -205,13 +204,13 @@ coms.login.updateLoaclStorage = function(data){
     debug(data[i]);
     db.put(i,data[i]);
   }
-  this.emit('checkAndUpdateVersion',db.version);
+  
 }
 
 /*
   此區為剛登入後資料就續後需先執行的區域
  */
-coms.ready.load = function(){
+coms.login.ready = function(){
   log('載入Ready Load');
   GameContent.show();
   $('#load_frame').hide();
