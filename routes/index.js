@@ -1,15 +1,17 @@
 /*
  * GET home page.
  */
-var appinfo = require('../package.json'),
-    xss = require('escape-html');
-var fs = require('fs'),
-    path = require('path');
+var appinfo = require('../package.json');
+var xss = require('escape-html');
+var fs = require('fs');
+var path = require('path');
 var lang = require('../lib/class/lang');
-var settings = require('../lib/settings'),
-    passport = require('passport'),
-    CharaAccess = require('../lib/class/db/CharaAccess'),
-    apptitle = appinfo.name;
+var settings = require('../lib/settings');
+var passport = require('passport');
+var PlayerAccess = require('../lib/class/db/PlayerAccess');
+var LoginKeyAccess = require('../lib/class/db/LoginKeyAccess');
+var apptitle = appinfo.name;
+var tool = require('../lib/util/tool');
 
 var js_path = path.dirname(process.mainModule.filename);
 
@@ -109,22 +111,29 @@ module.exports = function(app, Store) {
       return login_page(res, lang.err('E0002')); //請輸名稱!
 
     var acc = req.body.acc.trim();
-    CharaAccess.getByAccount(
+    PlayerAccess.getByAccount(
       acc,
-      function(err, chara) {
+      function(err, player) {
 
         if (err) 
           return login_page(res, err);
 
-        if (!chara)
+        if (!player)
           return login_page(res, lang.err('E0004')+'2'); //帳號或密碼有誤!
 
-        if (chara.pwd != req.body.pwd.trim())
+        if (player.pwd != req.body.pwd.trim())
           return login_page(res, lang.err('E0004')+'1'); //帳號或密碼有誤!
 
-        req.session.playerID = chara.id;
-        res.redirect('/top');
+        //req.session.playerID = Player.id;
+        var _keyID = tool.getRandomWord({length:20}) + '_' + player.id;
+        
+        LoginKeyAccess.saveLoginKey({keyID:_keyID, playerID:player.id}, function(err){
+          if (err)
+            return login_page(res, '登入失敗:請重新登入'+err.message);
 
+          req.session.loginKeyID = _keyID;
+          res.redirect('/top');
+        });
       });
 
   });
@@ -154,15 +163,15 @@ module.exports = function(app, Store) {
       acc = req.body.acc.trim(),
       nam = req.body.nam.trim();
 
-    CharaAccess.getByAccountOrName({acc:acc,nam:nam},
-    function(err, chara) {
+    PlayerAccess.getByAccountOrName({acc:acc,nam:nam},
+    function(err, Player) {
       if (err)
         return reg_page(res, err);
 
-      if (chara && chara.acc == acc)
+      if (Player && Player.acc == acc)
         return reg_page(res, lang.err('E0010'));
       
-      if (chara && chara.nam == nam)
+      if (Player && Player.nam == nam)
         return reg_page(res, lang.err('E0011'));
 
       var Player = new Player();
