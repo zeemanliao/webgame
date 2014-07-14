@@ -10,10 +10,10 @@
 	socket.on('show error2',function(data){
 		debug('Error = >');
 		debug(data.msg);
-		o.message.show('程式出現非預期錯誤',false);
+		o.message.show('程式出現非預期錯誤',true);
 	});
 
-	socket.on('show message',function(data){
+	socket.on('message',function(data){
 		o.message.show(data.msg,false);
 	});
 

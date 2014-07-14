@@ -124,20 +124,6 @@ coms.chara.update = function(data) {
   o.chara.update(data);
 }
 
-coms.sys.conf = function(data){
-  conf = data;
-}
-coms.sys.ver = function(data){
-  db.put('ver',data);
-}
-coms.sys.db = function(data){
-  for (var i in data){
-    debug('載入db->'+i+'=>');
-    debug(data[i]);
-    db.put(i,data[i]);
-  }
-}
-
 /*
 
         City
@@ -194,7 +180,7 @@ coms.debug.test = function(data){
 
 */
 coms.login.getVersion = function(data){
-  this.emit('checkAndUpdateVersion',db.version);
+  socket.emit('checkAndUpdateVersion', db.version);
 }
 
 coms.login.updateLoaclStorage = function(data){
@@ -204,7 +190,7 @@ coms.login.updateLoaclStorage = function(data){
     debug(data[i]);
     db.put(i,data[i]);
   }
-  
+  socket.emit('loadAllData', {});
 }
 
 /*
@@ -214,4 +200,5 @@ coms.login.ready = function(){
   log('載入Ready Load');
   GameContent.show();
   $('#load_frame').hide();
+  o.area.update();
 }
