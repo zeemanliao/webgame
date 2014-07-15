@@ -70,5 +70,5 @@ io.set('authorization', function(data, accept) {
         }
     });
 });
-game.load(io.socket);
+game.load(io.sockets);
 socket_route(io, game);
