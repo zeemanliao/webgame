@@ -68,6 +68,7 @@ coms.team = new BaseCom("team");
 coms.battle = new BaseCom("battle");
 coms.enemy = new BaseCom("enemy");
 coms.debug = new BaseCom("debug");
+coms.item = new BaseCom("item");
 /*
 
       Team
@@ -96,7 +97,20 @@ coms.team.removeTeam = function(data){
   var team_id = data;
   o.team.removeTeam(team_id);
 }
+/*
 
+      Item
+
+ */
+coms.item.bag = function(data) {
+
+}
+coms.item.storage = function(data) {
+  
+}
+coms.item.equipment = function(data) {
+  
+}
 /*
 
       Guest
