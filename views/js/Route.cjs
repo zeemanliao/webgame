@@ -214,5 +214,5 @@ coms.login.ready = function(){
   log('載入Ready Load');
   GameContent.show();
   $('#load_frame').hide();
-  o.area.update();
+  //o.area.update();
 }

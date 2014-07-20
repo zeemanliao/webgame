@@ -10,6 +10,7 @@ AreaClass.prototype.initialize=function(){
 	this.version = 0;
   this.base();
 }
+
 AreaClass.prototype.create=function(){
   var self = this;
   this.frame = $('#area_frame');
@@ -38,7 +39,7 @@ AreaClass.prototype.update=function(){
 	if (this.version != db.version.areas) {
 		this.version = db.version.areas;
 		this.content.empty();
-    debug(o.chara.data);
+
     var chara_level = o.chara.data.level;
 		for (var i in db.areas){
 			var area = db.areas[i];

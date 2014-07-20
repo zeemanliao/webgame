@@ -16,10 +16,12 @@ BaseViewClass.prototype = {
     }
 
   },
+  
   gid:function(gid_name){
     //return $("[gid='"+gid_name+"']",this.frame.id);
     return this.frame.find("[gid='"+gid_name+"']");
   },
+
   hide:function() {
     var self = this;
     this.frame.delay(0).animate(
@@ -31,6 +33,7 @@ BaseViewClass.prototype = {
       }
     );
   },
+
   show:function() {
     var self = this;
     this.frame.delay(0).animate(
@@ -38,9 +41,12 @@ BaseViewClass.prototype = {
       50,
       null,
       function(){
+        if (typeof(self.update) === 'function')
+          self.update();
         self.frame.show();
     });
   },
+
   city:function(obj) {
     var f;
     var cmd;
