@@ -29,6 +29,7 @@
     <h3 gid="desc">Shop Desc</h3>
     <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
     <div class="city_content">
+    <canvas id="myCanvas" width="200" height="100">xxx</canvas> 
     </div>
 </div>
       </div>
@@ -36,6 +37,53 @@
 <script>
 $('#content').show();
 $('#shop_frame').show();
+
+  var canvas = document.getElementById("myCanvas");     
+  var ctx = canvas.getContext("2d");       
+
+
+function AttrObject(args){
+  this.count = args.count;
+  this.ctx = args.ctx;
+  this.angle = 360 / this.count;
+  this.size = args.size;
+  this.x = args.x;
+  this.y = args.y;
+  this.ctx.fillStyle = "rgba(255, 0, 0, 0.5)";     
+  this.ctx.strokeStyle = "rgba(204, 0, 0, 1)";     
+  this.ctx.lineWidth= 1;
+
+  this.paint();
+}
+AttrObject.prototype.paint = function(){
+
+  this.ctx.beginPath();
+  this.ctx.moveTo(this.getX(1), this.getY(1));
+  for (var i = 2;i<=this.count;i++){
+    console.log(this.getX(i));
+    console.log(this.getY(i));
+    this.ctx.lineTo(this.getX(i), this.getY(i));
+  }
+  this.ctx.lineTo(this.getX(1), this.getY(1));
+  this.ctx.fill();
+  this.ctx.stroke();
+}
+AttrObject.prototype.getX = function(count) {
+  return Math.cos(Math.PI/180*(this.angle)*count)*this.size+this.x;
+}
+AttrObject.prototype.getY = function(count) {
+  return Math.sin(Math.PI/180*(this.angle*count))*this.size+this.y;
+}
+
+  
+  var A1 = new AttrObject({
+    count:8,
+    ctx:ctx,
+    size:20,
+    x:20,
+    y:20
+  });
 </script>
+
 
 </html>
