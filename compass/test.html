@@ -58,13 +58,13 @@ function AttrObject(args){
 AttrObject.prototype.paint = function(){
 
   this.ctx.beginPath();
-  this.ctx.moveTo(this.getX(1), this.getY(1));
-  for (var i = 2;i<=this.count;i++){
+  this.ctx.moveTo(this.getX(0), this.getY(0));
+  for (var i = 1;i<this.count;i++){
     console.log(this.getX(i));
     console.log(this.getY(i));
     this.ctx.lineTo(this.getX(i), this.getY(i));
   }
-  this.ctx.lineTo(this.getX(1), this.getY(1));
+  this.ctx.lineTo(this.getX(0), this.getY(0));
   this.ctx.fill();
   this.ctx.stroke();
 }
@@ -77,7 +77,7 @@ AttrObject.prototype.getY = function(count) {
 
   
   var A1 = new AttrObject({
-    count:8,
+    count:5,
     ctx:ctx,
     size:20,
     x:20,
