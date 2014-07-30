@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-#content .content_frame, #chara_frame #main, #chara_frame #info, #guest_frame, #battle {
+#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, #battle {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -665,6 +665,14 @@ hr {
   border-color: white;
   border-width: 4px;
   position: absolute;
+}
+#chara_frame #radarInfo {
+  width: 150px;
+  height: 150px;
+  top: 240px;
+  left: 10px;
+  z-index: 30;
+  position: fixed;
 }
 #chara_frame #info {
   -webkit-box-shadow: 0px 0px 2px #333333;

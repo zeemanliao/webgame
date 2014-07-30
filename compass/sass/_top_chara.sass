@@ -4,6 +4,8 @@ $chara_main_h:220px
 
 $chara_info_w:150px
 $chara_info_h:$frame_h - $chara_main_h
+$chara_radar_w:150px
+$chara_radar_h:150px
 #chara_frame
   +xy($body_margin,$body_margin)
   z-index: $zindex
@@ -41,6 +43,12 @@ $chara_info_h:$frame_h - $chara_main_h
     border-color: white
     border-width: 4px
     position: absolute
+  #radarInfo
+    @extend %all_frame
+    +wh($chara_radar_w,$chara_radar_h)
+    +xy($body_margin,$chara_main_h + 20px)
+    z-index: $zindex - 20
+    position: fixed
   #info
     @extend %all_frame
     +box-shadow(0px 0px 2px #333)

@@ -37,8 +37,8 @@ CharaClass.prototype.update=function(data){
   if (!this.data) {
       this.data = data;
   }else{
-      for (var item in data){
-          this.data[item]=data[item];
+      for (var i in data){
+          this.data[i]=data[i];
       }
   }
   for (var i in this.data){
@@ -53,5 +53,17 @@ CharaClass.prototype.update=function(data){
   if (data.gold)
     this.v.gold.html(this.data.gold + ' G');
 
+  this.showInfo();
 }
 
+CharaClass.prototype.showInfo = function() {
+  var rc = new html5jp.graph.radar("radar");
+  if( ! rc ) { return; }
+  var items = [
+    ["", this.data.str, this.data.int, this.data.mag, this.data.dex, this.data.vit]
+  ];
+  var params = {
+    aCap: ["力", "智", "魔", "敏", "體"]
+  }
+  rc.draw(items, params);
+}

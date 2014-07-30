@@ -14,6 +14,7 @@
     google.load("jqueryui", "1");
     </script>
 -->
+<script type="text/javascript" src="../public/javascripts/radar.js"></script>
     <script src="../public/javascripts/jquery-1.11.1.min.js"></script>
     <script src="../public/javascripts/jquery-ui-1.10.4.custom.js"></script>
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
@@ -22,67 +23,45 @@
 
 <body>
     <div id="content">
-
-      <div id="city">
-<div class="content_frame" id="shop_frame">
-    <h2 gid="nam">Shop</h2>
-    <h3 gid="desc">Shop Desc</h3>
-    <btn class="city_button" gid="sub_btn_1" data="city">Town</btn>
-    <div class="city_content">
-    <canvas id="myCanvas" width="200" height="100">xxx</canvas> 
-    </div>
-</div>
-      </div>
+<div id="chara_frame">
+            <div id="main">
+                <img alt="Chara Photo" gid="photo">
+                <div class="label" gid="nam">Loaing...</div>
+                <div class="number" gid="level">Loaing...</div>
+                <div class="number" gid="retime">Loaing...</div>
+                <div class="number" gid="gold">Loaing...</div>
+                <div class="number" gid="vipgold">Loaing...</div>
+                <btn class="cricle" gid="add">+</btn>
+            </div>
+<div id="radarInfo"><canvas width="150" height="150" id="radar"></canvas></div>
+<!--
+            <ul id="info">
+                <li class="number" gid="ex">Loaing...</li>
+                <li class="number" gid="cex">Loaing...</li>
+                <li class="number" gid="freecex">Loaing...</li>
+                <li class="number" gid="hp">Loaing...</li>
+                <li class="number" gid="dmg">Loaing...</li>
+                <li class="number" gid="mag">Loaing...</li>
+                <li class="number" gid="def">Loaing...</li>
+            </ul>
+-->
+        </div>
     </div>
 <script>
 $('#content').show();
-$('#shop_frame').show();
-
-  var canvas = document.getElementById("myCanvas");     
-  var ctx = canvas.getContext("2d");       
-
-
-function AttrObject(args){
-  this.count = args.count;
-  this.ctx = args.ctx;
-  this.angle = 360 / this.count;
-  this.size = args.size;
-  this.x = args.x;
-  this.y = args.y;
-  this.ctx.fillStyle = "rgba(255, 0, 0, 0.5)";     
-  this.ctx.strokeStyle = "rgba(204, 0, 0, 1)";     
-  this.ctx.lineWidth= 1;
-
-  this.paint();
-}
-AttrObject.prototype.paint = function(){
-
-  this.ctx.beginPath();
-  this.ctx.moveTo(this.getX(0), this.getY(0));
-  for (var i = 1;i<this.count;i++){
-    console.log(this.getX(i));
-    console.log(this.getY(i));
-    this.ctx.lineTo(this.getX(i), this.getY(i));
+$('#chara_frame').show();
+draw();
+function draw(){
+  var rc = new html5jp.graph.radar("radar");
+  if( ! rc ) { return; }
+  var items = [
+    ["", 5,5,5,5,5]
+  ];
+  var params = {
+    aCap: ["力", "智", "魔", "敏", "體"]
   }
-  this.ctx.lineTo(this.getX(0), this.getY(0));
-  this.ctx.fill();
-  this.ctx.stroke();
+  rc.draw(items, params);
 }
-AttrObject.prototype.getX = function(count) {
-  return Math.cos(Math.PI/180*(this.angle)*count)*this.size+this.x;
-}
-AttrObject.prototype.getY = function(count) {
-  return Math.sin(Math.PI/180*(this.angle*count))*this.size+this.y;
-}
-
-  
-  var A1 = new AttrObject({
-    count:5,
-    ctx:ctx,
-    size:20,
-    x:20,
-    y:20
-  });
 </script>
 
 
