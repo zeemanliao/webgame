@@ -12,7 +12,7 @@ $chara_radar_h:150px
   #main
     @extend %all_frame
     +box-shadow(0px 0px 2px #333)
-    +background-image(linear-gradient(0,#bee,#cff))
+    +background-image(linear-gradient(0,#def,#cef))
     +xy($body_margin,$body_margin)
     position: fixed
     z-index: $zindex - 10
@@ -52,27 +52,18 @@ $chara_radar_h:150px
   #info
     @extend %all_frame
     +box-shadow(0px 0px 2px #333)
-    +background-image(linear-gradient(0,#beb,#cfc))
+    +background-image(linear-gradient(0,#eee,#fff))
     +wh($chara_info_w,$chara_info_h)
     +xy($body_margin + 7,$chara_main_h + 0px)
     z-index: $zindex - 20
     position: fixed
     li
-      padding-left: 50px
       position: static
       margin-top: 10px
-      height: 30px
-      line-height: 30px
-    +gid(cex)
-      +icons(cex)
-    +gid(ex)
-      +icons(ex)
-    +gid(dmg)
-      +icons(dmg)
-    +gid(hp)
-      +icons(hp)
-    +gid(def)
-      +icons(def)
-    +gid(freecex)
-      +icons(freecex)
+      height: 20px
+      line-height: 20px
+      div
+        position: static
+        float: left
+
 

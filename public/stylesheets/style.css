@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, #battle {
+#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, #shop_frame .itemList, #battle {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -565,6 +565,14 @@ hr {
   color: #666666;
 }
 
+.city_content {
+  overflow-y: auto;
+  overflow-x: 0;
+  width: 440px;
+  height: 300px;
+  margin-left: 0px;
+}
+
 .message {
   color: #636363;
 }
@@ -578,11 +586,11 @@ hr {
   -webkit-box-shadow: 0px 0px 2px #333333;
   -moz-box-shadow: 0px 0px 2px #333333;
   box-shadow: 0px 0px 2px #333333;
-  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeeee), color-stop(100%, #ccffff));
-  background-image: -webkit-linear-gradient(0, #bbeeee, #ccffff);
-  background-image: -moz-linear-gradient(0, #bbeeee, #ccffff);
-  background-image: -o-linear-gradient(0, #bbeeee, #ccffff);
-  background-image: linear-gradient(0, #bbeeee, #ccffff);
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #ddeeff), color-stop(100%, #cceeff));
+  background-image: -webkit-linear-gradient(0, #ddeeff, #cceeff);
+  background-image: -moz-linear-gradient(0, #ddeeff, #cceeff);
+  background-image: -o-linear-gradient(0, #ddeeff, #cceeff);
+  background-image: linear-gradient(0, #ddeeff, #cceeff);
   top: 10px;
   left: 10px;
   position: fixed;
@@ -678,11 +686,11 @@ hr {
   -webkit-box-shadow: 0px 0px 2px #333333;
   -moz-box-shadow: 0px 0px 2px #333333;
   box-shadow: 0px 0px 2px #333333;
-  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #bbeebb), color-stop(100%, #ccffcc));
-  background-image: -webkit-linear-gradient(0, #bbeebb, #ccffcc);
-  background-image: -moz-linear-gradient(0, #bbeebb, #ccffcc);
-  background-image: -o-linear-gradient(0, #bbeebb, #ccffcc);
-  background-image: linear-gradient(0, #bbeebb, #ccffcc);
+  background-image: -webkit-gradient(linear, 0, 0, color-stop(0%, #eeeeee), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: -moz-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: -o-linear-gradient(0, #eeeeee, #ffffff);
+  background-image: linear-gradient(0, #eeeeee, #ffffff);
   width: 150px;
   height: 280px;
   top: 220px;
@@ -691,29 +699,14 @@ hr {
   position: fixed;
 }
 #chara_frame #info li {
-  padding-left: 50px;
   position: static;
   margin-top: 10px;
-  height: 30px;
-  line-height: 30px;
+  height: 20px;
+  line-height: 20px;
 }
-#chara_frame #info [gid=cex] {
-  background: url("/images/cex.png") no-repeat left;
-}
-#chara_frame #info [gid=ex] {
-  background: url("/images/ex.png") no-repeat left;
-}
-#chara_frame #info [gid=dmg] {
-  background: url("/images/dmg.png") no-repeat left;
-}
-#chara_frame #info [gid=hp] {
-  background: url("/images/hp.png") no-repeat left;
-}
-#chara_frame #info [gid=def] {
-  background: url("/images/def.png") no-repeat left;
-}
-#chara_frame #info [gid=freecex] {
-  background: url("/images/freecex.png") no-repeat left;
+#chara_frame #info li div {
+  position: static;
+  float: left;
 }
 
 .city_button {
@@ -1233,13 +1226,6 @@ hr {
   width: 70px;
   height: 40px;
 }
-#team_frame .city_content {
-  overflow-y: auto;
-  overflow-x: 0;
-  width: 440px;
-  height: 300px;
-  margin-left: 0px;
-}
 #team_frame .team {
   width: 400px;
   height: 47px;
@@ -1309,6 +1295,43 @@ hr {
   right: 7px;
   bottom: 0px;
   color: red;
+}
+
+#shop_frame .itemList {
+  position: relative;
+  width: 400px;
+}
+#shop_frame .itemList li {
+  position: static;
+  margin-top: 10px;
+  height: 50px;
+  line-height: 50px;
+  background: #eeeeee;
+  margin-bottom: 10px;
+  padding: 2px;
+  overflow-x: 0;
+  -webkit-box-shadow: 0px 0px 3px #333333;
+  -moz-box-shadow: 0px 0px 3px #333333;
+  box-shadow: 0px 0px 3px #333333;
+}
+#shop_frame .itemList li div {
+  position: static;
+  float: left;
+}
+#shop_frame .itemList li [gid=nam] {
+  width: 110px;
+}
+#shop_frame .itemList li [gid=attr] {
+  width: 190px;
+}
+#shop_frame .itemList li [gid=coins] {
+  width: 30px;
+}
+#shop_frame .itemList li btn {
+  right: 20px;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
 }
 
 #battle {
