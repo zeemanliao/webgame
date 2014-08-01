@@ -1,0 +1,40 @@
+$storage_frame_w: $frame_w * 2 + $body_margin
+#storage_frame
+  z-index: $zindex+40
+  display: none
+  position: absolute
+  +xy(0px,0px)
+  +wh(100%,100%)
+  +bgc(#aaa)
+  +opacity(0.9)
+  h3
+    text-align: center
+    line-height: 1px
+#bag_list
+  +xy(calc(50% - #{$frame_w + $body_margin*2}), $body_margin)
+#storage_list
+  +xy(calc(50% + #{$body_margin*2}), $body_margin)
+.item_content
+  +wh(100%,calc(100% - 70px))
+  overflow-x: hidden
+  overflow-y: auto
+.storage_list
+  @extend %all_frame
+  +wh($frame_w,$frame_h)
+  absolute: fixed
+  +bgc(#fff)
+  padding: 10px
+  .storage_space
+    position: absolute
+    right: $body_margin
+    top: $body_margin
+    color: blue
+.item_type
+  +wh($frame_w, 30px)
+  sel
+    line-height: 30px
+    position: relative
+    float: left
+    display: block
+    +wh(30px, 30px)
+    margin-right: 10px

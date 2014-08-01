@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, #shop_frame .itemList, #battle {
+#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, .itemList, #battle, .storage_list {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -1297,13 +1297,13 @@ hr {
   color: red;
 }
 
-#shop_frame .itemList {
+.itemList {
   position: relative;
   width: 400px;
 }
-#shop_frame .itemList li {
+.itemList li {
   position: static;
-  margin-top: 10px;
+  margin-top: 0px;
   height: 50px;
   line-height: 50px;
   background: #eeeeee;
@@ -1314,20 +1314,20 @@ hr {
   -moz-box-shadow: 0px 0px 3px #333333;
   box-shadow: 0px 0px 3px #333333;
 }
-#shop_frame .itemList li div {
+.itemList li div {
   position: static;
   float: left;
 }
-#shop_frame .itemList li [gid=nam] {
+.itemList li [gid=nam] {
   width: 110px;
 }
-#shop_frame .itemList li [gid=attr] {
+.itemList li [gid=attr] {
   width: 190px;
 }
-#shop_frame .itemList li [gid=coins] {
+.itemList li [gid=coins] {
   width: 30px;
 }
-#shop_frame .itemList li btn {
+.itemList li btn {
   right: 20px;
   width: 30px;
   height: 40px;
@@ -1537,4 +1537,66 @@ hr {
 #team [pos="5"] {
   top: 260px;
   left: 40px;
+}
+
+#storage_frame {
+  z-index: 90;
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #aaaaaa;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+}
+#storage_frame h3 {
+  text-align: center;
+  line-height: 1px;
+}
+
+#bag_list {
+  top: 10px;
+  left: calc(50% - 460px);
+}
+
+#storage_list {
+  top: 10px;
+  left: calc(50% + 20px);
+}
+
+.item_content {
+  width: 100%;
+  height: calc(100% - 70px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.storage_list {
+  width: 440px;
+  height: 500px;
+  absolute: fixed;
+  background: white;
+  padding: 10px;
+}
+.storage_list .storage_space {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: blue;
+}
+
+.item_type {
+  width: 440px;
+  height: 30px;
+}
+.item_type sel {
+  line-height: 30px;
+  position: relative;
+  float: left;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
