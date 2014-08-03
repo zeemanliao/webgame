@@ -27,5 +27,6 @@ o.battle = new BattleClass();
 o.guest = new GuestClass();
 o.team = new TeamClass();
 o.enemy = new EnemyClass();
-
+o.home = new HomeClass();
+o.storage = new StorageFrameClass();
 

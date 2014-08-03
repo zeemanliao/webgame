@@ -5,14 +5,13 @@ $storage_frame_w: $frame_w * 2 + $body_margin
   position: absolute
   +xy(0px,0px)
   +wh(100%,100%)
-  +bgc(#aaa)
-  +opacity(0.9)
+  background: rgba(166,166,166,0.9)
   h3
     text-align: center
     line-height: 1px
-#bag_list
+#bag_content
   +xy(calc(50% - #{$frame_w + $body_margin*2}), $body_margin)
-#storage_list
+#storage_content
   +xy(calc(50% + #{$body_margin*2}), $body_margin)
 .item_content
   +wh(100%,calc(100% - 70px))
@@ -24,7 +23,7 @@ $storage_frame_w: $frame_w * 2 + $body_margin
   absolute: fixed
   +bgc(#fff)
   padding: 10px
-  .storage_space
+  .storage_limit
     position: absolute
     right: $body_margin
     top: $body_margin

@@ -102,12 +102,24 @@ coms.team.removeTeam = function(data){
       Item
 
  */
-coms.item.bag = function(data) {
+coms.item.add = function(items) {
+  for (var i in items){
+    o.storage.add(items[i]);
+  }
+}
 
+coms.item.remove = function(itemIDs){
+  for (var i in itemIDs)
+    o.storage.remove(itemIDs[i]);    
 }
-coms.item.storage = function(data) {
-  
+
+coms.item.limit = function(data) {
+  for (var i in data) {
+    if (o.storage.bag[i])
+      o.storage.bag[i].limit = data[i];
+  }
 }
+
 coms.item.equipment = function(data) {
   
 }
@@ -144,13 +156,15 @@ coms.chara.update = function(data) {
 
  */
 coms.city.move = function(data){
-  f = o[data];
+  f = o[data.nam];
   if (f) {
-    if ($('#city').is(':hidden')) {
-      $('#battle').hide();
-      $('#city').show();
+    if (!data.alert){
+      if ($('#city').is(':hidden')) {
+        $('#battle').hide();
+        $('#city').show();
+      }
+      $('.content_frame').hide();
     }
-    $('.content_frame').hide();
     f.show();
   } else {
     debug('Object:'+obj.attr('data')+'->can not find');

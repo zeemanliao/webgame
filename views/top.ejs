@@ -44,6 +44,7 @@
             <h3 id="msg">Loading....</h3>
         </div>
     </div>
+<%include layouts/storage%>
     <div id="content">
         <div id="show_time">
 
@@ -87,6 +88,9 @@
         <h2 gid="nam">City Name</h2>
         <h3 gid="desc">City Desc</h3>
         <div class="city_content">
+            <btn class="city_button" gid="city_home_btn" data="home">
+                Home
+            </btn>
             <btn class="city_button" gid="city_quest_btn" data="quest">
                 Quest
             </btn>
@@ -121,6 +125,7 @@
 <%include layouts/city/cha%>
 <%include layouts/city/shop%>
 <%include layouts/city/team%>
+<%include layouts/city/home%>
     </div>
     <div id="battle">
         <div id="battle_frame">
@@ -216,7 +221,8 @@
     </div>
     </div>
     <script>
-    window.onload = function() { 
+    window.onload = function() {
+      var settings = <%-JSON.stringify(settings.game)%>;
       <%include js/Modernizr.cjs%> 
       <%include js/main.cjs%> 
       <%include js/baseclass.cjs%> 

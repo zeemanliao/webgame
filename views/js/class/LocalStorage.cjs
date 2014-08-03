@@ -14,7 +14,7 @@ LocalStorageClass.prototype = {
     this.mixitems=localStorage.mixitems ? JSON.parse(localStorage.mixitems) : {};
     this.maps=localStorage.maps ? JSON.parse(localStorage.maps) : {};
     this.areas=localStorage.areas ? JSON.parse(localStorage.areas) : {};
-    this.citys=localStorage.citys ? JSON.parse(localStorage.citys) : {};
+    this.builds=localStorage.builds ? JSON.parse(localStorage.builds) : {};
  //   this.setup=localStorage.setup ? JSON.parse(localStorage.setup) : setup;
     //Extend(setup,this.setup);
 

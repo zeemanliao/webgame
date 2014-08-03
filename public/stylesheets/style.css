@@ -716,9 +716,15 @@ hr {
   line-height: 150px;
 }
 
-[gid=city_quest_btn] {
+[gid=city_home_btn] {
   top: 0px;
   left: 0px;
+  background: #ffffee;
+}
+
+[gid=city_quest_btn] {
+  top: 0px;
+  left: 100px;
   background: #ffffee;
 }
 
@@ -1330,7 +1336,7 @@ hr {
 .itemList li btn {
   right: 20px;
   width: 30px;
-  height: 40px;
+  height: 45px;
   line-height: 40px;
 }
 
@@ -1547,21 +1553,19 @@ hr {
   left: 0px;
   width: 100%;
   height: 100%;
-  background: #aaaaaa;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
+  background: rgba(166, 166, 166, 0.9);
 }
 #storage_frame h3 {
   text-align: center;
   line-height: 1px;
 }
 
-#bag_list {
+#bag_content {
   top: 10px;
   left: calc(50% - 460px);
 }
 
-#storage_list {
+#storage_content {
   top: 10px;
   left: calc(50% + 20px);
 }
@@ -1580,7 +1584,7 @@ hr {
   background: white;
   padding: 10px;
 }
-.storage_list .storage_space {
+.storage_list .storage_limit {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -1599,4 +1603,10 @@ hr {
   width: 30px;
   height: 30px;
   margin-right: 10px;
+}
+
+[gid=home_storage_btn] {
+  top: 0px;
+  left: 0px;
+  background: #ffffee;
 }

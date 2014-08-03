@@ -24,10 +24,9 @@ MessageClass.prototype.click=function(){
     }
   }
 
-MessageClass.prototype.show= function(val,loginout){
+MessageClass.prototype.show= function(val){
   if (!this.frame.is(":visible")){
     $('#load_frame').hide();
-    this.loginout = loginout || false;
     this.msg.html(val);
     this.frame.fadeIn("fast");
   }
