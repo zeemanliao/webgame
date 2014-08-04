@@ -380,7 +380,8 @@ btn {
   position: absolute;
 }
 
-sel {
+radio {
+  background: white;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -397,6 +398,46 @@ sel {
   text-align: center;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
+}
+
+sel {
+  background: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  border: solid;
+  border-color: yellow;
+  border-width: 1px;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+
+.selected {
+  background: yellow;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  border: solid;
+  border-color: blue;
+  border-width: 1px;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
 
 input {
@@ -1590,12 +1631,16 @@ hr {
   top: 10px;
   color: blue;
 }
+.storage_list btn {
+  background: #aaaaff;
+  font-size: 70%;
+}
 
 .item_type {
   width: 440px;
   height: 30px;
 }
-.item_type sel {
+.item_type radio {
   line-height: 30px;
   position: relative;
   float: left;
@@ -1603,6 +1648,26 @@ hr {
   width: 30px;
   height: 30px;
   margin-right: 10px;
+}
+.item_type .itemCount {
+  background: white;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  line-height: 12px;
+  position: absolute;
+  top: 20px;
+  right: 1px;
+  color: blue;
+  padding: 0px;
+  border: solid;
+  border-color: blue;
+  border-width: 1px;
 }
 
 [gid=home_storage_btn] {

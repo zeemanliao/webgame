@@ -45,6 +45,7 @@
         </div>
     </div>
 <%include layouts/storage%>
+<%include layouts/bag%>
     <div id="content">
         <div id="show_time">
 
@@ -61,23 +62,23 @@
             </div>
             <ul id="info">
                 <li>
-                    <div class="label">力量:</div>
+                    <div class="label"><%=lang.base('str')%>:</div>
                     <div class="number" gid="str">Loading...</div>
                 </li>
                 <li>
-                    <div class="label">智商:</div>
+                    <div class="label"><%=lang.base('int')%>:</div>
                     <div class="number" gid="int">Loading...</div>
                 </li>
                 <li>
-                    <div class="label">技力:</div>
+                    <div class="label"><%=lang.base('ski')%>:</div>
                     <div class="number" gid="ski">Loading...</div>
                 </li>
                 <li>
-                    <div class="label">敏捷:</div>
+                    <div class="label"><%=lang.base('dex')%>:</div>
                     <div class="number" gid="dex">Loading...</div>
                 </li>
                 <li>
-                    <div class="label">體質:</div>
+                    <div class="label"><%=lang.base('con')%>:</div>
                     <div class="number" gid="con">Loading...</div>
                 </li>
             </ul>
@@ -223,6 +224,7 @@
     <script>
     window.onload = function() {
       var settings = <%-JSON.stringify(settings.game)%>;
+      var lang = <%-JSON.stringify(lang.data.base)%>;
       <%include js/Modernizr.cjs%> 
       <%include js/main.cjs%> 
       <%include js/baseclass.cjs%> 

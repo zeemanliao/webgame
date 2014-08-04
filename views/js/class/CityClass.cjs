@@ -14,8 +14,8 @@ CityClass.prototype.updateInfo=function(){
     var city = db.builds[c];
     var obj = $('#'+city.id+'_frame');
     //開發時不載入中文
-    obj.find('[gid=nam]').html(city.nam);
-    obj.find('[gid=desc]').html(city.desc);
+    //obj.find('[gid=nam]').html(city.nam);
+    //obj.find('[gid=desc]').html(city.desc);
   }
 }
 CityClass.prototype.create=function(){
@@ -24,7 +24,7 @@ CityClass.prototype.create=function(){
   this.content = $('.city_content','#city_frame');
   this.nam = this.gid('nam');
   this.desc = this.gid('desc');
-  //alert(this.frame.attr('id'));
+  
   live('btn',{
     mouseenter: function() {       
       $(this).delay(0).animate({opacity:'1'},50);

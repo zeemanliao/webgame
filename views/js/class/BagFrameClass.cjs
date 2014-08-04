@@ -1,19 +1,19 @@
 /*
 ***********************************************************************************************
-============================================倉庫清單元件===========================================
+============================================背包清單元件===========================================
 ***********************************************************************************************
 */
-function StorageClass(data) {
+function BagClass(data) {
   var self = this;
 
-  this.type = data.storageType;
+  this.type = data.BagType;
   this.frame = $('#'+data.frameName);
   this.buttonName = data.buttonName;
 
   this.limitLabel = this.frame.find('.storage_limit');
   this.itemList = this.frame.find('.itemList');
 
-  this.filter = settings.equipmentType.weapon;
+  this.filter = settings.BagType.weapon;
 
   this._limit = 0;
   this.items = {};
@@ -48,16 +48,16 @@ function StorageClass(data) {
   this.clear();
 }
 
-StorageClass.prototype.__defineGetter__("limit", function(){
+BagClass.prototype.__defineGetter__("limit", function(){
   return this._limit;
 });
     
-StorageClass.prototype.__defineSetter__("limit", function(val){
+BagClass.prototype.__defineSetter__("limit", function(val){
   this._limit = parseInt(val);
   this.reflushLimit();
 });
 
-StorageClass.prototype.reflush = function() {
+BagClass.prototype.reflush = function() {
   this.clear();
 
   for (var i in this.items){
@@ -67,13 +67,13 @@ StorageClass.prototype.reflush = function() {
               '<div class="label" gid="nam">'+'lv.'+item.level+item.base.nam+'</div>'+
               '<div gid="attr">'+gameTool.getAttr(item)+'</div>'+
               '<div class="number" gid="coins">x'+item.num+'</div>'+
-              '<btn class="StorageButton" data="'+item.id+'">'+this.buttonName+'</btn>'+
+              '<btn class="BagButton" data="'+item.id+'">'+this.buttonName+'</btn>'+
               '</li>');
   }
   this.reflushLimit();
 }
 
-StorageClass.prototype.reflushLimit = function(){
+BagClass.prototype.reflushLimit = function(){
   var _count = Object.keys(this.items).length;
   var _fcount = 0;
   var self = this;
@@ -95,16 +95,16 @@ StorageClass.prototype.reflushLimit = function(){
   this.limitLabel.html(_fcount + '/' + _count + '/' + this._limit);
 }
 
-StorageClass.prototype.add = function(item) {
+BagClass.prototype.add = function(item) {
   item.base = db.items[item.baseID];
   this.items[item.id] = item;
 }
 
-StorageClass.prototype.clear = function() {
+BagClass.prototype.clear = function() {
   this.itemList.empty();
 }
 
-StorageClass.prototype.remove = function(itemID) {
+BagClass.prototype.remove = function(itemID) {
   delete this.items[itemID];
   this.itemList.find('#item'+itemID).remove();
 }
@@ -113,29 +113,29 @@ StorageClass.prototype.remove = function(itemID) {
 ============================================倉庫元件===========================================
 ***********************************************************************************************
 */
-var StorageFrameClass = Object.Extend(BaseViewClass);
+var BagFrameClass = Object.Extend(BaseViewClass);
 
-StorageFrameClass.prototype.initialize=function(){
+BagFrameClass.prototype.initialize=function(){
   this.base();
 }
 
-StorageFrameClass.prototype.create=function(){
+BagFrameClass.prototype.create=function(){
   var self = this;
   this.bag = [];
-	this.frame = $('#storage_frame');
-  this.bag[settings.storageType.bag] = new StorageClass({
-    type: settings.storageType.bag,
+	this.frame = $('#bag_frame');
+  this.bag[settings.BagType.bag] = new BagClass({
+    type: settings.BagType.bag,
     frameName: 'bag_content',
     buttonName: '放置'
   });
-  this.bag[settings.storageType.storage] = new StorageClass({
-    type:settings.storageType.storage,
-    frameName: 'storage_content',
+  this.bag[settings.BagType.Bag] = new BagClass({
+    type:settings.BagType.Bag,
+    frameName: 'Bag_content',
     buttonName: '取出'
   });
 
   this.frame.bind("click",function(){self.click()});
-  //this.storage_list.click(function (e){
+  //this.Bag_list.click(function (e){
      //e.stopPropagation();
   //});
 
@@ -143,25 +143,25 @@ StorageFrameClass.prototype.create=function(){
      //e.stopPropagation();
   //});
 }
-StorageFrameClass.prototype.add = function(item){
-  this.bag[item.storage].add(item);
+BagFrameClass.prototype.add = function(item){
+  this.bag[item.Bag].add(item);
 }
 
-StorageFrameClass.prototype.remove = function(itemID){
+BagFrameClass.prototype.remove = function(itemID){
   for (var i in this.bag)
     this.bag[i].remove(itemID);
 }
 
-StorageFrameClass.prototype.reflush = function(){
+BagFrameClass.prototype.reflush = function(){
   for (var i in this.bag)
     this.bag[i].reflush();
 }
 
-StorageFrameClass.prototype.click = function(){
+BagFrameClass.prototype.click = function(){
   this.frame.fadeOut("fast");
 }
 
-StorageFrameClass.prototype.show= function(val,loginout){
+BagFrameClass.prototype.show= function(val,loginout){
   if (!this.frame.is(":visible")){
     this.frame.fadeIn("fast");
   }

@@ -106,11 +106,13 @@ coms.item.add = function(items) {
   for (var i in items){
     o.storage.add(items[i]);
   }
+  o.storage.reflush();
 }
 
 coms.item.remove = function(itemIDs){
   for (var i in itemIDs)
-    o.storage.remove(itemIDs[i]);    
+    o.storage.remove(itemIDs[i]);
+  o.storage.reflush();
 }
 
 coms.item.limit = function(data) {

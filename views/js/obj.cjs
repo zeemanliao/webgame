@@ -1,6 +1,29 @@
 //content
 var GameContent = $('#content');
-
+//
+var gameTool = {
+	getAttr:function(item){
+		var _restr='';
+		for (var i in item.data) {
+			_restr += '<font color=green>' + lang[i] + '</font>:' + item.data[i] + '、';
+		}
+		if (_restr.length >0)
+			_restr = _restr.substr(0, _restr.length-1);
+		return _restr;
+	},
+  radioEvent:function(r){
+    r.parent().find('radio').each(function(index){
+      $(this).removeClass('selected');
+    });
+    r.addClass('selected');
+	},
+	selectEvent:function(s){
+    s.parent().find('radio').each(function(index){
+      $(this).removeClass('selected');
+    });
+    s.addClass('selected');
+	}
+}
 //時間顯示
 var o_showTime = new TimeClass();
 //本機資料庫
@@ -29,4 +52,5 @@ o.team = new TeamClass();
 o.enemy = new EnemyClass();
 o.home = new HomeClass();
 o.storage = new StorageFrameClass();
+o.bag = new BagFrameClass();
 

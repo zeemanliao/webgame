@@ -16,11 +16,6 @@ HomeClass.prototype.create=function(){
   this.content = this.frame.find('.city_content');
   this.nam = this.gid('nam');
   this.desc = this.gid('desc');
-  live('.selectType',{
-    click:function (event) {
-      alert($(this).attr('data'));
-    }
-  });
 }
 
 HomeClass.prototype.reflush=function(){
