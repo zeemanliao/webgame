@@ -102,11 +102,66 @@ StorageClass.prototype.add = function(item) {
 
 StorageClass.prototype.clear = function() {
   this.itemList.empty();
+  this.limitLabel.empty();
 }
 
 StorageClass.prototype.remove = function(itemID) {
   delete this.items[itemID];
   this.itemList.find('#item'+itemID).remove();
+}
+
+/*
+***********************************************************************************************
+============================================倉庫清單元件===========================================
+***********************************************************************************************
+*/
+function EquipmentClass(data) {
+  var self = this;
+
+  this.type = data.storageType;
+  this.frame = $('#'+data.frameName);
+  this.buttonName = data.buttonName;
+
+  this.limitLabel = this.frame.find('.storage_limit');
+  this.itemList = this.frame.find('.itemList');
+
+  this.items = {};
+
+  this.itemList.on('click','btn',
+    function (event) {
+      event.stopPropagation();
+      coms.item.emit('move', $(this).attr('data'));
+    });
+
+  this.clear();
+}
+
+
+EquipmentClass.prototype.equip = function(item) {
+  item.base = db.items[item.baseID];
+  var item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
+  item.find('[gid=nam]').html(item.nam);
+  item.find('[gid=attr]').html(gameTool.getAttr(item));
+  //item.find('.number').html(item.nam.num);
+  item.find('btn').show();
+}
+
+EquipmentClass.prototype.clear = function(equipmentType) {
+  for (var i = 1; i<=10 ;i++) {
+    if (!equipmentType || this.items[equipmentType]) {
+      var item = this.frame.find('[gid=equipmentType_'+ i + ']');
+      item.find('[gid=nam]').empty();
+      item.find('[gid=attr]').empty();
+      item.find('.number').empty();
+      item.find('btn').hide();
+    }
+  }
+}
+
+
+EquipmentClass.prototype.remove = function(equipmentType) {
+  delete this.items[equipmentType];
+  this.clear(equipmentType);
 }
 /*
 ***********************************************************************************************
@@ -144,7 +199,8 @@ StorageFrameClass.prototype.create=function(){
   //});
 }
 StorageFrameClass.prototype.add = function(item){
-  this.bag[item.storage].add(item);
+  if (this.bag[item.storage])
+    this.bag[item.storage].add(item);
 }
 
 StorageFrameClass.prototype.remove = function(itemID){
@@ -162,6 +218,63 @@ StorageFrameClass.prototype.click = function(){
 }
 
 StorageFrameClass.prototype.show= function(val,loginout){
+  if (!this.frame.is(":visible")){
+    this.frame.fadeIn("fast");
+  }
+}
+
+
+/*
+***********************************************************************************************
+============================================背包元件===========================================
+***********************************************************************************************
+*/
+var BagFrameClass = Object.Extend(BaseViewClass);
+
+BagFrameClass.prototype.initialize=function(){
+  this.base();
+}
+
+BagFrameClass.prototype.create=function(){
+  var self = this;
+  this.bag = [];
+  this.frame = $('#bag_frame');
+  this.bag[settings.storageType.bag] = new StorageClass({
+    type: settings.storageType.bag,
+    frameName: 'bag_content2',
+    buttonName: '裝備'
+  });
+  this.bag[settings.storageType.equipment] = new EquipmentClass({
+    type:settings.storageType.equipment,
+    frameName: 'equipment_content',
+    buttonName: '取下'
+  });
+
+  this.frame.bind("click",function(){self.click()});
+  $('[gid=bag]').on("click",function(){
+    self.show();
+  });
+}
+BagFrameClass.prototype.add = function(item){
+  if (this.bag[item.storage])
+    this.bag[item.Bag].add(item);
+}
+
+BagFrameClass.prototype.remove = function(itemID){
+  for (var i in this.bag)
+    this.bag[i].remove(itemID);
+}
+
+BagFrameClass.prototype.reflush = function(){
+  for (var i in this.bag)
+    this.bag[i].reflush();
+}
+
+BagFrameClass.prototype.click = function(){
+  this.frame.fadeOut("fast");
+}
+
+BagFrameClass.prototype.show= function(val,loginout){
   if (!this.frame.is(":visible")){
     this.frame.fadeIn("fast");
   }
