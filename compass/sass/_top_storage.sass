@@ -1,5 +1,5 @@
 $storage_frame_w: $frame_w * 2 + $body_margin
-#storage_frame
+.storage_frame
   z-index: $zindex+40
   display: none
   position: absolute
@@ -9,10 +9,11 @@ $storage_frame_w: $frame_w * 2 + $body_margin
   h3
     text-align: center
     line-height: 1px
-#bag_content
-  +xy(calc(50% - #{$frame_w + $body_margin*2}), $body_margin)
-#storage_content
-  +xy(calc(50% + #{$body_margin*2}), $body_margin)
+#storage_frame
+  #bag_content
+    +xy(calc(50% - #{$frame_w + $body_margin*2}), $body_margin)
+  #storage_content
+    +xy(calc(50% + #{$body_margin*2}), $body_margin)
 .item_content
   +wh(100%,calc(100% - 70px))
   overflow-x: hidden

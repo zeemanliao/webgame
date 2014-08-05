@@ -1,55 +1,22 @@
 $storage_frame_w: $frame_w * 2 + $body_margin
-#storage_frame
-  z-index: $zindex+40
-  display: none
-  position: absolute
-  +xy(0px,0px)
-  +wh(100%,100%)
-  background: rgba(166,166,166,0.9)
-  h3
-    text-align: center
-    line-height: 1px
-#bag_content
-  +xy(calc(50% - #{$frame_w + $body_margin*2}), $body_margin)
-#storage_content
-  +xy(calc(50% + #{$body_margin*2}), $body_margin)
-.item_content
-  +wh(100%,calc(100% - 70px))
-  overflow-x: hidden
-  overflow-y: auto
-.storage_list
-  @extend %all_frame
-  +wh($frame_w,$frame_h)
-  absolute: fixed
-  +bgc(#fff)
-  padding: 10px
-  .storage_limit
+#bag_frame
+  #bag_content2
+    +xy(calc(50% + #{$body_margin*2}), $body_margin)
+  #equipment_content
+    +xy(calc(50% - #{$frame_w + $body_margin*2}), $body_margin)
+    #player_attr
+      text-align: center
+      color: blue
+  +gid(typeNam)
+    line-height: 15px
+    +wh(15px,15px)
     position: absolute
-    right: $body_margin
-    top: $body_margin
-    color: blue
-  btn
-    +bgc(#AAAAFF)
-    font-size: 70%
-.item_type
-  +wh($frame_w, 30px)
-  radio
-    line-height: 30px
-    position: relative
-    float: left
-    display: block
-    +wh(30px, 30px)
-    margin-right: 10px
-  .itemCount
-    +bgc(#fff)
-    +border-radius(2px)
+    +xy(0px, -5px)
+    +bgc(blue)
+    color: white
+    font-size: 80%
+    +border-radius(7px)
     +box-shadow(1px 1px 2px #333)
-    line-height: 12px
-    position: absolute
-    top: 20px
-    right: 1px
-    color: blue
-    padding: 0px
     border: solid
-    border-color: blue
-    border-width: 1px
+    border-color: white
+    border-width: 2px

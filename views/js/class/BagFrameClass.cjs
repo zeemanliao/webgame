@@ -110,7 +110,7 @@ BagClass.prototype.remove = function(itemID) {
 }
 /*
 ***********************************************************************************************
-============================================倉庫元件===========================================
+============================================背包元件===========================================
 ***********************************************************************************************
 */
 var BagFrameClass = Object.Extend(BaseViewClass);
@@ -125,13 +125,13 @@ BagFrameClass.prototype.create=function(){
 	this.frame = $('#bag_frame');
   this.bag[settings.BagType.bag] = new BagClass({
     type: settings.BagType.bag,
-    frameName: 'bag_content',
-    buttonName: '放置'
+    frameName: 'equipment_content',
+    buttonName: '取下'
   });
   this.bag[settings.BagType.Bag] = new BagClass({
     type:settings.BagType.Bag,
-    frameName: 'Bag_content',
-    buttonName: '取出'
+    frameName: 'bag_content2',
+    buttonName: '裝備'
   });
 
   this.frame.bind("click",function(){self.click()});

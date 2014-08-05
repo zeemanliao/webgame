@@ -1349,7 +1349,7 @@ hr {
   width: 400px;
 }
 .itemList li {
-  position: static;
+  position: relative;
   margin-top: 0px;
   height: 50px;
   line-height: 50px;
@@ -1375,10 +1375,10 @@ hr {
   width: 30px;
 }
 .itemList li btn {
-  right: 20px;
+  right: 5px;
   width: 30px;
   height: 45px;
-  line-height: 40px;
+  line-height: 45px;
 }
 
 #battle {
@@ -1586,7 +1586,7 @@ hr {
   left: 40px;
 }
 
-#storage_frame {
+.storage_frame {
   z-index: 90;
   display: none;
   position: absolute;
@@ -1596,17 +1596,16 @@ hr {
   height: 100%;
   background: rgba(166, 166, 166, 0.9);
 }
-#storage_frame h3 {
+.storage_frame h3 {
   text-align: center;
   line-height: 1px;
 }
 
-#bag_content {
+#storage_frame #bag_content {
   top: 10px;
   left: calc(50% - 460px);
 }
-
-#storage_content {
+#storage_frame #storage_content {
   top: 10px;
   left: calc(50% + 20px);
 }
@@ -1668,6 +1667,41 @@ hr {
   border: solid;
   border-color: blue;
   border-width: 1px;
+}
+
+#bag_frame #bag_content2 {
+  top: 10px;
+  left: calc(50% + 20px);
+}
+#bag_frame #equipment_content {
+  top: 10px;
+  left: calc(50% - 460px);
+}
+#bag_frame #equipment_content #player_attr {
+  text-align: center;
+  color: blue;
+}
+#bag_frame [gid=typeNam] {
+  line-height: 15px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -5px;
+  left: 0px;
+  background: blue;
+  color: white;
+  font-size: 80%;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-box-shadow: 1px 1px 2px #333333;
+  -moz-box-shadow: 1px 1px 2px #333333;
+  box-shadow: 1px 1px 2px #333333;
+  border: solid;
+  border-color: white;
+  border-width: 2px;
 }
 
 [gid=home_storage_btn] {
