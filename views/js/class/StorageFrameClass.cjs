@@ -130,7 +130,7 @@ function EquipmentClass(data) {
   this.itemList.on('click','btn',
     function (event) {
       event.stopPropagation();
-      coms.item.emit('move', $(this).attr('data'));
+      coms.item.emit('remove', $(this).attr('data'));
     });
 
   this.clear();
