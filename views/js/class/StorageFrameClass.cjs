@@ -158,7 +158,8 @@ EquipmentClass.prototype.clear = function(equipmentType) {
   }
 }
 
-
+EquipmentClass.prototype.reflush = function() {
+}
 EquipmentClass.prototype.remove = function(equipmentType) {
   delete this.items[equipmentType];
   this.clear(equipmentType);
@@ -256,8 +257,8 @@ BagFrameClass.prototype.create=function(){
   });
 }
 BagFrameClass.prototype.add = function(item){
-  if (this.bag[item.storage])
-    this.bag[item.Bag].add(item);
+  if (this.bag[item.storage]) 
+    this.bag[item.storage].add(item);
 }
 
 BagFrameClass.prototype.remove = function(itemID){

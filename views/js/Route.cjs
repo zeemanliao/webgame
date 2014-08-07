@@ -105,20 +105,28 @@ coms.team.removeTeam = function(data){
 coms.item.add = function(items) {
   for (var i in items){
     o.storage.add(items[i]);
+    o.bag.add(items[i]);
   }
   o.storage.reflush();
+  o.bag.reflush();
 }
 
 coms.item.remove = function(itemIDs){
-  for (var i in itemIDs)
+  for (var i in itemIDs){
     o.storage.remove(itemIDs[i]);
+    o.bag.remove(itemIDs[i]);
+  }
   o.storage.reflush();
+  o.bag.reflush();
 }
 
 coms.item.limit = function(data) {
   for (var i in data) {
     if (o.storage.bag[i])
       o.storage.bag[i].limit = data[i];
+    if (o.bag.bag[i])
+      o.bag.bag[i].limit = data[i];
+
   }
 }
 
