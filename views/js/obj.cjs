@@ -4,8 +4,8 @@ var GameContent = $('#content');
 var gameTool = {
 	getAttr:function(item){
 		var _restr='';
-		for (var i in item.data) {
-			_restr += '<font color=green>' + lang[i] + '</font>:' + item.data[i] + '、';
+		for (var i in item.base.data) {
+			_restr += '<font color=green>' + lang[i] + '</font>:' + item.base.data[i] + '、';
 		}
 		if (_restr.length >0)
 			_restr = _restr.substr(0, _restr.length-1);

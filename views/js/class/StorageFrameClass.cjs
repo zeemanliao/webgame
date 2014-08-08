@@ -10,6 +10,8 @@ function StorageClass(data) {
   this.frame = $('#'+data.frameName);
   this.buttonName = data.buttonName;
 
+  if (typeof(data.click)==='function')
+    this.click = data.click;
   this.limitLabel = this.frame.find('.storage_limit');
   this.itemList = this.frame.find('.itemList');
 
@@ -32,8 +34,10 @@ function StorageClass(data) {
   this.itemList.on('click','btn',
     function (event) {
       event.stopPropagation();
-      coms.item.emit('move', $(this).attr('data'));
+      if (typeof(self.click)==='function')      
+        self.click($(this).attr('data'));
     });
+
   this.frame.on('click','radio',
     function (event){
       event.stopPropagation();
@@ -124,7 +128,7 @@ function EquipmentClass(data) {
 
   this.limitLabel = this.frame.find('.storage_limit');
   this.itemList = this.frame.find('.itemList');
-
+  this.showAttr = this.frame.find('#player_attr');
   this.items = {};
 
   this.itemList.on('click','btn',
@@ -137,13 +141,9 @@ function EquipmentClass(data) {
 }
 
 
-EquipmentClass.prototype.equip = function(item) {
+EquipmentClass.prototype.add = function(item) {
   item.base = db.items[item.baseID];
-  var item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
-  item.find('[gid=nam]').html(item.nam);
-  item.find('[gid=attr]').html(gameTool.getAttr(item));
-  //item.find('.number').html(item.nam.num);
-  item.find('btn').show();
+  this.items[item.id] = item;
 }
 
 EquipmentClass.prototype.clear = function(equipmentType) {
@@ -159,7 +159,28 @@ EquipmentClass.prototype.clear = function(equipmentType) {
 }
 
 EquipmentClass.prototype.reflush = function() {
+  this.clear();
+  var _data = {};
+  for (var i in this.items) {
+    var item = this.items[i];
+    var _item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
+    _item.find('[gid=nam]').html(item.base.nam);
+    _item.find('[gid=attr]').html(gameTool.getAttr(item));
+    //item.find('.number').html(item.nam.num);
+    _item.find('btn').show();
+
+    var _tmp_data = item.base.data;
+    for (var i in _tmp_data){
+      if (!_data[i]){
+        _data[i] = _tmp_data[i];
+      } else {
+        _data[i] += _tmp_data[i];
+      }
+    }
+  }
+  this.showAttr.html(gameTool.getAttr({base:{data:_data}}));
 }
+
 EquipmentClass.prototype.remove = function(equipmentType) {
   delete this.items[equipmentType];
   this.clear(equipmentType);
@@ -182,12 +203,14 @@ StorageFrameClass.prototype.create=function(){
   this.bag[settings.storageType.bag] = new StorageClass({
     type: settings.storageType.bag,
     frameName: 'bag_content',
-    buttonName: '放置'
+    buttonName: '放置',
+    click:function(data) {coms.item.emit('move', data)}
   });
   this.bag[settings.storageType.storage] = new StorageClass({
     type:settings.storageType.storage,
     frameName: 'storage_content',
-    buttonName: '取出'
+    buttonName: '取出',
+    click:function(data) {coms.item.emit('move', data)}
   });
 
   this.frame.bind("click",function(){self.click()});
@@ -243,7 +266,8 @@ BagFrameClass.prototype.create=function(){
   this.bag[settings.storageType.bag] = new StorageClass({
     type: settings.storageType.bag,
     frameName: 'bag_content2',
-    buttonName: '裝備'
+    buttonName: '裝備',
+    click:function(data) {coms.item.emit('equip', data)}
   });
   this.bag[settings.storageType.equipment] = new EquipmentClass({
     type:settings.storageType.equipment,
