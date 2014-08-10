@@ -67,4 +67,3 @@ live('input',{
     $(this).focus();
   }
 });
-

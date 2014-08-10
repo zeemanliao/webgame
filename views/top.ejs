@@ -225,6 +225,7 @@
     window.onload = function() {
       var settings = <%-JSON.stringify(settings.game)%>;
       var lang = <%-JSON.stringify(lang.data.base)%>;
+
       <%include js/Modernizr.cjs%> 
       <%include js/main.cjs%> 
       <%include js/baseclass.cjs%> 

@@ -1,3 +1,4 @@
+var client = {};
 //content
 var GameContent = $('#content');
 //

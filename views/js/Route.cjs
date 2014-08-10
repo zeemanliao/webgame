@@ -109,6 +109,7 @@ coms.item.add = function(items) {
   }
   o.storage.reflush();
   o.bag.reflush();
+  o.mix.reflush();
 }
 
 coms.item.remove = function(itemIDs){
@@ -118,6 +119,7 @@ coms.item.remove = function(itemIDs){
   }
   o.storage.reflush();
   o.bag.reflush();
+  o.mix.reflush();
 }
 
 coms.item.limit = function(data) {

@@ -63,7 +63,7 @@
 		"id":8,
 		"nam":"鐵劍",
 		"desc":"使用鐵制作的劍。",
-		"data":{"dmg":10},
+		"data":{"dmg":20},
 		"shop":true,
 		"type":1,
 		"coins":50,
@@ -88,5 +88,45 @@
 		"type":7,
 		"coins":50,
 		"suit":"iron"
+	},
+	{
+		"id":11,
+		"nam":"鋼劍",
+		"desc":"使用鋼制作的劍。",
+		"data":{"dmg":30},
+		"shop":true,
+		"type":1,
+		"coins":50,
+		"suit":"gon"
+	},
+	{
+		"id":12,
+		"nam":"黃金之劍",
+		"desc":"使用黃金制作的劍。",
+		"data":{"dmg":40},
+		"shop":true,
+		"type":1,
+		"coins":150,
+		"suit":"gold"
+	},
+	{
+		"id":13,
+		"nam":"雷鳴之劍",
+		"desc":"使用雷制作的劍。",
+		"data":{"dmg":50},
+		"shop":true,
+		"type":1,
+		"coins":500,
+		"suit":"energy"
+	},
+	{
+		"id":14,
+		"nam":"皇龍劍",
+		"desc":"使用皇龍制作的劍。",
+		"data":{"dmg":50},
+		"shop":true,
+		"type":1,
+		"coins":50,
+		"suit":"emp"
 	}
 ]

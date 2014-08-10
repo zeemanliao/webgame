@@ -23,6 +23,15 @@ btn
   text-align: center
   +opacity(0.8)
   position: absolute
+btn:active 
+  +box-shadow(0px 0px 1px #333)
+btn:active:after
+  content: ""
+  bottom: -1px
+  left: 0
+btn:hover
+  +opacity(1)
+
 radio
   +bgc(white)
   +border-radius(5px)

@@ -164,7 +164,7 @@ EquipmentClass.prototype.reflush = function() {
   for (var i in this.items) {
     var item = this.items[i];
     var _item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
-    _item.find('[gid=nam]').html(item.base.nam);
+    _item.find('[gid=nam]').html('lv.' + item.level + item.base.nam);
     _item.find('[gid=attr]').html(gameTool.getAttr(item));
     //item.find('.number').html(item.nam.num);
     _item.find('btn').show();
@@ -247,6 +247,14 @@ StorageFrameClass.prototype.show= function(val,loginout){
   }
 }
 
+StorageFrameClass.prototype.__defineGetter__("items", function(){
+  var items = {};
+  for (var i in this.bag) {
+    for (var j in this.bag[i].items)
+      items[j] = this.bag[i].items[j];
+  }
+  return items;
+});
 
 /*
 ***********************************************************************************************

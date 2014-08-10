@@ -12,7 +12,6 @@ var PlayerAccess = require('../lib/class/db/PlayerAccess');
 var LoginKeyAccess = require('../lib/class/db/LoginKeyAccess');
 var apptitle = appinfo.name;
 var tool = require('../lib/util/tool');
-
 var js_path = path.dirname(process.mainModule.filename);
 
 var class_js = new Array();

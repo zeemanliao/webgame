@@ -380,6 +380,23 @@ btn {
   position: absolute;
 }
 
+btn:active {
+  -webkit-box-shadow: 0px 0px 1px #333333;
+  -moz-box-shadow: 0px 0px 1px #333333;
+  box-shadow: 0px 0px 1px #333333;
+}
+
+btn:active:after {
+  content: "";
+  bottom: -1px;
+  left: 0;
+}
+
+btn:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
 radio {
   background: white;
   -webkit-border-radius: 5px;
