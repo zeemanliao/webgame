@@ -40,7 +40,7 @@ ShopClass.prototype.update=function(){
 			if (item.shop) {
       this.itemList.append('<li>'+
           '<div class="label" gid="nam">'+item.nam+'</div>'+
-          '<div gid="attr">'+tool.getAttr({base:item})+'</div>'+
+          '<div gid="attr">'+tool.getAttr(new Item({baseID:item.id}))+'</div>'+
           '<div class="number" gid="coins">$'+item.coins+'</div>'+
           '<btn class="buyItem_button" coins="'+item.coins+'" data="'+item.id+'">Buy</btn>'+
           '</li>');
