@@ -17,6 +17,7 @@
     <script src="/javascripts/jquery-1.11.1.min.js"></script>
     <script src="/javascripts/jquery-ui-1.10.4.custom.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/publicFunction.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 
@@ -222,8 +223,7 @@
     </div>
     </div>
     <script>
-    //window.onload = function() {
-    $(document).ready(function() {
+    window.onload = function() {
       var settings = <%-JSON.stringify(settings.game)%>;
       var lang = <%-JSON.stringify(lang.data.base)%>;
 
@@ -234,7 +234,6 @@
       <%-classjs%> 
       <%include js/obj.cjs%> 
       <%include js/event.cjs%>
-
 
         window.onresize = function(event) {
 

@@ -16,7 +16,7 @@ MixClass.prototype.create=function(){
   this.itemList = this.content.find('.itemList');
   live('.lupItem_button',{
     click:function (event) {
-      var item = db.items[$(this).attr('data')];
+      var item = publicData.items[$(this).attr('data')];
       if (!item)
         return;
       if (item.coins > parseInt(o.chara.data.gold)) {
@@ -40,7 +40,7 @@ MixClass.prototype.reflush = function() {
 		if (this.checkCanLevelup(item, items)){
     this.itemList.append('<li id="item'+item.id+'">'+
               '<div class="label" gid="nam">'+'lv.'+item.level+item.base.nam+'</div>'+
-              '<div gid="attr">'+gameTool.getAttr(item)+'</div>'+
+              '<div gid="attr">'+tool.getAttr(item)+'</div>'+
               '<div class="number" gid="coins">x'+item.num+'</div>'+
               '<btn class="lupItem_button" data="'+item.id+'">升</btn>'+
               '</li>');

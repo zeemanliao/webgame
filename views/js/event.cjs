@@ -25,4 +25,8 @@
 		route(data);
 	});
 
-
+	socket.on('publicFunction', function(data){
+		publicFunction = data;
+		console.log('---------------------');
+		console.log(data);
+	});

@@ -18,7 +18,7 @@ ShopClass.prototype.create = function(){
   this.itemList = this.content.find('.itemList');
   live('.buyItem_button',{
     click:function (event) {
-      var item = db.items[$(this).attr('data')];
+      var item = publicData.items[$(this).attr('data')];
       if (!item)
         return;
       if (item.coins > parseInt(o.chara.data.gold)) {
@@ -31,16 +31,16 @@ ShopClass.prototype.create = function(){
  }
 
 ShopClass.prototype.update=function(){
-	if (this.version != db.version.items) {
-		this.version = db.version.items;
+	if (this.version != publicData.version.items) {
+		this.version = publicData.version.items;
 		this.itemList.empty();
 
-		for (var i in db.items){
-			var item = db.items[i];
+		for (var i in publicData.items){
+			var item = publicData.items[i];
 			if (item.shop) {
       this.itemList.append('<li>'+
           '<div class="label" gid="nam">'+item.nam+'</div>'+
-          '<div gid="attr">'+gameTool.getAttr({base:item})+'</div>'+
+          '<div gid="attr">'+tool.getAttr({base:item})+'</div>'+
           '<div class="number" gid="coins">$'+item.coins+'</div>'+
           '<btn class="buyItem_button" coins="'+item.coins+'" data="'+item.id+'">Buy</btn>'+
           '</li>');

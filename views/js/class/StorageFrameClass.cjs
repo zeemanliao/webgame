@@ -41,7 +41,7 @@ function StorageClass(data) {
   this.frame.on('click','radio',
     function (event){
       event.stopPropagation();
-      gameTool.selectEvent($(this));
+      tool.selectEvent($(this));
       
       self.filter = $(this).attr('data');
       self.reflush();
@@ -68,9 +68,9 @@ StorageClass.prototype.reflush = function() {
     var item = this.items[i];
     if (item.base.type == this.filter)
     this.itemList.append('<li id="item'+item.id+'">'+
-              '<div class="label" gid="nam">'+'lv.'+item.level+item.base.nam+'</div>'+
-              '<div gid="attr">'+gameTool.getAttr(item)+'</div>'+
-              '<div class="number" gid="coins">x'+item.num+'</div>'+
+              '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
+              '<div gid="attr">'+tool.getAttr(item)+'</div>'+
+              '<div class="number" gid="coins">x'+item.data.num+'</div>'+
               '<btn class="StorageButton" data="'+item.id+'">'+this.buttonName+'</btn>'+
               '</li>');
   }
@@ -99,9 +99,9 @@ StorageClass.prototype.reflushLimit = function(){
   this.limitLabel.html(_fcount + '/' + _count + '/' + this._limit);
 }
 
-StorageClass.prototype.add = function(item) {
-  item.base = db.items[item.baseID];
-  this.items[item.id] = item;
+StorageClass.prototype.add = function(data) {
+  //item.base = publicData.items[item.baseID];
+  this.items[data.id] = new Item(data);
 }
 
 StorageClass.prototype.clear = function() {
@@ -141,9 +141,9 @@ function EquipmentClass(data) {
 }
 
 
-EquipmentClass.prototype.add = function(item) {
-  item.base = db.items[item.baseID];
-  this.items[item.id] = item;
+EquipmentClass.prototype.add = function(data) {
+  //item.base = publicData.items[item.baseID];
+  this.items[data.id] = new Item(data);
 }
 
 EquipmentClass.prototype.clear = function(equipmentType) {
@@ -164,9 +164,9 @@ EquipmentClass.prototype.reflush = function() {
   for (var i in this.items) {
     var item = this.items[i];
     var _item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
-    _item.find('[gid=nam]').html('lv.' + item.level + item.base.nam);
-    _item.find('[gid=attr]').html(gameTool.getAttr(item));
-    //item.find('.number').html(item.nam.num);
+    _item.find('[gid=nam]').html('lv.' + item.data.level + item.base.nam);
+    _item.find('[gid=attr]').html(tool.getAttr(item));
+    //item.find('.number').html(item.nam.data.num);
     _item.find('btn').show();
 
     var _tmp_data = item.base.data;
@@ -178,7 +178,7 @@ EquipmentClass.prototype.reflush = function() {
       }
     }
   }
-  this.showAttr.html(gameTool.getAttr({base:{data:_data}}));
+  this.showAttr.html(tool.getAttr({base:{data:_data}}));
 }
 
 EquipmentClass.prototype.remove = function(equipmentType) {
@@ -222,9 +222,9 @@ StorageFrameClass.prototype.create=function(){
      //e.stopPropagation();
   //});
 }
-StorageFrameClass.prototype.add = function(item){
-  if (this.bag[item.storage])
-    this.bag[item.storage].add(item);
+StorageFrameClass.prototype.add = function(data){
+  if (this.bag[data.storage])
+    this.bag[data.storage].add(data);
 }
 
 StorageFrameClass.prototype.remove = function(itemID){
@@ -288,9 +288,9 @@ BagFrameClass.prototype.create=function(){
     self.show();
   });
 }
-BagFrameClass.prototype.add = function(item){
-  if (this.bag[item.storage]) 
-    this.bag[item.storage].add(item);
+BagFrameClass.prototype.add = function(data){
+  if (this.bag[data.storage]) 
+    this.bag[data.storage].add(data);
 }
 
 BagFrameClass.prototype.remove = function(itemID){

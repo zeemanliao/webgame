@@ -14,6 +14,7 @@ var apptitle = appinfo.name;
 var tool = require('../lib/util/tool');
 var js_path = path.dirname(process.mainModule.filename);
 
+
 var class_js = new Array();
 
 function loadJS() {

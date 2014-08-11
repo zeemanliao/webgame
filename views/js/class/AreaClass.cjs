@@ -20,7 +20,7 @@ AreaClass.prototype.create=function(){
   live('.area_button',{
     click:function (event) {
       if ($(this).attr('enable') != 'true') {
-        var area = db.areas[$(this).attr('area')];
+        var area = publicData.areas[$(this).attr('area')];
         
         o.message.show('您的等級不足「'+area.level+'」<br><br>無法進入「'+area.nam+'」');
       } else {
@@ -36,13 +36,13 @@ AreaClass.prototype.reflush=function(){
 }
 
 AreaClass.prototype.update=function(){
-	if (this.version != db.version.areas) {
-		this.version = db.version.areas;
+	if (this.version != publicData.version.areas) {
+		this.version = publicData.version.areas;
 		this.content.empty();
 
     var chara_level = o.chara.data.level;
-		for (var i in db.areas){
-			var area = db.areas[i];
+		for (var i in publicData.areas){
+			var area = publicData.areas[i];
       var area_level = area.level;
       this.content.append('<btn data="map" area="' + area.id + '" ' +
         'enable="'+(chara_level>=area_level)+'" class="area_button" gid="area-'+

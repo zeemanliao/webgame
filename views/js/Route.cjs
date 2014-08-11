@@ -220,7 +220,7 @@ coms.debug.test = function(data){
 
 */
 coms.login.getVersion = function(data){
-  socket.emit('checkAndUpdateVersion', db.version);
+  socket.emit('checkAndUpdateVersion', publicData.version);
 }
 
 coms.login.updateLoaclStorage = function(data){
@@ -228,7 +228,7 @@ coms.login.updateLoaclStorage = function(data){
   for (var i in data){
     debug('載入db->'+i+'=>');
     debug(data[i]);
-    db.put(i,data[i]);
+    publicData.put(i,data[i]);
   }
   socket.emit('loadAllData', {});
 }

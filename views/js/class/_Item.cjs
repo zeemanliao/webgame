@@ -1,6 +1,3 @@
-var tool = require('../util/tool');
-var publicData = require('./GameData');
-
 function Item(data) {
 	this.data = {
 		id:data.id,
@@ -11,9 +8,6 @@ function Item(data) {
 	};
 	this.id = data.id;
 }
-
-module.exports = Item;
-
 
 Item.prototype.__defineGetter__("dmg", function(){
 	if (this.base.data.dmg)

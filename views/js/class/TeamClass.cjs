@@ -60,7 +60,7 @@ TeamClass.prototype.create=function(){
 TeamClass.prototype.updateInfo = function(data) {
   var map_id = parseInt(data);
 
-  this.map = db.maps[map_id];
+  this.map = publicData.maps[map_id];
   this.area_nam.html(o.map.findArea(data).nam);
   this.map_nam.html(this.map.nam);
   this.map_desc.html(this.map.desc);

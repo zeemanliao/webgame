@@ -1,12 +1,17 @@
-var client = {};
 //content
 var GameContent = $('#content');
 //
-var gameTool = {
+var tool = {
 	getAttr:function(item){
 		var _restr='';
-		for (var i in item.base.data) {
-			_restr += '<font color=green>' + lang[i] + '</font>:' + item.base.data[i] + '、';
+		var _data = {
+			dmg:0,
+			mag:0,
+			def:0
+		}
+		for (var i in _data) {
+			if (item[i])
+				_restr += '<font color=green>' + lang[i] + '</font>:' + item[i] + '、';
 		}
 		if (_restr.length >0)
 			_restr = _restr.substr(0, _restr.length-1);
@@ -23,12 +28,23 @@ var gameTool = {
       $(this).removeClass('selected');
     });
     s.addClass('selected');
-	}
+	},
+	isUndefinedOrNull:function(d){
+		if (typeof d === 'undefined' || d == null)
+			return true;
+		return false;
+	},
+
+	isNumeric:function(val){
+		if (this.isUndefinedOrNull(val) || val =='')
+			return false;
+		return !isNaN(val);
+	},
 }
 //時間顯示
 var o_showTime = new TimeClass();
 //本機資料庫
-var db = new LocalStorageClass();
+var publicData = new LocalStorageClass();
 
 var o = {};
 //訊息視窗

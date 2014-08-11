@@ -10,12 +10,12 @@ CityClass.prototype.initialize=function(){
 }
 CityClass.prototype.updateInfo=function(){
   debug('Load City Frame Inforamtion');
-  for (var c in db.builds) {
-    var city = db.builds[c];
+  for (var c in publicData.builds) {
+    var city = publicData.builds[c];
     var obj = $('#'+city.id+'_frame');
     //開發時不載入中文
-    obj.find('[gid=nam]').html(city.nam);
-    obj.find('[gid=desc]').html(city.desc);
+    //obj.find('[gid=nam]').html(city.nam);
+    //obj.find('[gid=desc]').html(city.desc);
   }
 }
 CityClass.prototype.create=function(){
