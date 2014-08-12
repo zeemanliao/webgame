@@ -142,7 +142,6 @@ function EquipmentClass(data) {
 
 
 EquipmentClass.prototype.add = function(data) {
-  //item.base = publicData.items[item.baseID];
   this.items[data.id] = new Item(data);
 }
 
@@ -160,7 +159,7 @@ EquipmentClass.prototype.clear = function(equipmentType) {
 
 EquipmentClass.prototype.reflush = function() {
   this.clear();
-  var _data = {};
+  var _data = {dmg:0,mag:0,def:0};
   for (var i in this.items) {
     var item = this.items[i];
     var _item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
@@ -169,16 +168,11 @@ EquipmentClass.prototype.reflush = function() {
     //item.find('.number').html(item.nam.data.num);
     _item.find('btn').show();
 
-    var _tmp_data = item.base.data;
-    for (var i in _tmp_data){
-      if (!_data[i]){
-        _data[i] = _tmp_data[i];
-      } else {
-        _data[i] += _tmp_data[i];
-      }
+    for (var i in _data){
+      _data[i] += item[i];
     }
   }
-  this.showAttr.html(tool.getAttr({base:{data:_data}}));
+  this.showAttr.html(tool.getAttr(_data));
 }
 
 EquipmentClass.prototype.remove = function(equipmentType) {

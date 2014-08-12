@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, .itemList, #battle, .storage_list {
+#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #guest_frame, #battle, .itemList, .storage_list {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -1361,43 +1361,6 @@ hr {
   color: red;
 }
 
-.itemList {
-  position: relative;
-  width: 400px;
-}
-.itemList li {
-  position: relative;
-  margin-top: 0px;
-  height: 50px;
-  line-height: 50px;
-  background: #eeeeee;
-  margin-bottom: 10px;
-  padding: 2px;
-  overflow-x: 0;
-  -webkit-box-shadow: 0px 0px 3px #333333;
-  -moz-box-shadow: 0px 0px 3px #333333;
-  box-shadow: 0px 0px 3px #333333;
-}
-.itemList li div {
-  position: static;
-  float: left;
-}
-.itemList li [gid=nam] {
-  width: 110px;
-}
-.itemList li [gid=attr] {
-  width: 190px;
-}
-.itemList li [gid=coins] {
-  width: 30px;
-}
-.itemList li btn {
-  right: 5px;
-  width: 30px;
-  height: 45px;
-  line-height: 45px;
-}
-
 #battle {
   display: none;
   top: 10px;
@@ -1601,6 +1564,43 @@ hr {
 #team [pos="5"] {
   top: 260px;
   left: 40px;
+}
+
+.itemList {
+  position: relative;
+  width: 380px;
+}
+.itemList li {
+  position: relative;
+  margin-top: 0px;
+  height: 50px;
+  line-height: 50px;
+  background: #eeeeee;
+  margin-bottom: 10px;
+  padding: 2px;
+  overflow-x: 0;
+  -webkit-box-shadow: 0px 0px 3px #333333;
+  -moz-box-shadow: 0px 0px 3px #333333;
+  box-shadow: 0px 0px 3px #333333;
+}
+.itemList li div {
+  position: static;
+  float: left;
+}
+.itemList li [gid=nam] {
+  width: 104px;
+}
+.itemList li [gid=attr] {
+  width: 180px;
+}
+.itemList li [gid=coins] {
+  width: 28px;
+}
+.itemList li btn {
+  right: 5px;
+  width: 28px;
+  height: 45px;
+  line-height: 45px;
 }
 
 .storage_frame {

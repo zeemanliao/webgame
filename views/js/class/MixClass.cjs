@@ -35,6 +35,7 @@ MixClass.prototype.clear = function() {
 	this.itemList.empty();
 }
 MixClass.prototype.reflush = function() {
+  this.clear();
 	var items = o.storage.bag[settings.storageType.bag].items;
 	var _data = {};
 

@@ -1,4 +1,33 @@
 $storage_frame_w: $frame_w * 2 + $body_margin
+$item_frame_w:$frame_w - $body_margin*6
+.itemList
+  @extend %all_frame
+  position: relative
+  width: $item_frame_w
+  li
+    position: relative
+    margin-top: 0px
+    height: 50px
+    line-height: 50px
+    +bgc(#eee)
+    margin-bottom: $body_margin
+    padding: 2px
+    overflow-x: 0
+    +box-shadow(0px 0px 3px #333)
+    div
+      position: static
+      float: left
+    +gid(nam)
+      width: $item_frame_w / 10 * 3 - $body_margin
+    +gid(attr)
+      width: $item_frame_w / 10 * 5 - $body_margin
+    +gid(coins)
+      width: $item_frame_w / 10 * 1 - $body_margin
+    btn
+      right: 5px
+      width: $item_frame_w / 10 * 1 - $body_margin
+      height: 45px
+      line-height: 45px
 .storage_frame
   z-index: $zindex+40
   display: none
