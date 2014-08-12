@@ -197,13 +197,13 @@ StorageFrameClass.prototype.create=function(){
   this.bag[settings.storageType.bag] = new StorageClass({
     type: settings.storageType.bag,
     frameName: 'bag_content',
-    buttonName: '放置',
+    buttonName: '放<br>置',
     click:function(data) {coms.item.emit('move', data)}
   });
   this.bag[settings.storageType.storage] = new StorageClass({
     type:settings.storageType.storage,
     frameName: 'storage_content',
-    buttonName: '取出',
+    buttonName: '取<br>出',
     click:function(data) {coms.item.emit('move', data)}
   });
 
@@ -268,13 +268,13 @@ BagFrameClass.prototype.create=function(){
   this.bag[settings.storageType.bag] = new StorageClass({
     type: settings.storageType.bag,
     frameName: 'bag_content2',
-    buttonName: '裝備',
+    buttonName: '裝<br>備',
     click:function(data) {coms.item.emit('equip', data)}
   });
   this.bag[settings.storageType.equipment] = new EquipmentClass({
     type:settings.storageType.equipment,
     frameName: 'equipment_content',
-    buttonName: '取下'
+    buttonName: '取<br>下'
   });
 
   this.frame.bind("click",function(){self.click()});

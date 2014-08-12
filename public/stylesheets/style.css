@@ -1596,11 +1596,16 @@ hr {
 .itemList li [gid=coins] {
   width: 28px;
 }
+.itemList li [gid=mixInfo] {
+  width: 28px;
+  line-height: 24px;
+}
 .itemList li btn {
   right: 5px;
   width: 28px;
   height: 45px;
-  line-height: 45px;
+  line-height: 22px;
+  background: #aaaaff;
 }
 
 .storage_frame {
@@ -1647,14 +1652,11 @@ hr {
   top: 10px;
   color: blue;
 }
-.storage_list btn {
-  background: #aaaaff;
-  font-size: 70%;
-}
 
 .item_type {
   width: 440px;
   height: 30px;
+  text-align: center;
 }
 .item_type radio {
   line-height: 30px;
@@ -1725,4 +1727,8 @@ hr {
   top: 0px;
   left: 0px;
   background: #ffffee;
+}
+
+#mix_frame radio {
+  width: 80px;
 }

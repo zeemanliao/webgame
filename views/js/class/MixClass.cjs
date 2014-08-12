@@ -9,6 +9,7 @@ var MixClass = Object.Extend(BaseViewClass);
 MixClass.prototype.initialize=function(){
   this.base();
 }
+
 MixClass.prototype.create=function(){
   var self = this;
   this.frame = $('#mix_frame');
@@ -22,7 +23,7 @@ MixClass.prototype.create=function(){
       if (!item)
         return ;
       
-      if (item.coins > parseInt(o.chara.data.gold)) {
+      if (item.base.coins * item.data.level > parseInt(o.chara.data.gold)) {
         o.message.show('您的金錢不足「'+item.coins+'」<br><br>無法升級「'+item.nam+'」');
       } else {
         coms.item.emit('levelup',item.id);
@@ -31,9 +32,11 @@ MixClass.prototype.create=function(){
   });
   this.clear();
 }
+
 MixClass.prototype.clear = function() {
 	this.itemList.empty();
 }
+
 MixClass.prototype.reflush = function() {
   this.clear();
 	var items = o.storage.bag[settings.storageType.bag].items;
@@ -45,8 +48,8 @@ MixClass.prototype.reflush = function() {
     this.itemList.append('<li id="item'+item.id+'">'+
               '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
               '<div gid="attr">'+tool.getAttr(item)+'</div>'+
-              '<div class="number" gid="coins">x'+item.data.num+'</div>'+
-              '<btn class="lupItem_button" data="'+item.id+'">升</btn>'+
+              '<div class="number" gid="mixInfo">x'+item.data.num+'<br>$'+(item.data.level * item.base.coins)+'</div>'+
+              '<btn class="lupItem_button" data="'+item.id+'">升<br>級</btn>'+
               '</li>');
 		}
 	}

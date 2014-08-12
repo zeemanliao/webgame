@@ -23,11 +23,15 @@ $item_frame_w:$frame_w - $body_margin*6
       width: $item_frame_w / 10 * 5 - $body_margin
     +gid(coins)
       width: $item_frame_w / 10 * 1 - $body_margin
+    +gid(mixInfo)
+      width: $item_frame_w / 10 * 1 - $body_margin
+      line-height: 24px
     btn
       right: 5px
       width: $item_frame_w / 10 * 1 - $body_margin
       height: 45px
-      line-height: 45px
+      line-height: 22px
+      +bgc(#AAAAFF)
 .storage_frame
   z-index: $zindex+40
   display: none
@@ -58,11 +62,9 @@ $item_frame_w:$frame_w - $body_margin*6
     right: $body_margin
     top: $body_margin
     color: blue
-  btn
-    +bgc(#AAAAFF)
-    font-size: 70%
 .item_type
   +wh($frame_w, 30px)
+  text-align: center
   radio
     line-height: 30px
     position: relative

@@ -42,7 +42,7 @@ ShopClass.prototype.update=function(){
           '<div class="label" gid="nam">'+item.nam+'</div>'+
           '<div gid="attr">'+tool.getAttr(new Item({baseID:item.id}))+'</div>'+
           '<div class="number" gid="coins">$'+item.coins+'</div>'+
-          '<btn class="buyItem_button" coins="'+item.coins+'" data="'+item.id+'">Buy</btn>'+
+          '<btn class="buyItem_button" coins="'+item.coins+'" data="'+item.id+'">購<br>買</btn>'+
           '</li>');
     	}
 		}
