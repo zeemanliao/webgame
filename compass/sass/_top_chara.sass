@@ -2,7 +2,7 @@ $chara_main_w:200px
 $chara_main_h:220px
 
 
-$chara_info_w:150px
+$chara_info_w:190px
 $chara_info_h:$frame_h - $chara_main_h
 $chara_radar_w:150px
 $chara_radar_h:150px
@@ -22,7 +22,7 @@ $chara_radar_h:150px
     +icon_label(gold,5px,190px,gold)
     +icon_label(level,120px,$body_margin,level)
     +icon_label(vipgold,120px,45px,vipgold)
-    .cricle
+    [gid=bag]
       position: absolute
       right: 5px
       bottom: 5px
@@ -65,5 +65,18 @@ $chara_radar_h:150px
       div
         position: static
         float: left
-
+  #info2
+    @extend %all_frame
+    +wh($chara_info_w - 50,$chara_info_h)
+    +xy($body_margin + 100,$chara_main_h + 0px)
+    z-index: $zindex - 20
+    position: fixed
+    li
+      position: static
+      margin-top: 10px
+      height: 20px
+      line-height: 20px
+      div
+        position: static
+        float: left
 

@@ -46,6 +46,7 @@ function StorageClass(data) {
       self.filter = $(this).attr('data');
       self.reflush();
     });
+  tool.selectEvent(this.frame.find('radio[data="1"]'));
   //this.frame.click(function (e){
      //e.preventDefault();
   //});
@@ -58,7 +59,7 @@ StorageClass.prototype.__defineGetter__("limit", function(){
     
 StorageClass.prototype.__defineSetter__("limit", function(val){
   this._limit = parseInt(val);
-  this.reflushLimit();
+  this.reflushCount();
 });
 
 StorageClass.prototype.reflush = function() {
@@ -78,17 +79,14 @@ StorageClass.prototype.reflush = function() {
 }
 
 StorageClass.prototype.reflushLimit = function(){
-  var _count = Object.keys(this.items).length;
-  var _fcount = 0;
+  
   var self = this;
-  for (var i in this.fcount){
+  for (var i in this.fcount)
     this.fcount[i] = 0;
-  }
-  for (var i in this.items) {
-    if (this.items[i].base.type == this.filter)
-      _fcount ++;
+  
+  for (var i in this.items)
     this.fcount[this.items[i].base.type] += 1;
-  }
+  
   for (var i in this.fcount){
     this.frame.find('.selectType').each(function(index){
       var _cnt = self.fcount[$(this).attr('data')];
@@ -96,6 +94,13 @@ StorageClass.prototype.reflushLimit = function(){
       $(this).find('.itemCount').html(_cnt);
     });
   }
+  this.reflushCount();
+  
+}
+
+StorageClass.prototype.reflushCount = function(){
+  var _count = Object.keys(this.items).length;
+  var _fcount = this.fcount[this.filter];
   this.limitLabel.html(_fcount + '/' + _count + '/' + this._limit);
 }
 
@@ -116,7 +121,7 @@ StorageClass.prototype.remove = function(itemID) {
 
 /*
 ***********************************************************************************************
-============================================倉庫清單元件===========================================
+============================================裝備清單元件===========================================
 ***********************************************************************************************
 */
 function EquipmentClass(data) {
@@ -146,20 +151,20 @@ EquipmentClass.prototype.add = function(data) {
 }
 
 EquipmentClass.prototype.clear = function(equipmentType) {
-  for (var i = 1; i<=10 ;i++) {
-    if (!equipmentType || this.items[equipmentType]) {
-      var item = this.frame.find('[gid=equipmentType_'+ i + ']');
-      item.find('[gid=nam]').empty();
-      item.find('[gid=attr]').empty();
-      item.find('.number').empty();
-      item.find('btn').hide();
-    }
-  }
+  this.itemList.find('li').each(function(i){
+    $(this).find('[gid=nam]').empty();
+    $(this).find('[gid=attr]').empty();
+    $(this).find('.number').empty();
+    $(this).find('btn').hide();
+  });
+}
+EquipmentClass.prototype.reflushCount = function() {
+  return;
 }
 
 EquipmentClass.prototype.reflush = function() {
   this.clear();
-  var _data = {dmg:0,mag:0,def:0};
+  this.data = {dmg:0,mag:0,def:0};
   for (var i in this.items) {
     var item = this.items[i];
     var _item = this.frame.find('[gid=equipmentType_'+item.base.type+']');
@@ -168,11 +173,12 @@ EquipmentClass.prototype.reflush = function() {
     //item.find('.number').html(item.nam.data.num);
     _item.find('btn').show();
 
-    for (var i in _data){
-      _data[i] += item[i];
+    for (var i in this.data){
+      this.data[i] += item[i];
     }
   }
-  this.showAttr.html(tool.getAttr(_data));
+  this.showAttr.html(tool.getAttr(this.data));
+  o.chara.reflushBattleData();
 }
 
 EquipmentClass.prototype.remove = function(equipmentType) {
@@ -229,6 +235,11 @@ StorageFrameClass.prototype.remove = function(itemID){
 StorageFrameClass.prototype.reflush = function(){
   for (var i in this.bag)
     this.bag[i].reflush();
+}
+
+StorageFrameClass.prototype.reflushCount = function() {
+  for (var i in this.bag)
+    this.bag[i].reflushCount(); 
 }
 
 StorageFrameClass.prototype.click = function(){
@@ -295,6 +306,11 @@ BagFrameClass.prototype.remove = function(itemID){
 BagFrameClass.prototype.reflush = function(){
   for (var i in this.bag)
     this.bag[i].reflush();
+}
+
+BagFrameClass.prototype.reflushCount = function() {
+  for (var i in this.bag)
+    this.bag[i].reflushCount(); 
 }
 
 BagFrameClass.prototype.click = function(){

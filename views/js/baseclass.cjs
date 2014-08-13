@@ -23,6 +23,8 @@ BaseViewClass.prototype = {
   },
 
   hide:function() {
+    this.frame.hide();
+    /*
     var self = this;
     this.frame.delay(0).animate(
       {opacity:'0'},
@@ -32,9 +34,14 @@ BaseViewClass.prototype = {
         self.frame.hide();
       }
     );
+    */
   },
 
   show:function() {
+    if (typeof(this.update) === 'function')
+      this.update();
+    this.frame.show();
+    /*
     var self = this;
     this.frame.delay(0).animate(
       {opacity:'1'},
@@ -45,6 +52,7 @@ BaseViewClass.prototype = {
           self.update();
         self.frame.show();
     });
+    */
   },
 
   city:function(obj) {
