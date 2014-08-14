@@ -11,20 +11,23 @@ function MixClass(data) {
   this.buttonName = data.buttonName;
   this.com2 = data.com2;
   this.checkShow = data.checkShow;
+  this.storageType = data.storageType;
+  if (typeof(data.getCoins)==='function')
+    this.getCoins = data.getCoins;
 
   live('.'+this.com2+'_button',{
     click:function (event) {
 
-      var item = o.storage.bag[settings.storageType.bag].items[$(this).attr('data')];
+      var item = o.storage.items[$(this).attr('data')];
 
       if (!item)
         return ;
       
-      if (item.base.coins * item.data.level > parseInt(o.chara.data.gold)) {
-        o.message.show('您的金錢不足「'+item.coins+'」<br><br>無法升級「'+item.nam+'」');
-      } else {
-        coms.item.emit(self.com2, item.id);
+      if (typeof(checkClick) ==='function' &&
+          !checkClick(item)) {
+          return;
       }
+      coms.item.emit(self.com2, item.id);
     }
   });
 }
@@ -36,23 +39,29 @@ MixClass.prototype.clear = function() {
 MixClass.prototype.show = function() {
   this.frame.show();
 }
+
 MixClass.prototype.hide = function() {
   this.frame.hide();
 }
+
 MixClass.prototype.reflush = function() {
   this.clear();
-	var items = o.storage.bag[settings.storageType.bag].items;
+	var items = o.storage.items;
 	for (var i in items) {
 		var item = items[i];
 		if (this.checkShow(item, items)){
     this.frame.append('<li id="item'+item.id+'">'+
               '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
               '<div gid="attr">'+tool.getAttr(item)+'</div>'+
-              '<div class="number" gid="mixInfo">x'+item.data.num+'<br>$'+(item.data.level * item.base.coins)+'</div>'+
+              '<div class="number" gid="mixInfo">x'+item.data.num+'<br>$'+(this.getCoins(item))+'</div>'+
               '<btn class="'+this.com2+'_button" data="'+item.id+'">'+this.buttonName+'</btn>'+
               '</li>');
 		}
 	}
+}
+
+MixClass.prototype.getCoins = function(item) {
+  return item.data.level * item.base.coins;
 }
 
 /*
@@ -94,10 +103,20 @@ MixFrameClass.prototype.create=function(){
     frameName:'mixLevelUp',
     com2:'levelUp',
     buttonName:'升<br>級',
+    checkClick:function(item){
+      if (item.base.coins * item.data.level > parseInt(o.chara.data.gold)) {
+        o.message.show('您的金錢不足「'+item.coins+'」<br><br>無法升級「'+item.nam+'」');
+        return false;
+      }
+      return true;
+    },
     checkShow:function(item, items) {
       var _num = 0;
       for (var i in items) {
-        if (items[i].data.level == 1 && 
+        if (
+          item.data.storage == settings.storageType.bag &&
+          items[i].data.storage == settings.storageType.bag &&
+          items[i].data.level == 1 && 
           item.data.baseID == items[i].data.baseID) {
           _num += items[i].data.num;
         }
@@ -110,8 +129,15 @@ MixFrameClass.prototype.create=function(){
     frameName:'mixLevelDown',
     com2:'levelDown',
     buttonName:'拆<br>分',
+    checkClick:function(item){
+      if (item.base.coins * item.data.level > parseInt(o.chara.data.gold)) {
+        o.message.show('您的金錢不足「'+item.coins+'」<br><br>無法升級「'+item.nam+'」');
+        return false;
+      }
+      return true;
+    },
     checkShow:function(item, items) {
-      return item.data.level > 1;
+      return item.data.storage == settings.storageType.bag && item.data.level > 1;
     }
   });
   this.clear();

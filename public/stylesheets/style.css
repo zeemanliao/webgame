@@ -1747,10 +1747,22 @@ hr {
   background: #ffffee;
 }
 
+#shop_frame radio {
+  width: 80px;
+}
+#shop_frame .itemList {
+  display: none;
+}
+#shop_frame #shopBuy {
+  display: block;
+}
+
 #mix_frame radio {
   width: 80px;
 }
-
-#mixLevelDown {
+#mix_frame .itemList {
   display: none;
+}
+#mix_frame #mixLevelUp {
+  display: block;
 }
