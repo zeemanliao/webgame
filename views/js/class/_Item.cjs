@@ -37,3 +37,10 @@ Item.prototype.__defineGetter__("base", function(){
 
   return publicData.items[this.data.baseID];
 });
+
+Item.prototype.__defineGetter__("nam", function(){
+	if (this.data.nam)
+		return this.data.nam;
+
+	return this.base.nam;
+});

@@ -101,12 +101,24 @@ ShopFrameClass.prototype.create = function(){
     frameName:'shopSell',
     com2:'sell',
     buttonName:'賣<br>出',
-    checkShow:function(item, items) {
+    checkShow:function(item) {
       return item.data.storage == settings.storageType.bag;
-    },
-    getCoins:function(item) {
-      return parseInt(item.data.level * item.base.coins /2);
     }
+/*   , append:function(item) {
+      var coins = parseInt(item.data.level * item.base.coins / 2);
+      this.frame.append('<li id="<i></i>tem'+item.id+'">'+
+        '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
+        '<div gid="attr">'+tool.getAttr(item)+'</div>'+
+        '<div class="number" gid="mixInfo"><input value="'+item.data.num+'" data="'+item.data.num+'" class="inputNum"><br>$'+coins+'</div>'+
+        '<btn class="'+this.com2+'_button" data="'+item.id+'">'+this.buttonName+'</btn>'+
+        '</li>');
+    },
+
+    emit:function(self2, thisObj, item) {
+      var _num = parseInt(thisObj.parent().find('.inputNum').val());
+      coms.item.emit(self2.com2, {id:item.id,num:_num});
+    }
+*/
   });
 
   this.reSell = new MixClass({
@@ -120,7 +132,7 @@ ShopFrameClass.prototype.create = function(){
       }
       return true;
     },
-    checkShow:function(item, items) {
+    checkShow:function(item) {
       return item.data.storage == settings.storageType.sell;
     }
   });

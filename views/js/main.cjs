@@ -65,5 +65,20 @@ live('input',{
   },
   mouseover:function(){
     $(this).focus();
+    $(this).select();
+  }
+});
+
+live('.inputNum',{
+  keyup:function() {
+    try {
+      if ($(this).attr('data') && (isNaN($(this).val()) ||
+        parseInt($(this).val())>parseInt($(this).attr('data')))) {
+
+        $(this).val($(this).attr('data'));
+      }
+    } catch(e){
+      $(this).val($(this).attr('data'));
+    }
   }
 });

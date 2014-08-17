@@ -12,13 +12,20 @@ function MixClass(data) {
   this.com2 = data.com2;
   this.checkShow = data.checkShow;
   this.storageType = data.storageType;
+
   if (typeof(data.getCoins)==='function')
     this.getCoins = data.getCoins;
+
+  if (typeof(data.append)==='function')
+    this.append = data.append;
+
+  if (typeof(data.emit)==='function')
+    this.emit = data.emit;
 
   live('.'+this.com2+'_button',{
     click:function (event) {
 
-      var item = o.storage.items[$(this).attr('data')];
+      var item = items[$(this).attr('data')];
 
       if (!item)
         return ;
@@ -27,9 +34,13 @@ function MixClass(data) {
           !checkClick(item)) {
           return;
       }
-      coms.item.emit(self.com2, item.id);
+      self.emit(self, $(this), item);
     }
   });
+}
+
+MixClass.prototype.emit = function(self2, thisObj, item) {
+  coms.item.emit(self2.com2, item.id);
 }
 
 MixClass.prototype.clear = function() {
@@ -46,18 +57,22 @@ MixClass.prototype.hide = function() {
 
 MixClass.prototype.reflush = function() {
   this.clear();
-	var items = o.storage.items;
+
 	for (var i in items) {
 		var item = items[i];
 		if (this.checkShow(item, items)){
-    this.frame.append('<li id="item'+item.id+'">'+
-              '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
-              '<div gid="attr">'+tool.getAttr(item)+'</div>'+
-              '<div class="number" gid="mixInfo">x'+item.data.num+'<br>$'+(this.getCoins(item))+'</div>'+
-              '<btn class="'+this.com2+'_button" data="'+item.id+'">'+this.buttonName+'</btn>'+
-              '</li>');
+      this.append(item)
 		}
 	}
+}
+
+MixClass.prototype.append = function(item) {
+  this.frame.append('<li id="item'+item.id+'">'+
+            '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
+            '<div gid="attr">'+tool.getAttr(item)+'</div>'+
+            '<div class="number" gid="mixInfo">x'+item.data.num+'<br>$'+(item.data.level * item.base.coins)+'</div>'+
+            '<btn class="'+this.com2+'_button" data="'+item.id+'">'+this.buttonName+'</btn>'+
+            '</li>');
 }
 
 MixClass.prototype.getCoins = function(item) {
@@ -110,7 +125,7 @@ MixFrameClass.prototype.create=function(){
       }
       return true;
     },
-    checkShow:function(item, items) {
+    checkShow:function(item) {
       var _num = 0;
       for (var i in items) {
         if (
@@ -136,7 +151,7 @@ MixFrameClass.prototype.create=function(){
       }
       return true;
     },
-    checkShow:function(item, items) {
+    checkShow:function(item) {
       return item.data.storage == settings.storageType.bag && item.data.level > 1;
     }
   });

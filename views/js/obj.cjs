@@ -46,6 +46,7 @@ var o_showTime = new TimeClass();
 //本機資料庫
 var publicData = new LocalStorageClass();
 
+var items = {};
 var o = {};
 //訊息視窗
 o.message =  new MessageClass();

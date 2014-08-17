@@ -1753,6 +1753,9 @@ hr {
 #shop_frame .itemList {
   display: none;
 }
+#shop_frame .itemList .inputNum {
+  width: 30px;
+}
 #shop_frame #shopBuy {
   display: block;
 }
