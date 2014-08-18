@@ -106,8 +106,10 @@ coms.item.update = function(datas) {
   for (var i in datas){
     var data = datas[i];
     if (data.num == 0) {
+      items[data.id] = null;
       delete items[data.id];
     } else {
+      items[data.id] = null;
       items[data.id] = new Item(data);
     }
   }
@@ -117,15 +119,6 @@ coms.item.update = function(datas) {
   o.shop.reflush();
 }
 
-coms.item.remove = function(itemIDs){
-  for (var i in itemIDs){
-    delete items[itemIDs[i]];
-  }
-  o.storage.reflush();
-  o.bag.reflush();
-  o.mix.reflush();
-  o.shop.reflush();
-}
 
 coms.item.limit = function(data) {
   for (var i in data) {
