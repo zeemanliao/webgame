@@ -74,3 +74,7 @@ CharaClass.prototype.reflushBattleData = function() {
     this.v.def.html(parseInt(_data.def * (1+(this.data.level * this.data.dex)/100)));
   } catch (e) {}
 }
+
+CharaClass.prototype.updateStone = function(stones) {
+  
+}
