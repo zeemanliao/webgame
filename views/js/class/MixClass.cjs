@@ -99,18 +99,12 @@ MixFrameClass.prototype.create=function(){
     
     event.stopPropagation();
     tool.selectEvent($(this));
-    
-    switch ($(this).attr('data')) {
-      case 'levelUp':
-        self.levelDown.hide();
-        self.levelUp.show();
-        break;
-      case 'levelDown':
-        self.levelUp.hide();
-        self.levelDown.show();
-        break;
-      default:
-    }
+    tool.childFunction($(this).parent(),
+      function(_this) {
+        self.content.find('#'+_this.attr('data')).hide();
+      });
+    self.content.find('#'+$(this).attr('data')).show();
+
   });
   tool.selectEvent(this.content.find('radio[data="levelUp"]'));
 

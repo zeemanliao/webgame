@@ -18,16 +18,18 @@ var tool = {
 		return _restr;
 	},
   radioEvent:function(r){
-    r.parent().find('radio').each(function(index){
-      $(this).removeClass('selected');
+  	this.childFunction(r.parent(),
+    	function(_this){
+      	_this.removeClass('selected');
     });
     r.addClass('selected');
 	},
-	selectEvent:function(s){
-    s.parent().find('radio').each(function(index){
-      $(this).removeClass('selected');
+	selectEvent:function(r){
+    this.childFunction(r.parent(),
+    	function(_this){
+      	_this.removeClass('selected');
     });
-    s.addClass('selected');
+    r.addClass('selected');
 	},
 	isUndefinedOrNull:function(d){
 		if (typeof d === 'undefined' || d == null)
@@ -40,6 +42,13 @@ var tool = {
 			return false;
 		return !isNaN(val);
 	},
+
+	childFunction:function(parent, fun) {
+		parent.children().each(
+			function(index){
+				fun($(this));
+			});
+	}
 }
 //時間顯示
 var o_showTime = new TimeClass();

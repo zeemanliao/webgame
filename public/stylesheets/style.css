@@ -341,7 +341,7 @@ ol, ul {
   float: left;
 }
 
-#content .content_frame, #chara_frame #main, #chara_frame #radarInfo, #chara_frame #info, #chara_frame #info2, #guest_frame, #battle, .itemList, .storage_list {
+#content .content_frame, #chara_frame #main, #chara_frame #info_frame, #guest_frame, #battle, .itemList, .storage_list {
   padding: 10px;
   overflow: hidden;
   position: absolute;
@@ -448,8 +448,8 @@ sel {
   -moz-box-shadow: 1px 1px 2px #333333;
   box-shadow: 1px 1px 2px #333333;
   border: solid;
-  border-color: blue;
-  border-width: 1px;
+  border-color: #ccaa33;
+  border-width: 2px;
   position: absolute;
   cursor: pointer;
   text-align: center;
@@ -732,15 +732,8 @@ hr {
   border-width: 4px;
   position: absolute;
 }
-#chara_frame #radarInfo {
-  width: 150px;
-  height: 150px;
-  top: 240px;
-  left: 10px;
-  z-index: 30;
+#chara_frame #info_frame {
   position: fixed;
-}
-#chara_frame #info {
   -webkit-box-shadow: 0px 0px 2px #333333;
   -moz-box-shadow: 0px 0px 2px #333333;
   box-shadow: 0px 0px 2px #333333;
@@ -751,38 +744,46 @@ hr {
   background-image: linear-gradient(0, #eeeeee, #ffffff);
   width: 190px;
   height: 280px;
-  top: 220px;
+  top: 230px;
   left: 17px;
   z-index: 30;
-  position: fixed;
 }
-#chara_frame #info li {
-  position: static;
+#chara_frame #info_frame radio {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+#chara_frame #info_frame [data=info_base] {
+  top: 30px;
+}
+#chara_frame #info_frame [data=info_equip] {
+  top: 80px;
+}
+#chara_frame #info_frame [data=info_battle] {
+  top: 130px;
+}
+#chara_frame #info_frame [data=info_stone] {
+  top: 180px;
+}
+#chara_frame #info_frame .info {
+  display: none;
+  position: absolute;
+  left: 50px;
+}
+#chara_frame #info_frame #info_base {
+  display: block;
+}
+#chara_frame #info_frame li {
   margin-top: 10px;
   height: 20px;
   line-height: 20px;
 }
-#chara_frame #info li div {
+#chara_frame #info_frame li div {
   position: static;
   float: left;
 }
-#chara_frame #info2 {
-  width: 140px;
-  height: 280px;
-  top: 220px;
-  left: 110px;
-  z-index: 30;
-  position: fixed;
-}
-#chara_frame #info2 li {
-  position: static;
-  margin-top: 10px;
-  height: 20px;
-  line-height: 20px;
-}
-#chara_frame #info2 li div {
-  position: static;
-  float: left;
+#chara_frame #info_frame li .label {
+  text-indent: -20px;
 }
 
 .city_button {

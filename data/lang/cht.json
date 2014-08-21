@@ -20,7 +20,13 @@
         "lv": "等級",
         "ex": "經驗",
         "bag": "背包空間",
-        "storage": "倉庫空間"
+        "storage": "倉庫空間",
+        "stone1": "寶石Lv1",
+        "stone2": "寶石Lv2",
+        "stone3": "寶石Lv3",
+        "stone4": "寶石Lv4",
+        "stone5": "寶石Lv5",
+        "stone6": "寶石Lv6"
     },
     "err": {
         "E0001": "請輸入正確的帳號!",

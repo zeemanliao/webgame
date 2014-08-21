@@ -13,7 +13,7 @@ CharaClass.prototype.initialize=function(){
 CharaClass.prototype.create=function(){
   var self = this;
   this.frame = $('#chara_frame');
-  
+  this.info_button_frame = this.frame.find('#info_button_frame');
   this.v.nam = this.gid('nam');
   this.v.level = this.gid('level');
   this.v.gold = this.gid('gold');
@@ -34,7 +34,25 @@ CharaClass.prototype.create=function(){
   this.v.dmg = this.gid('dmg');
   this.v.mag = this.gid('mag');
   this.v.def = this.gid('def');
+  this.v.stone = {
+    lv1:this.gid('lv1'),
+    lv2:this.gid('lv2'),
+    lv3:this.gid('lv3'),
+    lv4:this.gid('lv4'),
+    lv5:this.gid('lv5'),
+    lv6:this.gid('lv6')
+  }
   
+  tool.selectEvent(this.frame.find('[data=info_base]'));
+  this.info_button_frame.on('click', 'radio', 
+    function(event){
+        tool.selectEvent($(this));
+        tool.childFunction($(this).parent(),
+          function(_this){
+            self.frame.find('#'+_this.attr('data')).hide();
+          });
+        self.frame.find('#'+$(this).attr('data')).show();
+    });
 }
 
 CharaClass.prototype.update=function(data){
@@ -76,5 +94,7 @@ CharaClass.prototype.reflushBattleData = function() {
 }
 
 CharaClass.prototype.updateStone = function(stones) {
-  
+  for (var i in stones) {
+    this.v.stone[i].html(stones[i]);
+  }
 }

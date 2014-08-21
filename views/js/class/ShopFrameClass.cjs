@@ -74,25 +74,12 @@ ShopFrameClass.prototype.create = function(){
     
     event.stopPropagation();
     tool.selectEvent($(this));
-    
-    switch ($(this).attr('data')) {
-      case 'sell':
-        self.buy.hide();
-        self.reSell.hide();
-        self.sell.show();
-        break;
-      case 'reSell':
-        self.buy.hide();
-        self.sell.hide();
-        self.reSell.show();
-        break;
-      case 'buy':
-        self.sell.hide();
-        self.reSell.hide();
-        self.buy.show();
-        break;
-      default:
-    }
+    tool.childFunction($(this).parent(),
+      function(_this) {
+        self.content.find('#'+_this.attr('data')).hide();
+      });
+    self.content.find('#'+$(this).attr('data')).show();
+
   });
   tool.selectEvent(this.content.find('radio[data="buy"]'));
   this.buy = new ShopClass();

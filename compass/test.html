@@ -31,7 +31,14 @@
         <div class="number" gid="vipgold">Loaing...</div>
         <btn class="cricle" gid="bag">Bag</btn>
     </div>
-    <ul id="info">
+    <div id="info_frame">
+    <div id="info_button_frame">
+        <radio data="info_base">基本</radio>
+        <radio data="info_equip">裝備</radio>
+        <radio data="info_battle">戰鬥</radio>
+        <radio data="info_stone">寶石</radio>
+    </div>
+    <ul id="info_base" class="info">
         <li>
             <div class="label"><%=lang.base('con')%>:</div>
             <div class="number" gid="con">Loading...</div>
@@ -54,7 +61,7 @@
         </li>
         
     </ul>
-    <ul id="info2">
+    <ul id="info_equip" class="info">
         <li>
             <div class="label"><%=lang.base('hp')%>:</div>
             <div class="number" gid="maxhp">Loading...</div>
@@ -75,8 +82,8 @@
             <div class="label"><%=lang.base('def')%>:</div>
             <div class="number" gid="def">Loading...</div>
         </li>
-        
     </ul>
+    </div>
 </div>
 <script>
 $('#chara_frame').show();

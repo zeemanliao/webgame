@@ -8,7 +8,14 @@
         <div class="number" gid="vipgold">Loaing...</div>
         <btn class="cricle" gid="bag">Bag</btn>
     </div>
-    <ul id="info">
+    <div id="info_frame">
+    <div id="info_button_frame">
+        <radio data="info_base">屬性</radio>
+        <radio data="info_equip">裝備</radio>
+        <radio data="info_battle">戰鬥</radio>
+        <radio data="info_stone">寶石</radio>
+    </div>
+    <ul id="info_base" class="info">
         <li>
             <div class="label"><%=lang.base('con')%>:</div>
             <div class="number" gid="con">Loading...</div>
@@ -31,7 +38,9 @@
         </li>
         
     </ul>
-    <ul id="info2">
+    <ul id="info_equip" class="info">
+    </ul>
+    <ul id="info_battle" class="info">
         <li>
             <div class="label"><%=lang.base('hp')%>:</div>
             <div class="number" gid="maxhp">Loading...</div>
@@ -52,6 +61,36 @@
             <div class="label"><%=lang.base('def')%>:</div>
             <div class="number" gid="def">Loading...</div>
         </li>
-        
     </ul>
+    <ul id="info_stone" class="info">
+        <li>
+            <div class="label"><%=lang.base('stone1')%>:</div>
+            <div class="number" gid="lv1">Loading...</div>
+        </li>
+        <li>
+            <div class="label"><%=lang.base('stone2')%>:</div>
+            <div class="number" gid="lv2">Loading...</div>
+        </li>
+        <li>
+            <div class="label"><%=lang.base('stone3')%>:</div>
+            <div class="number" gid="lv3">Loading...</div>
+        </li>
+        <li>
+            <div class="label"><%=lang.base('stone4')%>:</div>
+            <div class="number" gid="lv4">Loading...</div>
+        </li>
+        <li>
+            <div class="label"><%=lang.base('stone4')%>:</div>
+            <div class="number" gid="lv5">Loading...</div>
+        </li>
+        <li>
+            <div class="label"><%=lang.base('stone5')%>:</div>
+            <div class="number" gid="lv6">Loading...</div>
+        </li>
+        <li>
+            <div class="label"><%=lang.base('stone6')%>:</div>
+            <div class="number" gid="lv7">Loading...</div>
+        </li>
+    </ul>
+    </div>
 </div>

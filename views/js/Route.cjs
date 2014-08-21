@@ -235,6 +235,7 @@ coms.login.updateLoaclStorage = function(data){
   此區為剛登入後資料就續後需先執行的區域
  */
 coms.login.ready = function(){
+
   log('載入Ready Load');
   GameContent.show();
   $('#load_frame').hide();
