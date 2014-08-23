@@ -15,6 +15,7 @@ LocalStorageClass.prototype = {
     this.maps=localStorage.maps ? JSON.parse(localStorage.maps) : {};
     this.areas=localStorage.areas ? JSON.parse(localStorage.areas) : {};
     this.builds=localStorage.builds ? JSON.parse(localStorage.builds) : {};
+    this.stones=localStorage.stones ? JSON.parse(localStorage.stones) : {};
  //   this.setup=localStorage.setup ? JSON.parse(localStorage.setup) : setup;
     //Extend(setup,this.setup);
 

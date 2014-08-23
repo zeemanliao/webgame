@@ -19,18 +19,11 @@ function StorageClass(data) {
 
   this._limit = 0;
   
-  this.fcount = {
-    1:0,
-    2:0,
-    3:0,
-    4:0,
-    5:0,
-    6:0,
-    7:0,
-    8:0,
-    9:0,
-    10:0
-  };
+  this.fcount = {};
+  for (var i in settings.equipmentType) {
+    this.fcount[settings.equipmentType[i]] = 0;
+  }
+   
   this.itemList.on('click','btn',
     function (event) {
       event.stopPropagation();
@@ -125,6 +118,7 @@ function EquipmentClass(data) {
   this.storageType = data.storageType;
   this.frame = $('#'+data.frameName);
   this.buttonName = data.buttonName;
+  this.infoEquip = $('#info_equip');
 
   this.limitLabel = this.frame.find('.storage_limit');
   this.itemList = this.frame.find('.itemList');
@@ -145,6 +139,9 @@ EquipmentClass.prototype.clear = function(equipmentType) {
     $(this).find('[gid=attr]').empty();
     $(this).find('.number').empty();
     $(this).find('btn').hide();
+  });
+  this.infoEquip.find('li').each(function(i){
+    $(this).find('[gid=nam]').html('(無)');
   });
 }
 EquipmentClass.prototype.reflushCount = function() {
@@ -167,6 +164,8 @@ EquipmentClass.prototype.reflush = function() {
     //item.find('.number').html(item.nam.data.num);
     _item.find('btn').show();
 
+    _infoItem = this.infoEquip.find('[gid=equipmentType_'+item.base.type+']');
+    _infoItem.find('[gid=nam]').html('lv.' + item.data.level + item.base.nam);
     for (var i in this.data){
       this.data[i] += item[i];
     }

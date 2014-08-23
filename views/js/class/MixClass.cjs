@@ -70,7 +70,7 @@ MixClass.prototype.append = function(item) {
   this.frame.append('<li id="item'+item.id+'">'+
             '<div class="label" gid="nam">'+'lv.'+item.data.level+item.base.nam+'</div>'+
             '<div gid="attr">'+tool.getAttr(item)+'</div>'+
-            '<div class="number" gid="mixInfo">x'+item.data.num+'<br>$'+(item.data.level * item.base.coins)+'</div>'+
+            '<div class="number" gid="mixInfo">$'+(item.data.level * item.base.coins)+'<br>寶石Lv1(3)'+'</div>'+
             '<btn class="'+this.com2+'_button" data="'+item.id+'">'+this.buttonName+'</btn>'+
             '</li>');
 }
@@ -95,7 +95,7 @@ MixFrameClass.prototype.create=function(){
   this.frame = $('#mix_frame');
   this.content = this.frame.find('.city_content');
 
-  this.content.on('click', 'radio', function(event){
+  this.frame.on('click', 'radio', function(event){
     
     event.stopPropagation();
     tool.selectEvent($(this));
@@ -106,7 +106,7 @@ MixFrameClass.prototype.create=function(){
     self.content.find('#'+$(this).attr('data')).show();
 
   });
-  tool.selectEvent(this.content.find('radio[data="levelUp"]'));
+  tool.selectEvent(this.frame.find('item_type > radio[data="levelUp"]'));
 
   this.levelUp = new MixClass({
     frameName:'mixLevelUp',
@@ -120,17 +120,15 @@ MixFrameClass.prototype.create=function(){
       return true;
     },
     checkShow:function(item) {
-      var _num = 0;
-      for (var i in items) {
-        if (
-          item.data.storage == settings.storageType.bag &&
-          items[i].data.storage == settings.storageType.bag &&
-          items[i].data.level == 1 && 
-          item.data.baseID == items[i].data.baseID) {
-          _num += items[i].data.num;
+      if (item.data.storage != settings.storageType.bag)
+        return false
+      
+      for (var i in publicData.stones) {
+        if (publicData.stones[i].maxLevel>item.data.level){
+          return o.chara.stone[i] > 0;
         }
       }
-      return _num > 1 &&_num >= item.data.level;
+      return false;
     }
   });
   

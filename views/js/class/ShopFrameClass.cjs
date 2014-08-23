@@ -70,18 +70,18 @@ ShopFrameClass.prototype.create = function(){
   this.frame = $('#shop_frame');
   this.content = this.frame.find('.city_content');
 
-  this.content.on('click', 'radio', function(event){
+  this.frame.on('click', 'radio', function(event){
     
     event.stopPropagation();
     tool.selectEvent($(this));
     tool.childFunction($(this).parent(),
       function(_this) {
-        self.content.find('#'+_this.attr('data')).hide();
+        self.frame.find('#'+_this.attr('data')).hide();
       });
-    self.content.find('#'+$(this).attr('data')).show();
+    self.frame.find('#'+$(this).attr('data')).show();
 
   });
-  tool.selectEvent(this.content.find('radio[data="buy"]'));
+  tool.selectEvent(this.frame.find('radio[data="buy"]'));
   this.buy = new ShopClass();
 
   this.sell = new MixClass({

@@ -13,34 +13,44 @@ CharaClass.prototype.initialize=function(){
 CharaClass.prototype.create=function(){
   var self = this;
   this.frame = $('#chara_frame');
+  this.main = this.frame.find('#main');
+
   this.info_button_frame = this.frame.find('#info_button_frame');
-  this.v.nam = this.gid('nam');
-  this.v.level = this.gid('level');
-  this.v.gold = this.gid('gold');
-  this.v.vipgold = this.gid('vipgold');
-  this.v.hp = this.gid('hp');
-  this.v.maxhp = this.gid('maxhp');
-  this.v.mp = this.gid('mp');
-  this.v.maxmp = this.gid('maxmp');
-  this.v.str = this.gid('str');
-  this.v.int = this.gid('int');
-  this.v.ski = this.gid('ski');
-  this.v.dex = this.gid('dex');
-  this.v.con = this.gid('con');
+  this.info_base = this.frame.find('#info_base');
+  this.info_battle = this.frame.find('#info_battle');
+  this.info_stone = this.frame.find('#info_stone');
+
+  this.v.nam = this.main.find('[gid=nam]');
+  this.v.level = this.main.find('[gid=level]');
+  this.v.gold = this.main.find('[gid=gold]');
+  this.v.vipgold = this.main.find('[gid=vipgold]');
+  this.v.retime = this.main.find('[gid=retime]');
+  this.v.photo = this.main.find('[gid=photo]');
+  
+  this.v.str = this.info_base.find('[gid=str]');
+  this.v.int = this.info_base.find('[gid=int]');
+  this.v.ski = this.info_base.find('[gid=ski]');
+  this.v.dex = this.info_base.find('[gid=dex]');
+  this.v.con = this.info_base.find('[gid=con]');
   this.v.freecex = this.gid('freecex');
-  this.v.retime = this.gid('retime');
+  
   this.v.cex = this.gid('cex');
-  this.v.photo = this.gid('photo');
-  this.v.dmg = this.gid('dmg');
-  this.v.mag = this.gid('mag');
-  this.v.def = this.gid('def');
+  
+  this.v.hp = this.info_battle.find('[gid=hp]');
+  this.v.maxhp = this.info_battle.find('[gid=maxhp]');
+  this.v.mp = this.info_battle.find('[gid=mp]');
+  this.v.maxmp = this.info_battle.find('[gid=maxmp]');
+  this.v.dmg = this.info_battle.find('[gid=dmg]');
+  this.v.mag = this.info_battle.find('[gid=mag]');
+  this.v.def = this.info_battle.find('[gid=def]');
+
   this.v.stone = {
-    lv1:this.gid('lv1'),
-    lv2:this.gid('lv2'),
-    lv3:this.gid('lv3'),
-    lv4:this.gid('lv4'),
-    lv5:this.gid('lv5'),
-    lv6:this.gid('lv6')
+    1:this.gid('lv1'),
+    2:this.gid('lv2'),
+    3:this.gid('lv3'),
+    4:this.gid('lv4'),
+    5:this.gid('lv5'),
+    6:this.gid('lv6')
   }
   
   tool.selectEvent(this.frame.find('[data=info_base]'));
@@ -94,6 +104,7 @@ CharaClass.prototype.reflushBattleData = function() {
 }
 
 CharaClass.prototype.updateStone = function(stones) {
+  this.stone = stones;
   for (var i in stones) {
     this.v.stone[i].html(stones[i]);
   }

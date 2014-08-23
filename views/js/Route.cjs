@@ -69,7 +69,6 @@ coms.battle = new BaseCom("battle");
 coms.enemy = new BaseCom("enemy");
 coms.debug = new BaseCom("debug");
 coms.item = new BaseCom("item");
-coms.stone = new BaseCom("stone");
 /*
 
       Team
