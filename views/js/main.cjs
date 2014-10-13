@@ -8,8 +8,8 @@ var crlf = '<br/>',
     conf = <%- JSON.stringify(settings.game)%>,
     SHOWDATE = new Date(<%=new Date().getTime()%>),
     socket = io.connect('http://<%=host%>');
-
-
+    
+console.log(socket);
 var Class = {
   create: function() {
     return function() {

@@ -19,9 +19,7 @@ TimeClass.prototype = {
   timeCount: function(base) {
     if (SHOWDATE !== null)
     {
-      if(!socket.socket.connected){
-        //location.href='/';
-      }
+
         SHOWDATE.setSeconds(SHOWDATE.getSeconds() + 1);
         var st = SHOWDATE.getFullYear() 	+ '年' + 
         				(SHOWDATE.getMonth() + 1) + '月' + 

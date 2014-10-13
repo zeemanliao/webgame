@@ -10,7 +10,7 @@
     "ejs": "0.8.4",
     "passport":"0.1.17",
     "escape-html":"1.0.1",
-  	"socket.io":"0.9.16",
+  	"socket.io":"1.1.0",
     "node-promise":"0.5.8",
     "mysql":"2.0.0-alpha9",
     "generic-pool":"2.0.4"
