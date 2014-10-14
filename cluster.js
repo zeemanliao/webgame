@@ -1,7 +1,7 @@
 var cluster = require('cluster');
 var os = require('os');
 
-var numCPUs = os.cpus().length;
+var numCPUs = 1;//os.cpus().length;
 
 var workers = {};
 if(cluster.isMaster) {

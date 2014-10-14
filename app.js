@@ -6,17 +6,18 @@ var game = require('./lib/game');
 var express = require('express'),
     routes = require('./routes'),
     socket_route = require('./lib/route'),
-    settings = require('./lib/settings'),
-    cookieParser = express.cookieParser(settings.cookie_secret),
+    settings = require('./lib/settings');
+var cookieParser = express.cookieParser(settings.cookie_secret),
     sessionStore = new express.session.MemoryStore(),
     session = express.session({
         key: settings.cookie_key,
         secret: settings.cookie_secret,
         store: sessionStore
     }),
-    http = require('http'),
     path = require('path'),
-    app = express();
+    app = express(),
+    http = require('http');
+
 // all environments
 
 app.set('port', process.env.PORT || 1234);
@@ -44,6 +45,8 @@ routes(app);
  
 //var RedisStore = require('socket.io/lib/stores/redis');
 //var redis      = require('socket.io/node_modules/redis');
+
+
 var io = require('socket.io').listen(
     http.createServer(app).listen(app.get('port'), 
         function() {
@@ -53,25 +56,61 @@ var io = require('socket.io').listen(
       'log': true
     }
 );
+io.use(function(socket, next) {
+
+    var handshake = socket.handshake;
+
+    if (handshake.headers.cookie) {
+
+        cookieParser(handshake, {}, function(err) {
+
+            handshake.sessionID = handshake.signedCookies[settings.cookie_key]; // <- 'connect.sid' > your key could be different, but this is the default 
+            handshake.session = sessionStore;
+
+            handshake.session.get(handshake.sessionID, function(err, data) {
+
+                if (err) return next(err);
+
+                if (!data) return next(new Error('Invalid Session'));
+                console.log(data.loginKeyID);
+handshake.session.set(handshake.sessionID, data);
+                //handshake.session = session;//new session.Session(handshake, data);
+
+                next();
+            });
+            
+        });
+
+    } else {
+
+        next(new Error('Missing Cookies'));
+    }
+});
+/*
 io.set('authorization', function (data, accept) {
     if(!data.headers.cookie) {
+        console.log('No cookie transmitted.');
         return accept('No cookie transmitted.', false);
     }
-        //console.log(sessionStore);
+       
 
     cookieParser(data, {}, function(parseErr) {
-        if(parseErr) { return accept('Error parsing cookies.', false); }
+        if(parseErr) { 
+            console.log('Error parsing cookies.');
+            return accept('Error parsing cookies.', false); 
+        }
 
         var sidCookie = (data.secureCookies && data.secureCookies[settings.cookie_key]) ||
                         (data.signedCookies && data.signedCookies[settings.cookie_key]) ||
                         (data.cookies && data.cookies[settings.cookie_key]);
 
-        sessionStore.set(sidCookie, function(err, session) {
-
+        sessionStore.load(sidCookie, function(err, session) {
             if (err || !session) {
+                console.log('Cookie Session Error');
                 accept('Error', false);
             } 
-                        else {
+            else {
+                console.log('Got Session............');
                 data.session = session;
                 accept(null, true);
             }
