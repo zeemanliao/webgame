@@ -1,52 +1,63 @@
-/**
- * Module dependencies.
- */
+// init modules
+var COOKIE = {
+    SECRET: "zdjwoi3dsl6ase9nqmwf7jeioa3sdjfodfjekw23jasasf",
+    KEY: 'express.sid'
+};
 
+var express = require('express');
+var fs = require('fs');
+var path = require('path');
+//var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var routes = require('./routes');
+var session = require('express-session');
+var memoryStore = session.MemoryStore;
+var app = express();
+var http = require('http');
 var game = require('./lib/game');
-var express = require('express'),
-    routes = require('./routes'),
-    socket_route = require('./lib/route'),
-    settings = require('./lib/settings');
-var cookieParser = express.cookieParser(settings.cookie_secret),
-    sessionStore = new express.session.MemoryStore(),
-    session = express.session({
-        key: settings.cookie_key,
-        secret: settings.cookie_secret,
-        store: sessionStore
-    }),
-    path = require('path'),
-    app = express(),
-    http = require('http');
+var socket_route = require('./lib/route');
+var sessionStore = new memoryStore();
 
-// all environments
+app.set('env', process.env.NODE_ENV || 'development');
 
+// view engine setup
 app.set('port', process.env.PORT || 1234);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(cookieParser);
-app.use(session);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-app.use(app.router);
+//app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser(COOKIE.SECRET));
+app.use(session({
+    KEY: COOKIE.KEY,
+    secret: COOKIE.SECRET,
+    store: sessionStore,
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(function(req, res, next){
+    res.locals.session = req.session;
+    next();
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-    app.use(express.errorHandler());
-}
-
+//routes
 routes(app);
 
-// Configuracoes do Socket.IO
- 
-//var RedisStore = require('socket.io/lib/stores/redis');
-//var redis      = require('socket.io/node_modules/redis');
 
-
+// starting http and http servers
+/*
+var http = require('http').createServer(app).listen(app.get('port'), function(){
+    console.log("http server listening on port" + app.get('port'));
+});
+*/
+// starting socket.io & session handler
 var io = require('socket.io').listen(
     http.createServer(app).listen(app.get('port'), 
         function() {
@@ -56,17 +67,66 @@ var io = require('socket.io').listen(
       'log': true
     }
 );
+io.use(function ioSession(socket, next) {
+  // create the fake req that cookieParser will expect                          
+  var req = {
+    "headers": {
+      "cookie": socket.request.headers.cookie,
+    },
+  };
+ 
+  // run the parser and store the sessionID
+  cookieParser(COOKIE.SECRET)(req, null, function() {});
+  
+  socket.sessionID = req.signedCookies['connect.sid'] || req.cookies['connect.sid'];
+  sessionStore.get(socket.sessionID, function(err, session) {
+                  if (err || !session) {
+                      //accept(null, false);
+                      console.log('nnnnnnnnnnnnnnnnn');
+                  } else {
+                      socket.handshake.session = session;
+                      socket.handshake.loginKeyID = session.loginKeyID;
+                      //accept(null, true);
+                      console.log('yyyyyyyyyyyyyyyyy');
+                  }
+                  next();
+              });
+  
+});
+/*
+io.set('authorization', function(handshake, accept) {
+    //var handshake = socket.handshake;
+    cookieParser()(handshake, {}, function(err) {
+        if (!err) {
+            var sessionID = handshake.signedCookies[COOKIE.KEY];
+            console.log(handshake.handshake);
+            sessionStore.get(sessionID, function(err, session) {
+                if (err || !session) {
+                    accept(null, false);
+                    console.log('nnnnnnnnnnnnnnnnn');
+                } else {
+                    handshake.session = session;
+                    handshake.loginKeyID = session.loginKeyID;
+                    accept(null, true);
+                    console.log('yyyyyyyyyyyyyyyyy');
+                }
+            });
+        } else {
+            accept(null, false);
+        }
+    });
+});
+
 io.use(function(socket, next) {
 
     var handshake = socket.handshake;
 
     if (handshake.headers.cookie) {
 
-        cookieParser(handshake, {}, function(err) {
-
-            handshake.sessionID = handshake.signedCookies[settings.cookie_key]; // <- 'connect.sid' > your key could be different, but this is the default 
+        cookieParser()(handshake, {}, function(err) {
+            handshake.sessionID = handshake.signedCookies[COOKIE.KEY]; // <- 'connect.sid' > your key could be different, but this is the default 
             handshake.session = sessionStore;
-
+console.log(handshake.signedCookies[COOKIE.KEY]);
             handshake.session.get(handshake.sessionID, function(err, data) {
 
                 if (err) return next(err);
@@ -86,59 +146,10 @@ handshake.session.set(handshake.sessionID, data);
         next(new Error('Missing Cookies'));
     }
 });
-/*
-io.set('authorization', function (data, accept) {
-    if(!data.headers.cookie) {
-        console.log('No cookie transmitted.');
-        return accept('No cookie transmitted.', false);
-    }
-       
 
-    cookieParser(data, {}, function(parseErr) {
-        if(parseErr) { 
-            console.log('Error parsing cookies.');
-            return accept('Error parsing cookies.', false); 
-        }
+var SessionSockets  = require('session.socket.io-express4');
+var io = new SessionSockets(serverIO, sessionStore, cookieParser);
 
-        var sidCookie = (data.secureCookies && data.secureCookies[settings.cookie_key]) ||
-                        (data.signedCookies && data.signedCookies[settings.cookie_key]) ||
-                        (data.cookies && data.cookies[settings.cookie_key]);
-
-        sessionStore.load(sidCookie, function(err, session) {
-            if (err || !session) {
-                console.log('Cookie Session Error');
-                accept('Error', false);
-            } 
-            else {
-                console.log('Got Session............');
-                data.session = session;
-                accept(null, true);
-            }
-        });
-    });
-});
-/*
-io.set('authorization', function(data, accept) {
-    cookie(data, {}, function(err) {
-        if (!err) {
-            var sessionID = data.signedCookies[settings.cookie_key];
-            store.get(sessionID, function(err, session) {
-                if (err || !session) {
-                    accept(null, false);
-                    console.log('nnnnnnnnnnnnnnnnn');
-                } else {
-                    data.session = session;
-                    data.loginKeyID = session.loginKeyID;
-                    accept(null, true);
-                    console.log('yyyyyyyyyyyyyyyyy');
-                }
-            });
-        } else {
-            accept(null, false);
-        }
-    });
-});
-/*
 io.use(function (socket, next) {
  var handshake = socket.handshake;
   if (handshake.headers.cookie) {

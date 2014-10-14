@@ -6,13 +6,21 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "~3.4",
+    "body-parser": "^1.0.2",
+    "cookie-parser": "~1",
     "ejs": "0.8.4",
-    "passport":"0.1.17",
-    "escape-html":"1.0.1",
-  	"socket.io":"1.1.0",
-    "node-promise":"0.5.8",
-    "mysql":"2.0.0-alpha9",
-    "generic-pool":"2.0.4"
+    "errorhandler": "~1",
+    "escape-html": "1.0.1",
+    "express": "~4",
+    "express-session": "~1",
+    "generic-pool": "2.0.4",
+    "method-override": "~2",
+    "morgan": "~1",
+    "mysql": "2.0.0-alpha9",
+    "node-promise": "0.5.8",
+    "passport": "0.1.17",
+    "serve-favicon": "~2",
+    "session.socket.io-express4": "0.0.3",
+    "socket.io": "1.1.0"
   }
 }
