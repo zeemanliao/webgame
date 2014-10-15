@@ -17,7 +17,11 @@ var js_path = path.dirname(process.mainModule.filename);
 
 var class_js = new Array();
 
+var loadJSRunning = false;
 function loadJS() {
+    if (loadJSRunning)
+        return;
+    loadJSRunning = true;
     fs.readdirSync(js_path + '/views/js/class').forEach(function(filename) {
 
         if (!/\.cjs$/.test(filename)) {
@@ -46,7 +50,7 @@ function loadJS() {
         });
 
     });
-
+    loadJSRunning = false;
 }
 
 module.exports = function(app, Store) {
