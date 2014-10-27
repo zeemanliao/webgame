@@ -10,9 +10,10 @@ var routes = require('./routes');
 var session = require('express-session');
 var app = express();
 var http = require('http');
-var game = require('./lib/game');
+var Game = require('./lib/game');
 var socket_route = require('./lib/route');
 var sessionStore = new session.MemoryStore();
+var serverSettings = require('./lib/settings').server;
 
 app.set('env', process.env.NODE_ENV || 'development');
 
@@ -27,10 +28,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser(game.settings.server.cookie_secret));
+app.use(cookieParser(serverSettings.cookie_secret));
 app.use(session({
-    KEY: game.settings.server.cookie_key,
-    secret: game.settings.server.cookie_secret,
+    KEY: serverSettings.cookie_key,
+    secret: serverSettings.cookie_secret,
     store: sessionStore,
     resave: true,
     saveUninitialized: true
@@ -63,9 +64,9 @@ io.use(function ioSession(socket, next) {
   };
  
   // run the parser and store the sessionID
-  cookieParser(game.settings.server.cookie_secret)(req, null, function() {});
+  cookieParser(serverSettings.cookie_secret)(req, null, function() {});
   
-  socket.sessionID = req.signedCookies[game.settings.server.cookie_key] || req.cookies['connect.sid'];
+  socket.sessionID = req.signedCookies[serverSettings.cookie_key] || req.cookies['connect.sid'];
   sessionStore.get(socket.sessionID, function(err, session) {
                   if (err || !session) {
                       //accept(null, false);
@@ -76,7 +77,8 @@ io.use(function ioSession(socket, next) {
               });
   
 });
+var game = new Game();
 
-game.load(io.sockets);
-socket_route(io, game);
+//game.load(io.sockets);
+//socket_route(io, game);
 
