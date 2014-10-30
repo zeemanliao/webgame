@@ -77,6 +77,7 @@ module.exports = function(app, Store) {
                 title: apptitle,
                 settings: settings,
                 lang: lang,
+                loginKeyID: req.session.loginKeyID,
                 host: req.headers.host,
                 classjs: js
             };

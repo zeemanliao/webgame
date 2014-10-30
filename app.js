@@ -11,7 +11,7 @@ var session = require('express-session');
 var app = express();
 var http = require('http');
 var Game = require('./lib/game');
-var socket_route = require('./lib/route');
+//var socket_route = require('./lib/route');
 var sessionStore = new session.MemoryStore();
 var serverSettings = require('./lib/settings').server;
 
@@ -55,6 +55,8 @@ var io = require('socket.io').listen(
       'log': true
     }
 );
+/*
+Disabled socket handshake
 io.use(function ioSession(socket, next) {
   // create the fake req that cookieParser will expect                          
   var req = {
@@ -77,8 +79,11 @@ io.use(function ioSession(socket, next) {
               });
   
 });
+*/
+var game_route = require('./lib/route');
 var game = new Game();
 
-//game.load(io.sockets);
-//socket_route(io, game);
+//io.sockets.on('connection', game.route);
+
+game_route(io, game);
 
