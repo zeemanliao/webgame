@@ -2,6 +2,8 @@
   "name": "heroGame",
   "version": "0.0.1",
   "private": true,
+  "language": "cht",
+  "port": 1234,
   "scripts": {
     "start": "node app.js"
   },
@@ -22,5 +24,78 @@
     "serve-favicon": "~2",
     "session.socket.io-express4": "0.0.3",
     "socket.io": "1.1.0"
+  },
+  "database": {
+    "type": "mysql",
+    "database": "gamedb",
+    "host": "localhost",
+    "port": 3306,
+    "user": "zeeman",
+    "password": "test",
+    "supportBigNumbers": true,
+    "connectionLimit": 10
+  },
+  "cookie":{
+    "secret": "zdjwoi3dsl6ase9nqmwf7jeioa3sdjfodfjekw23jasasf",
+    "key": "connect.sid"
+  },
+  "facebook":{
+  "id": "117029551705347",
+  "secret": "9508055c147b509ea2434f0ba99c226c",
+  "callbackAddress": "http://localhost:3000/auth/facebook"
+  },
+  "path":{
+    "views": "views",
+    "javaScriptClass": "views/js/class",
+    "actions": "lib/actions"
+  },
+  "game": {
+      "bouns": {
+          "exp": 1,
+          "sell": 1
+      },
+      "limit": {
+          "team": 5,
+          "enemy":[3,5,10],
+          "str":50,
+          "int":50,
+          "wis":50,
+          "dex":50,
+          "vit":50,
+          "level":50,
+          "retirehp":250,
+          "retiremp":250
+      },
+      "lang":"cht",
+      "storageType":{
+          "storage":1,
+          "bag":2,
+          "equipment":3,
+          "sell":4
+      },
+      "equipmentType":{
+          "weapon":1,
+          "shield":2,
+          "head":3,
+          "amulet":4,
+          "shoulder":5,
+          "body":6,
+          "hand":7,
+          "ring":8,
+          "belt":9,
+          "foot":10
+      },
+      "equipmentName":{
+          "1":"武",
+          "2":"盾",
+          "3":"頭",
+          "4":"符",
+          "5":"肩",
+          "3":"身",
+          "7":"手",
+          "8":"戒",
+          "9":"腰",
+          "10":"腳"
+      }
   }
 }

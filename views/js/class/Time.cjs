@@ -19,7 +19,6 @@ TimeClass.prototype = {
   timeCount: function(base) {
     if (SHOWDATE !== null)
     {
-
         SHOWDATE.setSeconds(SHOWDATE.getSeconds() + 1);
         var st = SHOWDATE.getFullYear() 	+ '年' + 
         				(SHOWDATE.getMonth() + 1) + '月' + 
