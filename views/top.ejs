@@ -14,100 +14,58 @@
     google.load("jqueryui", "1");
     </script>
 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/javascripts/zGame.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 
 <body>
-    <div CLASS="msg_frame" id="input_frame">
-        <div CLASS="msg_box" id="msg_box">
-            <h2 id="title">輸入</h2>
-            <hr>
-            <input type="text" id="data">
-            <div class="btn" gid="ok">確定</div>
-            <div class="btn" gid="cl">取消</div>
-        </div>
-    </div>
-    <div CLASS="msg_frame" id="msg_frame">
+    <div CLASS="msg_frame" gameFrame="message">
         <div CLASS="msg_box" id="msg_box">
             <h2>訊息</h2>
             <hr>
-            <h3 id="msg"></h3>
+            <h3 id="msg">message</h3>
         </div>
     </div>
-    <div CLASS="msg_frame" id="load_frame">
+    <div CLASS="msg_frame" gameFrame="error">
+        <div CLASS="msg_box" id="msg_box">
+            <h2>訊息</h2>
+            <hr>
+            <h3 id="msg">error</h3>
+        </div>
+    </div>
+    <div CLASS="msg_frame" gameFrame="loading">
         <div CLASS="msg_box">
             <h2>初始化中</h2>
             <hr>
             <h3 id="msg">Loading....</h3>
         </div>
     </div>
-<%include layouts/storage%>
-<%include layouts/bag%>
-    <div id="content">
-        <div id="show_time">
-
-        </div>
-<%include layouts/chara%>
-    
-    <div class="content_frame" id="city_frame">
-        <h2 gid="nam">City Name</h2>
-        <h3 gid="desc">City Desc</h3>
-        <div class="city_content">
-            <btn class="city_button" gid="city_home_btn" data="home">
-                Home
-            </btn>
-            <btn class="city_button" gid="city_quest_btn" data="quest">
-                Quest
-            </btn>
-            <btn class="city_button" gid="city_pet_btn" data="peta">
-                Pet
-            </btn>
-            <btn class="city_button" gid="city_mix_btn" data="mix">
-                Mix
-            </btn>
-            <btn class="city_button" gid="city_act_btn" data="act">
-                Act
-            </btn>
-            <btn class="city_button" gid="city_shop_btn" data="shop">
-                Shop
-            </btn>
-            <btn class="city_button" gid="city_area_btn" data="area">
-                Area
-            </btn>
-            <btn class="city_button" gid="city_cha_btn" data="cha">
-                Cha
-            </btn>
-        </div>
-    </div>
-    <div id="city">
 <%include layouts/city/guest%>
 <%include layouts/city/quest%>
-<%include layouts/city/act%>
+<%include layouts/city/active%>
 <%include layouts/city/pet%>
 <%include layouts/city/mix%>
 <%include layouts/city/area%>
 <%include layouts/city/map%>
-<%include layouts/city/cha%>
+<%include layouts/chara%>
 <%include layouts/city/shop%>
 <%include layouts/city/team%>
 <%include layouts/city/home%>
-    </div>
-<%include layouts/battle/frame%>
-    </div>
-    </div>
-    </div>
     <script>
     window.onload = function() {
       var socket = io.connect('http://<%=host%>');
       socket.emit('login','<%-loginKey%>');
       var settings = <%-JSON.stringify(settings)%>;
       var lang = <%-JSON.stringify(lang.data.base)%>;
-
       <%include js/Modernizr.cjs%> 
-      
+      <%include js/main.cjs%>
 <%-classjs%>
+    <%include js/controller/Message.cjs%>
+      <%include js/Game.cjs%>
+      <%include js/app.cjs%>
         window.onresize = function(event) {
 
         }

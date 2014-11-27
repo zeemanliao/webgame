@@ -12,11 +12,11 @@ var http_route = require('./routes/http');
 var session = require('express-session');
 var Lang = require('./lib/Lang');
 var lang = Lang.create(require(path.join(__dirname, 'lang' , appInfo.language + '.json')));
-//var Game = require('./lib/game');
 
 /*
   Configure Express App
 */
+
 expressApp.set('env', process.env.NODE_ENV || 'development');
 // view engine setup
 expressApp.set('port', process.env.PORT || appInfo.port);
@@ -28,7 +28,7 @@ expressApp.set('lang', lang);
 //expressApp.use(favicon());
 expressApp.use(logger('dev'));
 expressApp.use(bodyParser.json());
-expressApp.use(bodyParser.urlencoded());
+expressApp.use(bodyParser.urlencoded({ extended: true }));
 expressApp.use(cookieParser(appInfo.cookie.secret));
 expressApp.use(express.static(path.join(__dirname, 'public')));
 
@@ -47,7 +47,6 @@ expressApp.use(function(req, res, next){
   http route
 */
 http_route(expressApp);
-
 var socket = require('socket.io').listen(
     http.createServer(expressApp).listen(expressApp.get('port'), 
         function() {
@@ -66,7 +65,9 @@ var gameSettings = require('./lib/settings')
 var game = new Game(gameSettings);
 game.set('lang', lang);
 game.use('error', ClientMessage);
+game.use('join', Joiner);
 /*
   Socket route
 */
 socket_route(socket, game);
+

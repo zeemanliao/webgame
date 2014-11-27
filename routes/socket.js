@@ -23,6 +23,7 @@ module.exports = function(io, game) {
     client.on('chat',game.chatRoute);
 
     client.once('login', function(loginKey){
+
       var ip = client.handshake.address;
       var verify = loginer.verifyLoginKey({
                     loginKey: loginKey,
@@ -57,7 +58,7 @@ module.exports = function(io, game) {
 
       delete player.client;
 
-      player.save();
+      //player.save();
       client.broadcast.emit("update Data",
           {guest:{remove:player.data.nam}}
         );

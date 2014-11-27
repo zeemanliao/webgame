@@ -11,6 +11,10 @@
   text-indent: 100%  
   overflow: hidden  
 
+@mixin gframe($gid)
+  [gameFrame=#{$gid}]
+    @content
+
 @mixin gid($gid,$x: -999,$y: -999)
   [gid=#{$gid}]
     @if $x > -999

@@ -549,14 +549,14 @@ hr {
   text-align: center;
 }
 
-#msg_frame .msg_box {
+[gameFrame=message] .msg_box {
   background: #ee8888;
 }
 
-#load_frame {
+[gameFrame=loading] {
   display: inline;
 }
-#load_frame .msg_box {
+[gameFrame=loading] .msg_box {
   background: #ccffdd;
 }
 

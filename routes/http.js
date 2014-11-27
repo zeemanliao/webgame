@@ -81,7 +81,6 @@ module.exports = function(app) {
     });
 
     app.post('/login', function(req, res, next) {
-
         if (req.body.acc == null || req.body.acc == '')
             return login_page(res, lang.err('E0001')); //請輸入帳號!
 

@@ -23,7 +23,7 @@
     "passport": "0.1.17",
     "serve-favicon": "~2",
     "session.socket.io-express4": "0.0.3",
-    "socket.io": "1.1.0"
+    "socket.io": "1.2.0"
   },
   "database": {
     "type": "mysql",
