@@ -65,7 +65,6 @@ var gameSettings = require('./lib/settings')
 var game = new Game(gameSettings);
 game.set('lang', lang);
 game.use('error', ClientMessage);
-game.use('join', Joiner);
 /*
   Socket route
 */
