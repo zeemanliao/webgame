@@ -7,6 +7,9 @@
   "scripts": {
     "start": "node app.js"
   },
+  "scripts": {
+  "test": "grunt"
+  },
   "dependencies": {
     "body-parser": "^1.0.2",
     "cookie-parser": "~1",
@@ -24,6 +27,17 @@
     "serve-favicon": "~2",
     "session.socket.io-express4": "0.0.3",
     "socket.io": "1.2.0"
+  },
+    "devDependencies": {
+    "should": "3.3.1",
+    "mocha": ">=0.0.1",
+    "socket.io-client": "1.2.0",
+    "muk": ">=0.0.1",
+    "grunt": "~0.4.2",
+    "grunt-mocha-test": "0.8.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-jshint": "~0.8.0",
+    "blanket": "~1.1.6"
   },
   "database": {
     "type": "mysql",

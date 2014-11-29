@@ -15,7 +15,7 @@
             }
             _obj.style.display = value ? 'inline':'none';
         });
-    }
+    };
     group = function(groupName){
         var group = [];
         if (!groupName)
@@ -26,19 +26,19 @@
             }
         }
         return group;
-    }
+    };
     zGame = function() {
         
-    }
+    };
     zGame.frame = function(frameName){
         if (!_frame[frameName]) {
             _frame[frameName] = new _frame(frameName);
         }
         return _frame[frameName];
-    }
+    };
     zGame.group = group;
     function selector(target, name) {
-        return document.querySelector('['+target+'=\''+name+'\']')
+        return document.querySelector('['+target+'=\''+name+'\']');
     }
 
     window.zGame = zGame;

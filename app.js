@@ -60,7 +60,7 @@ var socket_route = require('./routes/socket');
 var Game = require('./lib/Game');
 var ClientMessage = require('./lib/error/ClientMessage');
 
-var gameSettings = require('./lib/settings')
+var gameSettings = require('./lib/settings');
 
 var game = new Game(gameSettings);
 game.set('lang', lang);
